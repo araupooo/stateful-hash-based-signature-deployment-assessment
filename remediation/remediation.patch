@@ -1,0 +1,96 @@
+--- a/vulnerable_signer.py
++++ b/vulnerable_signer.py
+@@ -1,37 +1,27 @@
+ #!/usr/bin/env python3
+-"""Vulnerable stateful signer (BEFORE) — the F-01 failure mode.
++"""Fixed stateful signer (AFTER) — the F-01 remediation, as a
++drop-in replacement for vulnerable_signer.py.
+ 
+-Ordering flaw: the signer releases the signature to the caller and
+-only afterwards persists the updated secret-key state. If the process
+-crashes, loses power, or is killed between the release and the
+-persist — or if the state file is later restored from a backup taken
+-before the signature — the next signature reuses the same one-time
+-signature index, and both signatures verify under the same public
+-key. The one-time key is used twice.
+-
+-  python3 vulnerable_signer.py --state-dir DIR keygen
+-  python3 vulnerable_signer.py --state-dir DIR sign --message MSG
+-        [--no-persist]   # --no-persist simulates a crash after release
+-
+-The fixed caller (vulnerable_signer.fixed.py) uses the journaled
+-signer from state_journal.py, which commits the new state atomically
+-before releasing the signature and refuses stale state.
++Same CLI, but signing goes through the journaled signer
++(state_journal.py): the updated state is committed atomically
++before the signature is released, and a state file restored from an
++older backup is refused with STATE_ROLLBACK instead of silently
++reusing a one-time signature index.
++
++  python3 vulnerable_signer.fixed.py --state-dir DIR keygen
++  python3 vulnerable_signer.fixed.py --state-dir DIR sign --message MSG
+ """
+ import argparse
+ import os
+-import subprocess
+ import sys
+ 
+ HERE = os.path.dirname(os.path.abspath(__file__))
+-PACK = os.path.dirname(HERE)
+-DEFAULT_DRIVER = os.path.join(PACK, "src", "stfl_driver")
++sys.path.insert(0, HERE)
+ 
++from state_journal import JournaledSigner, SignerError  # noqa: E402
+ 
+-def _run(driver, *args):
+-    r = subprocess.run([driver] + list(args), capture_output=True, text=True)
+-    if r.returncode != 0:
+-        raise SystemExit(f"driver {' '.join(args[:2])} failed: {r.stdout.strip()} {r.stderr.strip()}")
+-    return dict(l.split(None, 1) for l in r.stdout.splitlines() if " " in l)
++PACK = os.path.dirname(HERE)
++DEFAULT_DRIVER = os.path.join(PACK, "src", "stfl_driver")
+ 
+ 
+ def main(argv):
+@@ -44,30 +34,20 @@
+     sp = sub.add_parser("sign")
+     sp.add_argument("--message", required=True)
+     sp.add_argument("--no-persist", action="store_true",
+-                    help="simulate a crash after release: do not persist the new state")
++                    help="accepted for CLI compatibility; the journaled signer "
++                         "always commits before release, so this flag has no effect")
+     a = ap.parse_args(argv)
+-    os.makedirs(a.state_dir, exist_ok=True)
+-    state_path = os.path.join(a.state_dir, "state.bin")
++    s = JournaledSigner(a.state_dir, driver=a.driver, alg=a.alg)
+     if a.cmd == "keygen":
+-        d = _run(a.driver, "keygen", a.alg)
+-        with open(state_path, "w") as f:
+-            f.write(d["secret_key"])
+-        with open(os.path.join(a.state_dir, "public.bin"), "w") as f:
+-            f.write(d["public_key"])
+-        print("public_key", d["public_key"])
+-        return 0
+-    with open(state_path) as f:
+-        sk_hex = f.read().strip()
+-    d = _run(a.driver, "sign", a.alg, sk_hex, a.message.encode().hex())
+-    # VULNERABLE ORDER: the signature is released (printed) BEFORE the
+-    # updated state is persisted.
+-    print(f"signature_index {d['signature_index']}")
+-    print(f"signature {d['signature']}")
+-    if a.no_persist:
+-        print("CRASH: process killed before persisting the new state", file=sys.stderr)
++        print("public_key", s.keygen())
+         return 0
+-    with open(state_path, "w") as f:
+-        f.write(d["secret_key"])
++    try:
++        r = s.sign(a.message.encode())
++    except SignerError as e:
++        print(f"REFUSED {e}", file=sys.stderr)
++        return 1
++    print(f"signature_index {r['index']}")
++    print(f"signature {r['signature']}")
+     return 0
+ 
+ 
