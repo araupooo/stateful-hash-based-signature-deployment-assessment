@@ -1,0 +1,184 @@
+{
+  "ed25519_signature_bytes": 64,
+  "fips205_table2_sizes": {
+    "SLH-DSA-SHA2-128f": {
+      "pk": 32,
+      "sig": 17088,
+      "sk": 64
+    },
+    "SLH-DSA-SHA2-128s": {
+      "pk": 32,
+      "sig": 7856,
+      "sk": 64
+    },
+    "SLH-DSA-SHA2-192f": {
+      "pk": 48,
+      "sig": 35664,
+      "sk": 96
+    },
+    "SLH-DSA-SHA2-192s": {
+      "pk": 48,
+      "sig": 16224,
+      "sk": 96
+    },
+    "SLH-DSA-SHA2-256f": {
+      "pk": 64,
+      "sig": 49856,
+      "sk": 128
+    },
+    "SLH-DSA-SHA2-256s": {
+      "pk": 64,
+      "sig": 29792,
+      "sk": 128
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "pk": 32,
+      "sig": 17088,
+      "sk": 64
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "pk": 32,
+      "sig": 7856,
+      "sk": 64
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "pk": 48,
+      "sig": 35664,
+      "sk": 96
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "pk": 48,
+      "sig": 16224,
+      "sk": 96
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "pk": 64,
+      "sig": 49856,
+      "sk": 128
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "pk": 64,
+      "sig": 29792,
+      "sk": 128
+    }
+  },
+  "remediation_messages": {
+    "message_a": "release-1.0 manifest",
+    "message_b": "release-1.1 manifest"
+  },
+  "representative_artifact_bytes": {
+    "binary_50MiB": 52428800,
+    "manifest_1KiB": 1024,
+    "tarball_5MiB": 5242880,
+    "wheel_100KiB": 102400
+  },
+  "rfc8391_xmss_sizes": {
+    "XMSS-SHA2_10_256": {
+      "note": "usable total is 2^H - 1 (tree has 2^H leaves; liboqs/xmss-reference reserve the last leaf index)",
+      "pk": 68,
+      "rfc8391_pk": 64,
+      "rfc8391_sig": 2500,
+      "sig": 2500,
+      "sigs_total": 1023
+    },
+    "XMSS-SHA2_16_256": {
+      "note": "usable total is 2^H - 1 (tree has 2^H leaves; liboqs/xmss-reference reserve the last leaf index)",
+      "pk": 68,
+      "rfc8391_pk": 64,
+      "rfc8391_sig": 2692,
+      "sig": 2692,
+      "sigs_total": 65535
+    },
+    "XMSS-SHA2_20_256": {
+      "note": "usable total is 2^H - 1 (tree has 2^H leaves; liboqs/xmss-reference reserve the last leaf index)",
+      "pk": 68,
+      "rfc8391_pk": 64,
+      "rfc8391_sig": 2820,
+      "sig": 2820,
+      "sigs_total": 1048575
+    },
+    "XMSS-SHAKE_10_256": {
+      "note": "usable total is 2^H - 1 (tree has 2^H leaves; liboqs/xmss-reference reserve the last leaf index)",
+      "pk": 68,
+      "rfc8391_pk": 64,
+      "rfc8391_sig": 2500,
+      "sig": 2500,
+      "sigs_total": 1023
+    },
+    "XMSS-SHAKE_16_256": {
+      "note": "usable total is 2^H - 1 (tree has 2^H leaves; liboqs/xmss-reference reserve the last leaf index)",
+      "pk": 68,
+      "rfc8391_pk": 64,
+      "rfc8391_sig": 2692,
+      "sig": 2692,
+      "sigs_total": 65535
+    },
+    "XMSS-SHAKE_20_256": {
+      "note": "usable total is 2^H - 1 (tree has 2^H leaves; liboqs/xmss-reference reserve the last leaf index)",
+      "pk": 68,
+      "rfc8391_pk": 64,
+      "rfc8391_sig": 2820,
+      "sig": 2820,
+      "sigs_total": 1048575
+    }
+  },
+  "rfc8554_lms_sizes": {
+    "LMS_SHA256_H10_W1": {
+      "ots_p": 265,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 8844,
+      "sig": 8848,
+      "sigs_total": 1023
+    },
+    "LMS_SHA256_H10_W4": {
+      "ots_p": 67,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 2508,
+      "sig": 2512,
+      "sigs_total": 1023
+    },
+    "LMS_SHA256_H10_W8": {
+      "ots_p": 34,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 1452,
+      "sig": 1456,
+      "sigs_total": 1023
+    },
+    "LMS_SHA256_H15_W4": {
+      "ots_p": 67,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 2668,
+      "sig": 2672,
+      "sigs_total": 32767
+    },
+    "LMS_SHA256_H20_W4": {
+      "ots_p": 67,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 2828,
+      "sig": 2832,
+      "sigs_total": 1048575
+    },
+    "LMS_SHA256_H5_W1": {
+      "ots_p": 265,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 8684,
+      "sig": 8688,
+      "sigs_total": 31
+    },
+    "LMS_SHA256_H5_W4": {
+      "ots_p": 67,
+      "pk": 60,
+      "rfc8554_pk": 56,
+      "rfc8554_sig": 2348,
+      "sig": 2352,
+      "sigs_total": 31
+    }
+  },
+  "test_message": "stateful hash-based signature deployment assessment test message"
+}
