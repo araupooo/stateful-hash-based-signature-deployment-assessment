@@ -1,0 +1,1793 @@
+{
+  "adversarial": {
+    "LMS_SHA256_H10_W1": {
+      "hash-sigs_flipped_sig": "INVALID",
+      "hash-sigs_truncated_sig": "refused_length_check",
+      "hash-sigs_valid": true,
+      "hash-sigs_wrong_msg": "INVALID",
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID"
+    },
+    "LMS_SHA256_H10_W4": {
+      "hash-sigs_flipped_sig": "INVALID",
+      "hash-sigs_truncated_sig": "refused_length_check",
+      "hash-sigs_valid": true,
+      "hash-sigs_wrong_msg": "INVALID",
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID"
+    },
+    "LMS_SHA256_H10_W8": {
+      "hash-sigs_flipped_sig": "INVALID",
+      "hash-sigs_truncated_sig": "refused_length_check",
+      "hash-sigs_valid": true,
+      "hash-sigs_wrong_msg": "INVALID",
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID"
+    },
+    "LMS_SHA256_H15_W4": {
+      "hash-sigs_flipped_sig": "INVALID",
+      "hash-sigs_truncated_sig": "refused_length_check",
+      "hash-sigs_valid": true,
+      "hash-sigs_wrong_msg": "INVALID",
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID"
+    },
+    "LMS_SHA256_H5_W1": {
+      "hash-sigs_flipped_sig": "INVALID",
+      "hash-sigs_truncated_sig": "refused_length_check",
+      "hash-sigs_valid": true,
+      "hash-sigs_wrong_msg": "INVALID",
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID"
+    },
+    "LMS_SHA256_H5_W4": {
+      "hash-sigs_flipped_sig": "INVALID",
+      "hash-sigs_truncated_sig": "refused_length_check",
+      "hash-sigs_valid": true,
+      "hash-sigs_wrong_msg": "INVALID",
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID"
+    },
+    "SLH-DSA-SHA2-128f": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHA2-128s": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHA2-192f": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHA2-192s": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHA2-256f": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHA2-256s": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "liboqs_cross_param": "verify_INVALID",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "slhdsa_cross_param": false,
+      "slhdsa_flipped_sig": false,
+      "slhdsa_truncated_sig": "returns_False",
+      "slhdsa_valid": true,
+      "slhdsa_wrong_msg": false
+    },
+    "XMSS-SHA2_10_256": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "xmss-reference_flipped_sig": "INVALID",
+      "xmss-reference_truncated_sig": "refused_length_check",
+      "xmss-reference_valid": true,
+      "xmss-reference_wrong_msg": "INVALID"
+    },
+    "XMSS-SHA2_16_256": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "xmss-reference_flipped_sig": "INVALID",
+      "xmss-reference_truncated_sig": "refused_length_check",
+      "xmss-reference_valid": true,
+      "xmss-reference_wrong_msg": "INVALID"
+    },
+    "XMSS-SHAKE_10_256": {
+      "liboqs_cross_param": "refused_length_check",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "xmss-reference_flipped_sig": "INVALID",
+      "xmss-reference_truncated_sig": "refused_length_check",
+      "xmss-reference_valid": true,
+      "xmss-reference_wrong_msg": "INVALID"
+    },
+    "XMSS-SHAKE_16_256": {
+      "liboqs_cross_param": "verify_INVALID",
+      "liboqs_flipped_sig": "INVALID",
+      "liboqs_truncated_sig": "refused_length_check",
+      "liboqs_valid": true,
+      "liboqs_wrong_msg": "INVALID",
+      "xmss-reference_flipped_sig": "INVALID",
+      "xmss-reference_truncated_sig": "refused_length_check",
+      "xmss-reference_valid": true,
+      "xmss-reference_wrong_msg": "INVALID"
+    }
+  },
+  "artifact_size_impact": {
+    "LMS_SHA256_H10_W1": {
+      "overhead_pct_binary_50MiB": 0.0169,
+      "overhead_pct_manifest_1KiB": 864.0625,
+      "overhead_pct_tarball_5MiB": 0.1688,
+      "overhead_pct_wheel_100KiB": 8.6406,
+      "signature_bytes": 8848,
+      "vs_ed25519_64B": 138.2
+    },
+    "LMS_SHA256_H10_W4": {
+      "overhead_pct_binary_50MiB": 0.0048,
+      "overhead_pct_manifest_1KiB": 245.3125,
+      "overhead_pct_tarball_5MiB": 0.0479,
+      "overhead_pct_wheel_100KiB": 2.4531,
+      "signature_bytes": 2512,
+      "vs_ed25519_64B": 39.2
+    },
+    "LMS_SHA256_H10_W8": {
+      "overhead_pct_binary_50MiB": 0.0028,
+      "overhead_pct_manifest_1KiB": 142.1875,
+      "overhead_pct_tarball_5MiB": 0.0278,
+      "overhead_pct_wheel_100KiB": 1.4219,
+      "signature_bytes": 1456,
+      "vs_ed25519_64B": 22.8
+    },
+    "LMS_SHA256_H15_W4": {
+      "overhead_pct_binary_50MiB": 0.0051,
+      "overhead_pct_manifest_1KiB": 260.9375,
+      "overhead_pct_tarball_5MiB": 0.051,
+      "overhead_pct_wheel_100KiB": 2.6094,
+      "signature_bytes": 2672,
+      "vs_ed25519_64B": 41.8
+    },
+    "LMS_SHA256_H20_W4": {
+      "overhead_pct_binary_50MiB": 0.0054,
+      "overhead_pct_manifest_1KiB": 276.5625,
+      "overhead_pct_tarball_5MiB": 0.054,
+      "overhead_pct_wheel_100KiB": 2.7656,
+      "signature_bytes": 2832,
+      "vs_ed25519_64B": 44.2
+    },
+    "LMS_SHA256_H5_W1": {
+      "overhead_pct_binary_50MiB": 0.0166,
+      "overhead_pct_manifest_1KiB": 848.4375,
+      "overhead_pct_tarball_5MiB": 0.1657,
+      "overhead_pct_wheel_100KiB": 8.4844,
+      "signature_bytes": 8688,
+      "vs_ed25519_64B": 135.8
+    },
+    "LMS_SHA256_H5_W4": {
+      "overhead_pct_binary_50MiB": 0.0045,
+      "overhead_pct_manifest_1KiB": 229.6875,
+      "overhead_pct_tarball_5MiB": 0.0449,
+      "overhead_pct_wheel_100KiB": 2.2969,
+      "signature_bytes": 2352,
+      "vs_ed25519_64B": 36.8
+    },
+    "SLH-DSA-SHA2-128f": {
+      "overhead_pct_binary_50MiB": 0.0326,
+      "overhead_pct_manifest_1KiB": 1668.75,
+      "overhead_pct_tarball_5MiB": 0.3259,
+      "overhead_pct_wheel_100KiB": 16.6875,
+      "signature_bytes": 17088,
+      "vs_ed25519_64B": 267.0
+    },
+    "SLH-DSA-SHA2-128s": {
+      "overhead_pct_binary_50MiB": 0.015,
+      "overhead_pct_manifest_1KiB": 767.1875,
+      "overhead_pct_tarball_5MiB": 0.1498,
+      "overhead_pct_wheel_100KiB": 7.6719,
+      "signature_bytes": 7856,
+      "vs_ed25519_64B": 122.8
+    },
+    "SLH-DSA-SHA2-192f": {
+      "overhead_pct_binary_50MiB": 0.068,
+      "overhead_pct_manifest_1KiB": 3482.8125,
+      "overhead_pct_tarball_5MiB": 0.6802,
+      "overhead_pct_wheel_100KiB": 34.8281,
+      "signature_bytes": 35664,
+      "vs_ed25519_64B": 557.2
+    },
+    "SLH-DSA-SHA2-192s": {
+      "overhead_pct_binary_50MiB": 0.0309,
+      "overhead_pct_manifest_1KiB": 1584.375,
+      "overhead_pct_tarball_5MiB": 0.3094,
+      "overhead_pct_wheel_100KiB": 15.8438,
+      "signature_bytes": 16224,
+      "vs_ed25519_64B": 253.5
+    },
+    "SLH-DSA-SHA2-256f": {
+      "overhead_pct_binary_50MiB": 0.0951,
+      "overhead_pct_manifest_1KiB": 4868.75,
+      "overhead_pct_tarball_5MiB": 0.9509,
+      "overhead_pct_wheel_100KiB": 48.6875,
+      "signature_bytes": 49856,
+      "vs_ed25519_64B": 779.0
+    },
+    "SLH-DSA-SHA2-256s": {
+      "overhead_pct_binary_50MiB": 0.0568,
+      "overhead_pct_manifest_1KiB": 2909.375,
+      "overhead_pct_tarball_5MiB": 0.5682,
+      "overhead_pct_wheel_100KiB": 29.0938,
+      "signature_bytes": 29792,
+      "vs_ed25519_64B": 465.5
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "overhead_pct_binary_50MiB": 0.0326,
+      "overhead_pct_manifest_1KiB": 1668.75,
+      "overhead_pct_tarball_5MiB": 0.3259,
+      "overhead_pct_wheel_100KiB": 16.6875,
+      "signature_bytes": 17088,
+      "vs_ed25519_64B": 267.0
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "overhead_pct_binary_50MiB": 0.015,
+      "overhead_pct_manifest_1KiB": 767.1875,
+      "overhead_pct_tarball_5MiB": 0.1498,
+      "overhead_pct_wheel_100KiB": 7.6719,
+      "signature_bytes": 7856,
+      "vs_ed25519_64B": 122.8
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "overhead_pct_binary_50MiB": 0.068,
+      "overhead_pct_manifest_1KiB": 3482.8125,
+      "overhead_pct_tarball_5MiB": 0.6802,
+      "overhead_pct_wheel_100KiB": 34.8281,
+      "signature_bytes": 35664,
+      "vs_ed25519_64B": 557.2
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "overhead_pct_binary_50MiB": 0.0309,
+      "overhead_pct_manifest_1KiB": 1584.375,
+      "overhead_pct_tarball_5MiB": 0.3094,
+      "overhead_pct_wheel_100KiB": 15.8438,
+      "signature_bytes": 16224,
+      "vs_ed25519_64B": 253.5
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "overhead_pct_binary_50MiB": 0.0951,
+      "overhead_pct_manifest_1KiB": 4868.75,
+      "overhead_pct_tarball_5MiB": 0.9509,
+      "overhead_pct_wheel_100KiB": 48.6875,
+      "signature_bytes": 49856,
+      "vs_ed25519_64B": 779.0
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "overhead_pct_binary_50MiB": 0.0568,
+      "overhead_pct_manifest_1KiB": 2909.375,
+      "overhead_pct_tarball_5MiB": 0.5682,
+      "overhead_pct_wheel_100KiB": 29.0938,
+      "signature_bytes": 29792,
+      "vs_ed25519_64B": 465.5
+    },
+    "XMSS-SHA2_10_256": {
+      "overhead_pct_binary_50MiB": 0.0048,
+      "overhead_pct_manifest_1KiB": 244.1406,
+      "overhead_pct_tarball_5MiB": 0.0477,
+      "overhead_pct_wheel_100KiB": 2.4414,
+      "signature_bytes": 2500,
+      "vs_ed25519_64B": 39.1
+    },
+    "XMSS-SHA2_16_256": {
+      "overhead_pct_binary_50MiB": 0.0051,
+      "overhead_pct_manifest_1KiB": 262.8906,
+      "overhead_pct_tarball_5MiB": 0.0513,
+      "overhead_pct_wheel_100KiB": 2.6289,
+      "signature_bytes": 2692,
+      "vs_ed25519_64B": 42.1
+    },
+    "XMSS-SHA2_20_256": {
+      "overhead_pct_binary_50MiB": 0.0054,
+      "overhead_pct_manifest_1KiB": 275.3906,
+      "overhead_pct_tarball_5MiB": 0.0538,
+      "overhead_pct_wheel_100KiB": 2.7539,
+      "signature_bytes": 2820,
+      "vs_ed25519_64B": 44.1
+    },
+    "XMSS-SHAKE_10_256": {
+      "overhead_pct_binary_50MiB": 0.0048,
+      "overhead_pct_manifest_1KiB": 244.1406,
+      "overhead_pct_tarball_5MiB": 0.0477,
+      "overhead_pct_wheel_100KiB": 2.4414,
+      "signature_bytes": 2500,
+      "vs_ed25519_64B": 39.1
+    },
+    "XMSS-SHAKE_16_256": {
+      "overhead_pct_binary_50MiB": 0.0051,
+      "overhead_pct_manifest_1KiB": 262.8906,
+      "overhead_pct_tarball_5MiB": 0.0513,
+      "overhead_pct_wheel_100KiB": 2.6289,
+      "signature_bytes": 2692,
+      "vs_ed25519_64B": 42.1
+    },
+    "XMSS-SHAKE_20_256": {
+      "overhead_pct_binary_50MiB": 0.0054,
+      "overhead_pct_manifest_1KiB": 275.3906,
+      "overhead_pct_tarball_5MiB": 0.0538,
+      "overhead_pct_wheel_100KiB": 2.7539,
+      "signature_bytes": 2820,
+      "vs_ed25519_64B": 44.1
+    }
+  },
+  "cross_implementation": {
+    "LMS_SHA256_H10_W1": {
+      "sig_hash-sigs_sign_liboqs_verify": true,
+      "sig_liboqs_sign_hash-sigs_verify": true
+    },
+    "LMS_SHA256_H10_W4": {
+      "sig_hash-sigs_sign_liboqs_verify": true,
+      "sig_liboqs_sign_hash-sigs_verify": true
+    },
+    "LMS_SHA256_H10_W8": {
+      "sig_hash-sigs_sign_liboqs_verify": true,
+      "sig_liboqs_sign_hash-sigs_verify": true
+    },
+    "LMS_SHA256_H15_W4": {
+      "sig_hash-sigs_sign_liboqs_verify": true,
+      "sig_liboqs_sign_hash-sigs_verify": true
+    },
+    "LMS_SHA256_H5_W1": {
+      "sig_hash-sigs_sign_liboqs_verify": true,
+      "sig_liboqs_sign_hash-sigs_verify": true
+    },
+    "LMS_SHA256_H5_W4": {
+      "sig_hash-sigs_sign_liboqs_verify": true,
+      "sig_liboqs_sign_hash-sigs_verify": true
+    },
+    "SLH-DSA-SHA2-128f": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHA2-128s": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHA2-192f": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHA2-192s": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHA2-256f": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHA2-256s": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "sig_liboqs_sign_slhdsa_verify": true,
+      "sig_slhdsa_sign_liboqs_verify": true
+    },
+    "XMSS-SHA2_10_256": {
+      "sig_liboqs_sign_xmss-reference_verify": true,
+      "sig_xmss-reference_sign_liboqs_verify": true
+    },
+    "XMSS-SHA2_16_256": {
+      "sig_liboqs_sign_xmss-reference_verify": true,
+      "sig_xmss-reference_sign_liboqs_verify": true
+    },
+    "XMSS-SHAKE_10_256": {
+      "sig_liboqs_sign_xmss-reference_verify": true,
+      "sig_xmss-reference_sign_liboqs_verify": true
+    },
+    "XMSS-SHAKE_16_256": {
+      "sig_liboqs_sign_xmss-reference_verify": true,
+      "sig_xmss-reference_sign_liboqs_verify": true
+    }
+  },
+  "determinism": {
+    "LMS_SHA256_H10_W1": {
+      "hash-sigs_same_state_same_msg_identical": true,
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true
+    },
+    "LMS_SHA256_H10_W4": {
+      "hash-sigs_same_state_same_msg_identical": true,
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true
+    },
+    "LMS_SHA256_H10_W8": {
+      "hash-sigs_same_state_same_msg_identical": true,
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true
+    },
+    "LMS_SHA256_H15_W4": {
+      "hash-sigs_same_state_same_msg_identical": true,
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true
+    },
+    "LMS_SHA256_H5_W1": {
+      "hash-sigs_same_state_same_msg_identical": true,
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true
+    },
+    "LMS_SHA256_H5_W4": {
+      "hash-sigs_same_state_same_msg_identical": true,
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true
+    },
+    "SLH-DSA-SHA2-128f": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHA2-128s": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHA2-192f": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHA2-192s": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHA2-256f": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHA2-256s": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "liboqs_sign_twice_identical": "no",
+      "slhdsa_deterministic_sign_twice_identical": true,
+      "slhdsa_randomized_sign_twice_identical": false
+    },
+    "XMSS-SHA2_10_256": {
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true,
+      "xmss-reference_same_state_same_msg_identical": true
+    },
+    "XMSS-SHA2_16_256": {
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true,
+      "xmss-reference_same_state_same_msg_identical": true
+    },
+    "XMSS-SHAKE_10_256": {
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true,
+      "xmss-reference_same_state_same_msg_identical": true
+    },
+    "XMSS-SHAKE_16_256": {
+      "liboqs_same_state_leaf_index": "0",
+      "liboqs_same_state_same_msg_identical": true,
+      "xmss-reference_same_state_same_msg_identical": true
+    }
+  },
+  "environment": {
+    "liboqs_stfl_keygen_and_sign_supported": true,
+    "openssl_lists_lms": false,
+    "openssl_lists_ml_dsa": false,
+    "openssl_lists_slh_dsa": false,
+    "openssl_lists_xmss": false,
+    "openssl_version": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)",
+    "python": "3.12.3"
+  },
+  "exhaustion": {
+    "algorithm": "LMS_SHA256_H5_W4",
+    "sign_after_exhaustion_fails": false,
+    "sign_after_exhaustion_produced_signature": true,
+    "sign_after_exhaustion_rc": 0,
+    "sign_after_exhaustion_verifies": true,
+    "sign_all_total_ok": true,
+    "sigs_total": 31,
+    "third_sign_after_exhaustion_output": "ERROR deserialize secret key failed",
+    "third_sign_after_exhaustion_rc": 1,
+    "xmss_sign_after_exhaustion_produced_signature": true,
+    "xmss_sign_after_exhaustion_rc": 0,
+    "xmss_sign_after_exhaustion_verifies": false,
+    "xmss_sign_all_total_ok": true,
+    "xmss_total": 1023
+  },
+  "implementations": {
+    "go": "NOT RUN \u2014 no Go toolchain on this machine",
+    "hash-sigs": "cisco/hash-sigs (C, RFC 8554 LMS reference; commit 7768828)",
+    "liboqs": "0.16.0 (C, sig_stfl LMS/XMSS + slh-dsa backends; stateful keygen/sign enabled with OQS_HAZARDOUS_EXPERIMENTAL_ENABLE_SIG_STFL_KEY_SIG_GEN)",
+    "rust": "NOT RUN \u2014 no cargo/rustc toolchain on this machine",
+    "slh-dsa": "0.2.5 (pure Python, FIPS 205 pure signing; author Colinxu2020)",
+    "xmss-reference": "joostrijneveld/xmss-reference (C, RFC 8391 XMSS reference; commit 171ccbd)"
+  },
+  "memory_kb": {
+    "LMS_SHA256_H10_W1": {
+      "hash-sigs": 3280,
+      "liboqs": 5788
+    },
+    "LMS_SHA256_H10_W4": {
+      "hash-sigs": 3304,
+      "liboqs": 5952
+    },
+    "LMS_SHA256_H10_W8": {
+      "hash-sigs": 3320,
+      "liboqs": 6000
+    },
+    "LMS_SHA256_H15_W4": {
+      "hash-sigs": 3300,
+      "liboqs": 5888
+    },
+    "LMS_SHA256_H5_W1": {
+      "hash-sigs": 3228,
+      "liboqs": 6036
+    },
+    "LMS_SHA256_H5_W4": {
+      "hash-sigs": 3360,
+      "liboqs": 5964
+    },
+    "SLH-DSA-SHA2-128f": {
+      "liboqs": 6100,
+      "slh-dsa": 21896
+    },
+    "SLH-DSA-SHA2-128s": {
+      "liboqs": 5932,
+      "slh-dsa": 21956
+    },
+    "SLH-DSA-SHA2-192f": {
+      "liboqs": 5904,
+      "slh-dsa": 21912
+    },
+    "SLH-DSA-SHA2-192s": {
+      "liboqs": 5916,
+      "slh-dsa": 21936
+    },
+    "SLH-DSA-SHA2-256f": {
+      "liboqs": 5944,
+      "slh-dsa": 21936
+    },
+    "SLH-DSA-SHA2-256s": {
+      "liboqs": 6060,
+      "slh-dsa": 22048
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "liboqs": 5948,
+      "slh-dsa": 21940
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "liboqs": 5856,
+      "slh-dsa": 22024
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "liboqs": 5844,
+      "slh-dsa": 21972
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "liboqs": 5920,
+      "slh-dsa": 21832
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "liboqs": 6064,
+      "slh-dsa": 21940
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "liboqs": 5896,
+      "slh-dsa": 21956
+    },
+    "XMSS-SHA2_10_256": {
+      "liboqs": 5924,
+      "xmss-reference": 5428
+    },
+    "XMSS-SHA2_16_256": {
+      "liboqs": 5940,
+      "xmss-reference": 5368
+    },
+    "XMSS-SHAKE_10_256": {
+      "liboqs": 5872,
+      "xmss-reference": 3236
+    },
+    "XMSS-SHAKE_16_256": {
+      "liboqs": 6032,
+      "xmss-reference": 3236
+    }
+  },
+  "sizes_verified": {
+    "LMS_SHA256_H10_W1": {
+      "expected": {
+        "ots_p": 265,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 8844,
+        "sig": 8848,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 8848,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 8848,
+        "sk": 64
+      },
+      "match": true
+    },
+    "LMS_SHA256_H10_W4": {
+      "expected": {
+        "ots_p": 67,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 2508,
+        "sig": 2512,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 2512,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 2512,
+        "sk": 64
+      },
+      "match": true
+    },
+    "LMS_SHA256_H10_W8": {
+      "expected": {
+        "ots_p": 34,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 1452,
+        "sig": 1456,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 1456,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 1456,
+        "sk": 64
+      },
+      "match": true
+    },
+    "LMS_SHA256_H15_W4": {
+      "expected": {
+        "ots_p": 67,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 2668,
+        "sig": 2672,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 2672,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 2672,
+        "sk": 64
+      },
+      "match": true
+    },
+    "LMS_SHA256_H20_W4": {
+      "expected": {
+        "ots_p": 67,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 2828,
+        "sig": 2832,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 2832,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 2832,
+        "sk": 64
+      },
+      "match": true
+    },
+    "LMS_SHA256_H5_W1": {
+      "expected": {
+        "ots_p": 265,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 8684,
+        "sig": 8688,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 8688,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 8688,
+        "sk": 64
+      },
+      "match": true
+    },
+    "LMS_SHA256_H5_W4": {
+      "expected": {
+        "ots_p": 67,
+        "pk": 60,
+        "rfc8554_pk": 56,
+        "rfc8554_sig": 2348,
+        "sig": 2352,
+        "sk": null
+      },
+      "hash-sigs": {
+        "pk": 60,
+        "sig": 2352,
+        "sk": 64
+      },
+      "hash-sigs_match": true,
+      "liboqs": {
+        "pk": 60,
+        "sig": 2352,
+        "sk": 64
+      },
+      "match": true
+    },
+    "SLH-DSA-SHA2-128f": {
+      "expected": {
+        "pk": 32,
+        "sig": 17088,
+        "sk": 64
+      },
+      "liboqs": {
+        "pk": 32,
+        "sig": 17088,
+        "sk": 64
+      },
+      "match": true
+    },
+    "SLH-DSA-SHA2-128s": {
+      "expected": {
+        "pk": 32,
+        "sig": 7856,
+        "sk": 64
+      },
+      "liboqs": {
+        "pk": 32,
+        "sig": 7856,
+        "sk": 64
+      },
+      "match": true
+    },
+    "SLH-DSA-SHA2-192f": {
+      "expected": {
+        "pk": 48,
+        "sig": 35664,
+        "sk": 96
+      },
+      "liboqs": {
+        "pk": 48,
+        "sig": 35664,
+        "sk": 96
+      },
+      "match": true
+    },
+    "SLH-DSA-SHA2-192s": {
+      "expected": {
+        "pk": 48,
+        "sig": 16224,
+        "sk": 96
+      },
+      "liboqs": {
+        "pk": 48,
+        "sig": 16224,
+        "sk": 96
+      },
+      "match": true
+    },
+    "SLH-DSA-SHA2-256f": {
+      "expected": {
+        "pk": 64,
+        "sig": 49856,
+        "sk": 128
+      },
+      "liboqs": {
+        "pk": 64,
+        "sig": 49856,
+        "sk": 128
+      },
+      "match": true
+    },
+    "SLH-DSA-SHA2-256s": {
+      "expected": {
+        "pk": 64,
+        "sig": 29792,
+        "sk": 128
+      },
+      "liboqs": {
+        "pk": 64,
+        "sig": 29792,
+        "sk": 128
+      },
+      "match": true
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "expected": {
+        "pk": 32,
+        "sig": 17088,
+        "sk": 64
+      },
+      "liboqs": {
+        "pk": 32,
+        "sig": 17088,
+        "sk": 64
+      },
+      "match": true
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "expected": {
+        "pk": 32,
+        "sig": 7856,
+        "sk": 64
+      },
+      "liboqs": {
+        "pk": 32,
+        "sig": 7856,
+        "sk": 64
+      },
+      "match": true
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "expected": {
+        "pk": 48,
+        "sig": 35664,
+        "sk": 96
+      },
+      "liboqs": {
+        "pk": 48,
+        "sig": 35664,
+        "sk": 96
+      },
+      "match": true
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "expected": {
+        "pk": 48,
+        "sig": 16224,
+        "sk": 96
+      },
+      "liboqs": {
+        "pk": 48,
+        "sig": 16224,
+        "sk": 96
+      },
+      "match": true
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "expected": {
+        "pk": 64,
+        "sig": 49856,
+        "sk": 128
+      },
+      "liboqs": {
+        "pk": 64,
+        "sig": 49856,
+        "sk": 128
+      },
+      "match": true
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "expected": {
+        "pk": 64,
+        "sig": 29792,
+        "sk": 128
+      },
+      "liboqs": {
+        "pk": 64,
+        "sig": 29792,
+        "sk": 128
+      },
+      "match": true
+    },
+    "XMSS-SHA2_10_256": {
+      "expected": {
+        "pk": 68,
+        "rfc8391_pk": 64,
+        "rfc8391_sig": 2500,
+        "sig": 2500,
+        "sk": null
+      },
+      "liboqs": {
+        "pk": 68,
+        "sig": 2500,
+        "sk": 1377
+      },
+      "match": true,
+      "xmss-reference": {
+        "pk": 68,
+        "sig": 2500,
+        "sk": 136
+      },
+      "xmss-reference_match": true
+    },
+    "XMSS-SHA2_16_256": {
+      "expected": {
+        "pk": 68,
+        "rfc8391_pk": 64,
+        "rfc8391_sig": 2692,
+        "sig": 2692,
+        "sk": null
+      },
+      "liboqs": {
+        "pk": 68,
+        "sig": 2692,
+        "sk": 2097
+      },
+      "match": true,
+      "xmss-reference": {
+        "pk": 68,
+        "sig": 2692,
+        "sk": 136
+      },
+      "xmss-reference_match": true
+    },
+    "XMSS-SHA2_20_256": {
+      "expected": {
+        "pk": 68,
+        "rfc8391_pk": 64,
+        "rfc8391_sig": 2820,
+        "sig": 2820,
+        "sk": null
+      },
+      "liboqs": {
+        "pk": 68,
+        "sig": 2820,
+        "sk": 2577
+      },
+      "match": true,
+      "xmss-reference": {
+        "pk": 68,
+        "sig": 2820,
+        "sk": 136
+      },
+      "xmss-reference_match": true
+    },
+    "XMSS-SHAKE_10_256": {
+      "expected": {
+        "pk": 68,
+        "rfc8391_pk": 64,
+        "rfc8391_sig": 2500,
+        "sig": 2500,
+        "sk": null
+      },
+      "liboqs": {
+        "pk": 68,
+        "sig": 2500,
+        "sk": 1377
+      },
+      "match": true,
+      "xmss-reference": {
+        "pk": 68,
+        "sig": 2500,
+        "sk": 136
+      },
+      "xmss-reference_match": true
+    },
+    "XMSS-SHAKE_16_256": {
+      "expected": {
+        "pk": 68,
+        "rfc8391_pk": 64,
+        "rfc8391_sig": 2692,
+        "sig": 2692,
+        "sk": null
+      },
+      "liboqs": {
+        "pk": 68,
+        "sig": 2692,
+        "sk": 2097
+      },
+      "match": true,
+      "xmss-reference": {
+        "pk": 68,
+        "sig": 2692,
+        "sk": 136
+      },
+      "xmss-reference_match": true
+    },
+    "XMSS-SHAKE_20_256": {
+      "expected": {
+        "pk": 68,
+        "rfc8391_pk": 64,
+        "rfc8391_sig": 2820,
+        "sig": 2820,
+        "sk": null
+      },
+      "liboqs": {
+        "pk": 68,
+        "sig": 2820,
+        "sk": 2577
+      },
+      "match": true,
+      "xmss-reference": {
+        "pk": 68,
+        "sig": 2820,
+        "sk": 136
+      },
+      "xmss-reference_match": true
+    }
+  },
+  "state": {
+    "LMS_SHA256_H10_W1": {
+      "expected_total": 1023,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": 10980,
+      "sigs_remaining_after_keygen": 1023,
+      "sigs_total": 1023
+    },
+    "LMS_SHA256_H10_W4": {
+      "expected_total": 1023,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": 10980,
+      "sigs_remaining_after_keygen": 1023,
+      "sigs_total": 1023
+    },
+    "LMS_SHA256_H10_W8": {
+      "expected_total": 1023,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": 10980,
+      "sigs_remaining_after_keygen": 1023,
+      "sigs_total": 1023
+    },
+    "LMS_SHA256_H15_W4": {
+      "expected_total": 32767,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": 10980,
+      "sigs_remaining_after_keygen": 32767,
+      "sigs_total": 32767
+    },
+    "LMS_SHA256_H20_W4": {
+      "expected_total": 1048575,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": null,
+      "not_measured": "keygen exceeds 240 s on this machine",
+      "sigs_remaining_after_keygen": null,
+      "sigs_total": null
+    },
+    "LMS_SHA256_H5_W1": {
+      "expected_total": 31,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": 10980,
+      "sigs_remaining_after_keygen": 31,
+      "sigs_total": 31
+    },
+    "LMS_SHA256_H5_W4": {
+      "expected_total": 31,
+      "hash-sigs_secret_key_bytes": 64,
+      "liboqs_serialized_secret_key_bytes": 10980,
+      "sigs_remaining_after_keygen": 31,
+      "sigs_total": 31
+    },
+    "SLH-DSA-SHA2-128f": {
+      "liboqs_secret_key_bytes": 64,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHA2-128s": {
+      "liboqs_secret_key_bytes": 64,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHA2-192f": {
+      "liboqs_secret_key_bytes": 96,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHA2-192s": {
+      "liboqs_secret_key_bytes": 96,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHA2-256f": {
+      "liboqs_secret_key_bytes": 128,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHA2-256s": {
+      "liboqs_secret_key_bytes": 128,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "liboqs_secret_key_bytes": 64,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "liboqs_secret_key_bytes": 64,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "liboqs_secret_key_bytes": 96,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "liboqs_secret_key_bytes": 96,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "liboqs_secret_key_bytes": 128,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "liboqs_secret_key_bytes": 128,
+      "sigs_total": "unlimited (2^64 per FIPS 205)",
+      "stateless": true
+    },
+    "XMSS-SHA2_10_256": {
+      "expected_total": 1023,
+      "liboqs_serialized_secret_key_bytes": 1377,
+      "sigs_remaining_after_keygen": 1023,
+      "sigs_total": 1023,
+      "xmss-reference_secret_key_bytes": 136
+    },
+    "XMSS-SHA2_16_256": {
+      "expected_total": 65535,
+      "liboqs_serialized_secret_key_bytes": 2097,
+      "sigs_remaining_after_keygen": 65535,
+      "sigs_total": 65535,
+      "xmss-reference_secret_key_bytes": 136
+    },
+    "XMSS-SHA2_20_256": {
+      "expected_total": 1048575,
+      "liboqs_serialized_secret_key_bytes": null,
+      "not_measured": "keygen exceeds 240 s on this machine",
+      "sigs_remaining_after_keygen": null,
+      "sigs_total": null,
+      "xmss-reference_secret_key_bytes": 136
+    },
+    "XMSS-SHAKE_10_256": {
+      "expected_total": 1023,
+      "liboqs_serialized_secret_key_bytes": 1377,
+      "sigs_remaining_after_keygen": 1023,
+      "sigs_total": 1023,
+      "xmss-reference_secret_key_bytes": 136
+    },
+    "XMSS-SHAKE_16_256": {
+      "expected_total": 65535,
+      "liboqs_serialized_secret_key_bytes": 2097,
+      "sigs_remaining_after_keygen": 65535,
+      "sigs_total": 65535,
+      "xmss-reference_secret_key_bytes": 136
+    },
+    "XMSS-SHAKE_20_256": {
+      "expected_total": 1048575,
+      "liboqs_serialized_secret_key_bytes": null,
+      "not_measured": "keygen exceeds 240 s on this machine",
+      "sigs_remaining_after_keygen": null,
+      "sigs_total": null,
+      "xmss-reference_secret_key_bytes": 136
+    }
+  },
+  "throughput": {
+    "LMS_SHA256_H10_W1": {
+      "hash-sigs": {
+        "keygen_ms_median": 87.375219,
+        "n_keygen": 5,
+        "n_sign": 50,
+        "n_verify": 50,
+        "sign_ms_median": 0.41675,
+        "sign_ok": "50/50",
+        "verify_ms_median": 0.029795,
+        "verify_ok": "50/50"
+      },
+      "liboqs": {
+        "keygen_ms_median": 174.43213,
+        "n_keygen": 5,
+        "n_sign": 50,
+        "n_verify": 50,
+        "sign_ms_median": 185.548429,
+        "sign_ok": "50/50",
+        "verify_ms_median": 0.047797,
+        "verify_ok": "50/50"
+      }
+    },
+    "LMS_SHA256_H10_W4": {
+      "hash-sigs": {
+        "keygen_ms_median": 126.378957,
+        "n_keygen": 5,
+        "n_sign": 50,
+        "n_verify": 50,
+        "sign_ms_median": 0.544898,
+        "sign_ok": "50/50",
+        "verify_ms_median": 0.064006,
+        "verify_ok": "50/50"
+      },
+      "liboqs": {
+        "keygen_ms_median": 244.024011,
+        "n_keygen": 5,
+        "n_sign": 50,
+        "n_verify": 50,
+        "sign_ms_median": 271.826771,
+        "sign_ok": "50/50",
+        "verify_ms_median": 0.114608,
+        "verify_ok": "50/50"
+      }
+    },
+    "LMS_SHA256_H10_W8": {
+      "hash-sigs": {
+        "keygen_ms_median": 966.384722,
+        "n_keygen": 5,
+        "n_sign": 50,
+        "n_verify": 50,
+        "sign_ms_median": 4.134467,
+        "sign_ok": "50/50",
+        "verify_ms_median": 0.455989,
+        "verify_ok": "50/50"
+      },
+      "liboqs": {
+        "keygen_ms_median": 1863.642181,
+        "n_keygen": 5,
+        "n_sign": 50,
+        "n_verify": 50,
+        "sign_ms_median": 2032.133922,
+        "sign_ok": "50/50",
+        "verify_ms_median": 0.791529,
+        "verify_ok": "50/50"
+      }
+    },
+    "LMS_SHA256_H15_W4": {
+      "hash-sigs": {
+        "keygen_ms_median": 3977.817535,
+        "n_keygen": 1,
+        "n_sign": 10,
+        "n_verify": 10,
+        "sign_ms_median": 0.906376,
+        "sign_ok": "10/10",
+        "verify_ms_median": 0.054647,
+        "verify_ok": "10/10"
+      },
+      "liboqs": {
+        "keygen_ms_median": 8112.775919,
+        "n_keygen": 1,
+        "n_sign": 10,
+        "n_verify": 10,
+        "sign_ms_median": 9448.294833,
+        "sign_ok": "10/10",
+        "verify_ms_median": 0.12642,
+        "verify_ok": "10/10"
+      }
+    },
+    "LMS_SHA256_H5_W1": {
+      "hash-sigs": {
+        "keygen_ms_median": 3.162919,
+        "n_keygen": 10,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 0.268758,
+        "sign_ok": "20/20",
+        "verify_ms_median": 0.028468,
+        "verify_ok": "20/20"
+      },
+      "liboqs": {
+        "keygen_ms_median": 5.650027,
+        "n_keygen": 10,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 7.243285,
+        "sign_ok": "20/20",
+        "verify_ms_median": 0.043781,
+        "verify_ok": "20/20"
+      }
+    },
+    "LMS_SHA256_H5_W4": {
+      "hash-sigs": {
+        "keygen_ms_median": 3.870736,
+        "n_keygen": 10,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 0.304692,
+        "sign_ok": "20/20",
+        "verify_ms_median": 0.053861,
+        "verify_ok": "20/20"
+      },
+      "liboqs": {
+        "keygen_ms_median": 7.83655,
+        "n_keygen": 10,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 10.486975,
+        "sign_ok": "20/20",
+        "verify_ms_median": 0.114532,
+        "verify_ok": "20/20"
+      }
+    },
+    "SLH-DSA-SHA2-128f": {
+      "liboqs": {
+        "keygen_ms_median": 1.47536,
+        "n": 20,
+        "sign_ms_median": 34.668895,
+        "verify_ms_median": 2.149963,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 20.072626,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 264.058268,
+        "verify": 16.39892
+      }
+    },
+    "SLH-DSA-SHA2-128s": {
+      "liboqs": {
+        "keygen_ms_median": 94.706406,
+        "n": 20,
+        "sign_ms_median": 713.9069,
+        "verify_ms_median": 0.74598,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 1270.446439,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 4927.956666,
+        "verify": 5.722982
+      }
+    },
+    "SLH-DSA-SHA2-192f": {
+      "liboqs": {
+        "keygen_ms_median": 2.235942,
+        "n": 20,
+        "sign_ms_median": 56.548157,
+        "verify_ms_median": 3.087205,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 29.396865,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 403.76911,
+        "verify": 22.338517
+      }
+    },
+    "SLH-DSA-SHA2-192s": {
+      "liboqs": {
+        "keygen_ms_median": 138.255026,
+        "n": 20,
+        "sign_ms_median": 1275.144407,
+        "verify_ms_median": 1.083176,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 1890.347024,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 9039.404513,
+        "verify": 7.87976
+      }
+    },
+    "SLH-DSA-SHA2-256f": {
+      "liboqs": {
+        "keygen_ms_median": 5.60145,
+        "n": 20,
+        "sign_ms_median": 120.986196,
+        "verify_ms_median": 3.04056,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 75.671077,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 819.216925,
+        "verify": 23.842766
+      }
+    },
+    "SLH-DSA-SHA2-256s": {
+      "liboqs": {
+        "keygen_ms_median": 90.958864,
+        "n": 20,
+        "sign_ms_median": 1127.284555,
+        "verify_ms_median": 1.577598,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 1262.079166,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 8136.605455,
+        "verify": 11.62963
+      }
+    },
+    "SLH-DSA-SHAKE-128f": {
+      "liboqs": {
+        "keygen_ms_median": 2.262762,
+        "n": 20,
+        "sign_ms_median": 53.229651,
+        "verify_ms_median": 3.149829,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 20.469692,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 244.894237,
+        "verify": 15.477447
+      }
+    },
+    "SLH-DSA-SHAKE-128s": {
+      "liboqs": {
+        "keygen_ms_median": 149.431816,
+        "n": 20,
+        "sign_ms_median": 1129.411087,
+        "verify_ms_median": 1.083537,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 1325.300202,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 5154.912622,
+        "verify": 5.191474
+      }
+    },
+    "SLH-DSA-SHAKE-192f": {
+      "liboqs": {
+        "keygen_ms_median": 3.311401,
+        "n": 20,
+        "sign_ms_median": 88.673233,
+        "verify_ms_median": 4.708179,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 29.594631,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 400.275605,
+        "verify": 21.901301
+      }
+    },
+    "SLH-DSA-SHAKE-192s": {
+      "liboqs": {
+        "keygen_ms_median": 215.832706,
+        "n": 20,
+        "sign_ms_median": 1993.135648,
+        "verify_ms_median": 1.594935,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 1912.292051,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 9204.856031,
+        "verify": 8.060181
+      }
+    },
+    "SLH-DSA-SHAKE-256f": {
+      "liboqs": {
+        "keygen_ms_median": 8.882506,
+        "n": 20,
+        "sign_ms_median": 181.886612,
+        "verify_ms_median": 4.727147,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 80.057543,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 831.195428,
+        "verify": 22.083664
+      }
+    },
+    "SLH-DSA-SHAKE-256s": {
+      "liboqs": {
+        "keygen_ms_median": 142.075563,
+        "n": 20,
+        "sign_ms_median": 1779.031797,
+        "verify_ms_median": 2.370168,
+        "verify_ok": "20/20"
+      },
+      "slh-dsa": {
+        "keygen": 1254.874661,
+        "n": 1,
+        "roundtrip_ok": true,
+        "sign": 8383.524402,
+        "verify": 11.402068
+      }
+    },
+    "XMSS-SHA2_10_256": {
+      "liboqs": {
+        "keygen_ms_median": 1162.746145,
+        "n_keygen": 5,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 2.005606,
+        "sign_ok": "20/20",
+        "verify_ms_median": 0.647036,
+        "verify_ok": "20/20"
+      },
+      "xmss-reference": {
+        "keygen_ms_median": 2525.170713,
+        "n_keygen": 5,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 2504.892503,
+        "sign_ok": "20/20",
+        "verify_ms_median": 1.214944,
+        "verify_ok": "20/20"
+      }
+    },
+    "XMSS-SHA2_16_256": {
+      "liboqs": {
+        "keygen_ms_median": 73719.46486,
+        "n_keygen": 1,
+        "n_sign": 2,
+        "n_verify": 2,
+        "sign_ms_median": 1.841119,
+        "sign_ok": "2/2",
+        "verify_ms_median": 0.601994,
+        "verify_ok": "2/2"
+      },
+      "xmss-reference": {
+        "keygen_ms_median": 159061.193204,
+        "n_keygen": 1,
+        "n_sign": 2,
+        "n_verify": 2,
+        "sign_ms_median": 159048.685941,
+        "sign_ok": "2/2",
+        "verify_ms_median": 1.353558,
+        "verify_ok": "2/2"
+      }
+    },
+    "XMSS-SHAKE_10_256": {
+      "liboqs": {
+        "keygen_ms_median": 2674.490952,
+        "n_keygen": 5,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 3.938232,
+        "sign_ok": "20/20",
+        "verify_ms_median": 1.454008,
+        "verify_ok": "20/20"
+      },
+      "xmss-reference": {
+        "keygen_ms_median": 3112.169452,
+        "n_keygen": 5,
+        "n_sign": 20,
+        "n_verify": 20,
+        "sign_ms_median": 3100.806031,
+        "sign_ok": "20/20",
+        "verify_ms_median": 1.8114,
+        "verify_ok": "20/20"
+      }
+    },
+    "XMSS-SHAKE_16_256": {
+      "liboqs": {
+        "keygen_ms_median": 171054.239067,
+        "n_keygen": 1,
+        "n_sign": 2,
+        "n_verify": 2,
+        "sign_ms_median": 3.791297,
+        "sign_ok": "2/2",
+        "verify_ms_median": 1.44883,
+        "verify_ok": "2/2"
+      },
+      "xmss-reference": {
+        "keygen_ms_median": 198600.518805,
+        "n_keygen": 1,
+        "n_sign": 2,
+        "n_verify": 2,
+        "sign_ms_median": 199282.8001,
+        "sign_ok": "2/2",
+        "verify_ms_median": 1.606778,
+        "verify_ok": "2/2"
+      }
+    }
+  }
+}
