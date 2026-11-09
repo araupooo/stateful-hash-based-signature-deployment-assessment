@@ -1,0 +1,7 @@
+-- OQS Testing: Pytest parallel workers set to 'auto'
+-- CMAKE_BUILD_TYPE=Release
+-- Alg enablement unchanged
+-- Experimental stateful key and signature generation is enabled. Ensure secret keys are securely stored to prevent multiple simultaneous sign operations.
+-- Configuring done (0.3s)
+-- Generating done (0.3s)
+-- Build files have been written to: ./src/liboqs-build
