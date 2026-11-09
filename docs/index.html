@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Stateful Hash-Based Signature Deployment Assessment — Findings</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1000px;margin:2em auto;padding:0 1em;line-height:1.5;color:#111}
+table{border-collapse:collapse;margin:1em 0;width:100%;font-size:.92em}
+th,td{border:1px solid #999;padding:.35em .6em;text-align:left;vertical-align:top}
+th{background:#eee}
+pre{white-space:pre-wrap;background:#f6f6f6;padding:1em;overflow-x:auto}
+code{background:#f0f0f0;padding:0 .2em}
+h1{font-size:1.6em} h2{border-top:2px solid #333;padding-top:.6em}
+</style></head><body>
+<h1>Stateful Hash-Based Signature Deployment Assessment</h1>
+<p>Repository: <a href="https://github.com/araupooo/stateful-hash-based-signature-deployment-assessment">https://github.com/araupooo/stateful-hash-based-signature-deployment-assessment</a><br>
+Rendered findings page (this page): <a href="https://araupooo.github.io/stateful-hash-based-signature-deployment-assessment/">https://araupooo.github.io/stateful-hash-based-signature-deployment-assessment/</a></p>
+<p>Reproducible LMS / XMSS / SLH-DSA assessment: benchmarks across
+pinned liboqs 0.16.0 (C), the hash-sigs LMS reference (C), the
+xmss-reference XMSS reference (C) and slh-dsa 0.2.5 (pure Python),
+adversarial-input behaviour, state-exhaustion behaviour, one
+reproduced state-management failure mode and a tested remediation.
+All numbers below are the medians from <code>outputs/run1/</code>;
+timing values vary between runs by design (see README.md, comparison
+rule). slh-dsa throughput is n=1 and indicative only — the pure-Python
+signer takes seconds per signature. Rust and Go were not benchmarked:
+this machine has no cargo/rustc or Go toolchain. H20 parameter sets
+are sizes-only: keygen for a 2<sup>20</sup>-leaf tree exceeds 240 s on
+this machine, so no keygen-dependent measurement was attempted for
+them.</p>
+
+<h2>Throughput — LMS (median ms per operation, liboqs / hash-sigs)</h2>
+<table><thead><tr><th>Parameter set</th><th>Keygen</th><th>Sign</th><th>Verify</th><th>Peak RSS KB (liboqs / hash-sigs)</th></tr></thead><tbody><tr><td>LMS_SHA256_H5_W1</td><td>5.6500 / 3.1629</td><td>7.2433 / 0.2688</td><td>0.0438 / 0.0285</td><td>6036 / 3228</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>7.8365 / 3.8707</td><td>10.4870 / 0.3047</td><td>0.1145 / 0.0539</td><td>5964 / 3360</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>174.4321 / 87.3752</td><td>185.5484 / 0.4168</td><td>0.0478 / 0.0298</td><td>5788 / 3280</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>244.0240 / 126.3790</td><td>271.8268 / 0.5449</td><td>0.1146 / 0.0640</td><td>5952 / 3304</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>1863.6422 / 966.3847</td><td>2032.1339 / 4.1345</td><td>0.7915 / 0.4560</td><td>6000 / 3320</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>8112.7759 / 3977.8175</td><td>9448.2948 / 0.9064</td><td>0.1264 / 0.0546</td><td>5888 / 3300</td></tr><tr><td>LMS_SHA256_H20_W4</td><td>not measured (keygen exceeds 240 s)</td><td></td><td></td><td></td></tr></tbody></table>
+
+<h2>Throughput — XMSS (median ms per operation, liboqs / xmss-reference)</h2>
+<table><thead><tr><th>Parameter set</th><th>Keygen</th><th>Sign</th><th>Verify</th><th>Peak RSS KB (liboqs / xmss-reference)</th></tr></thead><tbody><tr><td>XMSS-SHA2_10_256</td><td>1162.7461 / 2525.1707</td><td>2.0056 / 2504.8925</td><td>0.6470 / 1.2149</td><td>5924 / 5428</td></tr><tr><td>XMSS-SHA2_16_256</td><td>73719.4649 / 159061.1932</td><td>1.8411 / 159048.6859</td><td>0.6020 / 1.3536</td><td>5940 / 5368</td></tr><tr><td>XMSS-SHA2_20_256</td><td>not measured (keygen exceeds 240 s)</td><td></td><td></td><td></td></tr><tr><td>XMSS-SHAKE_10_256</td><td>2674.4910 / 3112.1695</td><td>3.9382 / 3100.8060</td><td>1.4540 / 1.8114</td><td>5872 / 3236</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>171054.2391 / 198600.5188</td><td>3.7913 / 199282.8001</td><td>1.4488 / 1.6068</td><td>6032 / 3236</td></tr><tr><td>XMSS-SHAKE_20_256</td><td>not measured (keygen exceeds 240 s)</td><td></td><td></td><td></td></tr></tbody></table>
+
+<h2>Throughput — SLH-DSA (median ms per operation, liboqs / slh-dsa, n=1 for slh-dsa)</h2>
+<table><thead><tr><th>Parameter set</th><th>Keygen</th><th>Sign</th><th>Verify</th><th>Peak RSS KB (liboqs / slh-dsa)</th></tr></thead><tbody><tr><td>SLH-DSA-SHA2-128s</td><td>94.7064 / 1270.4464</td><td>713.9069 / 4927.9567</td><td>0.7460 / 5.7230</td><td>5932 / 21956</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>1.4754 / 20.0726</td><td>34.6689 / 264.0583</td><td>2.1500 / 16.3989</td><td>6100 / 21896</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>138.2550 / 1890.3470</td><td>1275.1444 / 9039.4045</td><td>1.0832 / 7.8798</td><td>5916 / 21936</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>2.2359 / 29.3969</td><td>56.5482 / 403.7691</td><td>3.0872 / 22.3385</td><td>5904 / 21912</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>90.9589 / 1262.0792</td><td>1127.2846 / 8136.6055</td><td>1.5776 / 11.6296</td><td>6060 / 22048</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>5.6014 / 75.6711</td><td>120.9862 / 819.2169</td><td>3.0406 / 23.8428</td><td>5944 / 21936</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>149.4318 / 1325.3002</td><td>1129.4111 / 5154.9126</td><td>1.0835 / 5.1915</td><td>5856 / 22024</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>2.2628 / 20.4697</td><td>53.2297 / 244.8942</td><td>3.1498 / 15.4774</td><td>5948 / 21940</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>215.8327 / 1912.2921</td><td>1993.1356 / 9204.8560</td><td>1.5949 / 8.0602</td><td>5920 / 21832</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>3.3114 / 29.5946</td><td>88.6732 / 400.2756</td><td>4.7082 / 21.9013</td><td>5844 / 21972</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>142.0756 / 1254.8747</td><td>1779.0318 / 8383.5244</td><td>2.3702 / 11.4021</td><td>5896 / 21956</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>8.8825 / 80.0575</td><td>181.8866 / 831.1954</td><td>4.7271 / 22.0837</td><td>6064 / 21940</td></tr></tbody></table>
+
+<h2>Key and signature sizes (RFC 8554 / RFC 8391 formulas, FIPS 205 Table 2)</h2>
+<table><thead><tr><th>Parameter set</th><th>Expected</th><th>liboqs {pk, sk, sig} bytes</th><th>Match</th></tr></thead><tbody><tr><td>LMS_SHA256_H5_W1</td><td>{&#x27;ots_p&#x27;: 265, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 8684, &#x27;sig&#x27;: 8688, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 8688, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>{&#x27;ots_p&#x27;: 67, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 2348, &#x27;sig&#x27;: 2352, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 2352, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>{&#x27;ots_p&#x27;: 265, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 8844, &#x27;sig&#x27;: 8848, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 8848, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>{&#x27;ots_p&#x27;: 67, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 2508, &#x27;sig&#x27;: 2512, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 2512, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>{&#x27;ots_p&#x27;: 34, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 1452, &#x27;sig&#x27;: 1456, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 1456, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>{&#x27;ots_p&#x27;: 67, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 2668, &#x27;sig&#x27;: 2672, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 2672, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>LMS_SHA256_H20_W4</td><td>{&#x27;ots_p&#x27;: 67, &#x27;pk&#x27;: 60, &#x27;rfc8554_pk&#x27;: 56, &#x27;rfc8554_sig&#x27;: 2828, &#x27;sig&#x27;: 2832, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 60, &#x27;sig&#x27;: 2832, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>XMSS-SHA2_10_256</td><td>{&#x27;pk&#x27;: 68, &#x27;rfc8391_pk&#x27;: 64, &#x27;rfc8391_sig&#x27;: 2500, &#x27;sig&#x27;: 2500, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 68, &#x27;sig&#x27;: 2500, &#x27;sk&#x27;: 1377}</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>{&#x27;pk&#x27;: 68, &#x27;rfc8391_pk&#x27;: 64, &#x27;rfc8391_sig&#x27;: 2692, &#x27;sig&#x27;: 2692, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 68, &#x27;sig&#x27;: 2692, &#x27;sk&#x27;: 2097}</td><td>True</td></tr><tr><td>XMSS-SHA2_20_256</td><td>{&#x27;pk&#x27;: 68, &#x27;rfc8391_pk&#x27;: 64, &#x27;rfc8391_sig&#x27;: 2820, &#x27;sig&#x27;: 2820, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 68, &#x27;sig&#x27;: 2820, &#x27;sk&#x27;: 2577}</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>{&#x27;pk&#x27;: 68, &#x27;rfc8391_pk&#x27;: 64, &#x27;rfc8391_sig&#x27;: 2500, &#x27;sig&#x27;: 2500, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 68, &#x27;sig&#x27;: 2500, &#x27;sk&#x27;: 1377}</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>{&#x27;pk&#x27;: 68, &#x27;rfc8391_pk&#x27;: 64, &#x27;rfc8391_sig&#x27;: 2692, &#x27;sig&#x27;: 2692, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 68, &#x27;sig&#x27;: 2692, &#x27;sk&#x27;: 2097}</td><td>True</td></tr><tr><td>XMSS-SHAKE_20_256</td><td>{&#x27;pk&#x27;: 68, &#x27;rfc8391_pk&#x27;: 64, &#x27;rfc8391_sig&#x27;: 2820, &#x27;sig&#x27;: 2820, &#x27;sk&#x27;: None}</td><td>{&#x27;pk&#x27;: 68, &#x27;sig&#x27;: 2820, &#x27;sk&#x27;: 2577}</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 7856, &#x27;sk&#x27;: 64}</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 7856, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 17088, &#x27;sk&#x27;: 64}</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 17088, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 16224, &#x27;sk&#x27;: 96}</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 16224, &#x27;sk&#x27;: 96}</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 35664, &#x27;sk&#x27;: 96}</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 35664, &#x27;sk&#x27;: 96}</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 29792, &#x27;sk&#x27;: 128}</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 29792, &#x27;sk&#x27;: 128}</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 49856, &#x27;sk&#x27;: 128}</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 49856, &#x27;sk&#x27;: 128}</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 7856, &#x27;sk&#x27;: 64}</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 7856, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 17088, &#x27;sk&#x27;: 64}</td><td>{&#x27;pk&#x27;: 32, &#x27;sig&#x27;: 17088, &#x27;sk&#x27;: 64}</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 16224, &#x27;sk&#x27;: 96}</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 16224, &#x27;sk&#x27;: 96}</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 35664, &#x27;sk&#x27;: 96}</td><td>{&#x27;pk&#x27;: 48, &#x27;sig&#x27;: 35664, &#x27;sk&#x27;: 96}</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 29792, &#x27;sk&#x27;: 128}</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 29792, &#x27;sk&#x27;: 128}</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 49856, &#x27;sk&#x27;: 128}</td><td>{&#x27;pk&#x27;: 64, &#x27;sig&#x27;: 49856, &#x27;sk&#x27;: 128}</td><td>True</td></tr></tbody></table>
+
+<h2>State (serialized secret-key size and signature budget)</h2>
+<table><thead><tr><th>Parameter set</th><th>Serialized secret-key bytes</th><th>Signatures total</th><th>Remaining after keygen</th></tr></thead><tbody><tr><td>LMS_SHA256_H5_W1</td><td>10980 (liboqs) / 64 (reference)</td><td>31</td><td>31</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>10980 (liboqs) / 64 (reference)</td><td>31</td><td>31</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>10980 (liboqs) / 64 (reference)</td><td>1023</td><td>1023</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>10980 (liboqs) / 64 (reference)</td><td>1023</td><td>1023</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>10980 (liboqs) / 64 (reference)</td><td>1023</td><td>1023</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>10980 (liboqs) / 64 (reference)</td><td>32767</td><td>32767</td></tr><tr><td>LMS_SHA256_H20_W4</td><td>not measured (keygen exceeds 240 s)</td><td>expected 1048575</td><td></td></tr><tr><td>XMSS-SHA2_10_256</td><td>1377 (liboqs) / 136 (reference)</td><td>1023</td><td>1023</td></tr><tr><td>XMSS-SHA2_16_256</td><td>2097 (liboqs) / 136 (reference)</td><td>65535</td><td>65535</td></tr><tr><td>XMSS-SHA2_20_256</td><td>not measured (keygen exceeds 240 s)</td><td>expected 1048575</td><td></td></tr><tr><td>XMSS-SHAKE_10_256</td><td>1377 (liboqs) / 136 (reference)</td><td>1023</td><td>1023</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>2097 (liboqs) / 136 (reference)</td><td>65535</td><td>65535</td></tr><tr><td>XMSS-SHAKE_20_256</td><td>not measured (keygen exceeds 240 s)</td><td>expected 1048575</td><td></td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>64 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>64 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>96 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>96 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>128 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>128 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>64 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>64 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>96 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>96 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>128 (stateless)</td><td>unlimited (2^64)</td><td></td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>128 (stateless)</td><td>unlimited (2^64)</td><td></td></tr></tbody></table>
+
+<h2>State exhaustion</h2>
+<pre>Algorithm: LMS_SHA256_H5_W4
+Signatures total (reported): 31
+Signing all 31 signatures in sequence: ok=True
+One signature past the reported total: rc=0, produced=True, verifies=True
+One more signature after that: rc=1, output=ERROR deserialize secret key failed
+XMSS-SHA2_10_256 total (reported): 1023
+XMSS signing all 1023 in sequence: ok=True
+XMSS one signature past the reported total: rc=0, produced=True, verifies=False</pre>
+
+<h2>Artifact-size impact (signature bytes vs release artifact)</h2>
+<table><thead><tr><th>Parameter set</th><th>Signature bytes</th><th>vs Ed25519 (64 B)</th><th>1 KiB manifest</th><th>100 KiB wheel</th><th>5 MiB tarball</th><th>50 MiB binary</th></tr></thead><tbody><tr><td>LMS_SHA256_H5_W1</td><td>8688</td><td>135.8</td><td>848.4375%</td><td>8.4844%</td><td>0.1657%</td><td>0.0166%</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>2352</td><td>36.8</td><td>229.6875%</td><td>2.2969%</td><td>0.0449%</td><td>0.0045%</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>8848</td><td>138.2</td><td>864.0625%</td><td>8.6406%</td><td>0.1688%</td><td>0.0169%</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>2512</td><td>39.2</td><td>245.3125%</td><td>2.4531%</td><td>0.0479%</td><td>0.0048%</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>1456</td><td>22.8</td><td>142.1875%</td><td>1.4219%</td><td>0.0278%</td><td>0.0028%</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>2672</td><td>41.8</td><td>260.9375%</td><td>2.6094%</td><td>0.051%</td><td>0.0051%</td></tr><tr><td>LMS_SHA256_H20_W4</td><td>2832</td><td>44.2</td><td>276.5625%</td><td>2.7656%</td><td>0.054%</td><td>0.0054%</td></tr><tr><td>XMSS-SHA2_10_256</td><td>2500</td><td>39.1</td><td>244.1406%</td><td>2.4414%</td><td>0.0477%</td><td>0.0048%</td></tr><tr><td>XMSS-SHA2_16_256</td><td>2692</td><td>42.1</td><td>262.8906%</td><td>2.6289%</td><td>0.0513%</td><td>0.0051%</td></tr><tr><td>XMSS-SHA2_20_256</td><td>2820</td><td>44.1</td><td>275.3906%</td><td>2.7539%</td><td>0.0538%</td><td>0.0054%</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>2500</td><td>39.1</td><td>244.1406%</td><td>2.4414%</td><td>0.0477%</td><td>0.0048%</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>2692</td><td>42.1</td><td>262.8906%</td><td>2.6289%</td><td>0.0513%</td><td>0.0051%</td></tr><tr><td>XMSS-SHAKE_20_256</td><td>2820</td><td>44.1</td><td>275.3906%</td><td>2.7539%</td><td>0.0538%</td><td>0.0054%</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>7856</td><td>122.8</td><td>767.1875%</td><td>7.6719%</td><td>0.1498%</td><td>0.015%</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>17088</td><td>267.0</td><td>1668.75%</td><td>16.6875%</td><td>0.3259%</td><td>0.0326%</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>16224</td><td>253.5</td><td>1584.375%</td><td>15.8438%</td><td>0.3094%</td><td>0.0309%</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>35664</td><td>557.2</td><td>3482.8125%</td><td>34.8281%</td><td>0.6802%</td><td>0.068%</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>29792</td><td>465.5</td><td>2909.375%</td><td>29.0938%</td><td>0.5682%</td><td>0.0568%</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>49856</td><td>779.0</td><td>4868.75%</td><td>48.6875%</td><td>0.9509%</td><td>0.0951%</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>7856</td><td>122.8</td><td>767.1875%</td><td>7.6719%</td><td>0.1498%</td><td>0.015%</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>17088</td><td>267.0</td><td>1668.75%</td><td>16.6875%</td><td>0.3259%</td><td>0.0326%</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>16224</td><td>253.5</td><td>1584.375%</td><td>15.8438%</td><td>0.3094%</td><td>0.0309%</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>35664</td><td>557.2</td><td>3482.8125%</td><td>34.8281%</td><td>0.6802%</td><td>0.068%</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>29792</td><td>465.5</td><td>2909.375%</td><td>29.0938%</td><td>0.5682%</td><td>0.0568%</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>49856</td><td>779.0</td><td>4868.75%</td><td>48.6875%</td><td>0.9509%</td><td>0.0951%</td></tr></tbody></table>
+
+<h2>Adversarial-input behaviour</h2>
+<table><thead><tr><th>Parameter set</th><th>Case</th><th>Outcome</th></tr></thead><tbody><tr><td>LMS_SHA256_H10_W1</td><td>hash-sigs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>hash-sigs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>hash-sigs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>hash-sigs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>hash-sigs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>hash-sigs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>hash-sigs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>hash-sigs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>hash-sigs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>hash-sigs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>hash-sigs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>hash-sigs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>hash-sigs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>hash-sigs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>hash-sigs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>hash-sigs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>hash-sigs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>hash-sigs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>hash-sigs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>hash-sigs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>hash-sigs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>hash-sigs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>hash-sigs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>hash-sigs_wrong_msg</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_valid</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>liboqs_cross_param</td><td>verify_INVALID</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>liboqs_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_cross_param</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_flipped_sig</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_truncated_sig</td><td>returns_False</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_valid</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_wrong_msg</td><td>False</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_valid</td><td>True</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_10_256</td><td>xmss-reference_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_10_256</td><td>xmss-reference_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHA2_10_256</td><td>xmss-reference_valid</td><td>True</td></tr><tr><td>XMSS-SHA2_10_256</td><td>xmss-reference_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_valid</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_16_256</td><td>xmss-reference_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHA2_16_256</td><td>xmss-reference_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHA2_16_256</td><td>xmss-reference_valid</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>xmss-reference_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_cross_param</td><td>refused_length_check</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_valid</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>xmss-reference_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>xmss-reference_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>xmss-reference_valid</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>xmss-reference_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_cross_param</td><td>verify_INVALID</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_valid</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_wrong_msg</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>xmss-reference_flipped_sig</td><td>INVALID</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>xmss-reference_truncated_sig</td><td>refused_length_check</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>xmss-reference_valid</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>xmss-reference_wrong_msg</td><td>INVALID</td></tr></tbody></table>
+
+<h2>Cross-implementation agreement</h2>
+<table><thead><tr><th>Parameter set</th><th>Check</th><th>Result</th></tr></thead><tbody><tr><td>LMS_SHA256_H10_W1</td><td>sig_hash-sigs_sign_liboqs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>sig_liboqs_sign_hash-sigs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>sig_hash-sigs_sign_liboqs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>sig_liboqs_sign_hash-sigs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>sig_hash-sigs_sign_liboqs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>sig_liboqs_sign_hash-sigs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>sig_hash-sigs_sign_liboqs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>sig_liboqs_sign_hash-sigs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>sig_hash-sigs_sign_liboqs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>sig_liboqs_sign_hash-sigs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>sig_hash-sigs_sign_liboqs_verify</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>sig_liboqs_sign_hash-sigs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>sig_liboqs_sign_slhdsa_verify</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>sig_slhdsa_sign_liboqs_verify</td><td>True</td></tr><tr><td>XMSS-SHA2_10_256</td><td>sig_liboqs_sign_xmss-reference_verify</td><td>True</td></tr><tr><td>XMSS-SHA2_10_256</td><td>sig_xmss-reference_sign_liboqs_verify</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>sig_liboqs_sign_xmss-reference_verify</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>sig_xmss-reference_sign_liboqs_verify</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>sig_liboqs_sign_xmss-reference_verify</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>sig_xmss-reference_sign_liboqs_verify</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>sig_liboqs_sign_xmss-reference_verify</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>sig_xmss-reference_sign_liboqs_verify</td><td>True</td></tr></tbody></table>
+
+<h2>Signing determinism (same state, same message)</h2>
+<table><thead><tr><th>Parameter set</th><th>Check</th><th>Result</th></tr></thead><tbody><tr><td>LMS_SHA256_H10_W1</td><td>hash-sigs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>LMS_SHA256_H10_W1</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>hash-sigs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>LMS_SHA256_H10_W4</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>hash-sigs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>LMS_SHA256_H10_W8</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>hash-sigs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>LMS_SHA256_H15_W4</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>hash-sigs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>LMS_SHA256_H5_W1</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>hash-sigs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>LMS_SHA256_H5_W4</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128f</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-128s</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192f</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-192s</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256f</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHA2-256s</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128f</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-128s</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192f</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-192s</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256f</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>liboqs_sign_twice_identical</td><td>no</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_deterministic_sign_twice_identical</td><td>True</td></tr><tr><td>SLH-DSA-SHAKE-256s</td><td>slhdsa_randomized_sign_twice_identical</td><td>False</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>XMSS-SHA2_10_256</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHA2_10_256</td><td>xmss-reference_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>XMSS-SHA2_16_256</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHA2_16_256</td><td>xmss-reference_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHAKE_10_256</td><td>xmss-reference_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_same_state_leaf_index</td><td>0</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>liboqs_same_state_same_msg_identical</td><td>True</td></tr><tr><td>XMSS-SHAKE_16_256</td><td>xmss-reference_same_state_same_msg_identical</td><td>True</td></tr></tbody></table>
+
+<h2>Environment (this machine)</h2>
+<pre>OpenSSL version: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+OpenSSL lists ML-DSA: False
+OpenSSL lists SLH-DSA: False
+OpenSSL lists LMS: False
+OpenSSL lists XMSS: False
+Python: 3.12.3
+liboqs stateful keygen/sign supported: True</pre>
+
+<h2>Findings</h2>
+<pre># Findings — Stateful Hash-Based Signature Deployment Assessment
+
+Severity-ranked findings from the benchmark and adversarial runs
+(`outputs/run1/`). Every finding is an actually
+observed behaviour, with the trigger command and the evidence location
+named. Sizes, state sizes, exhaustion and cross-implementation results
+are deterministic; timing medians vary
+between runs by design and are reported exactly in
+`outputs/run1/results.json` and in the tables in `docs/index.html`.
+The timing values quoted below are the run1 medians from
+`outputs/run1/results.json`.
+
+## F-01 — High: stateful private-key state not persisted atomically after signing, so a crash or backup restore reuses the same one-time signature index
+
+A stateful LMS/XMSS private key advances its leaf index on every
+signature. The reference caller in this pack
+(`remediation/vulnerable_signer.py`) releases the signature first and
+persists the updated state afterwards. If the process crashes, is
+killed, or the operator restores an older state file between those two
+steps, the next signature reuses the leaf index of the already-released
+signature. Reusing a one-time signature (OTS) key with two different
+messages leaks the private OTS key material: each LM-OTS signature
+reveals the private value for every chunk it covers, and two
+signatures under the same OTS key reveal the private values for
+nearly all chunk positions, letting an observer forge signatures under
+that leaf. RFC 8554 §6.2 and SP 800-208 both state that a one-time key
+must never be reused; a state rollback is a silent violation of that
+rule because both signatures still verify.
+
+Reproduction (LMS_SHA256_H5_W4, liboqs 0.16.0):
+
+```
+python3 remediation/reproduce_weakness.py
+```
+
+Output (`outputs/run1/remediation-before.log`):
+
+```
+sign A: index=0 (released, then CRASH before persist)
+sign B: index=0 (signed from the stale state file)
+same leaf index used twice: True
+verify signature A: verify VALID
+verify signature B: verify VALID
+REPRODUCED
+```
+
+The same failure was reproduced in the regression harness before the
+remediation was applied (`remediation/test_remediation.py`, BEFORE
+section: first signature valid, reused-index signatures both verify,
+same index used twice — index A=0, index B=0).
+
+Remediation: `remediation/state_journal.py` (`JournaledSigner`) commits
+the updated state before the signature is released — write the new
+state to a temporary file, fsync it, rename it over the state file,
+fsync the directory, then update a monotonic journal
+(`journal.json`: `key_id`, `last_committed_index`, `released`) the
+same way — and refuses to sign from any state whose next index is at
+or below `last_committed_index` (`STATE_ROLLBACK`). A crash before the
+commit releases nothing and the state is reusable at the same index
+exactly once. The regression test
+(`remediation/test_remediation.py`, 12 checks: 3 BEFORE + 9 AFTER)
+passes with exit 0; see `outputs/run1/remediation-after.log`. The
+patch that converts the vulnerable caller to the journaled caller is
+`remediation/remediation.patch` (applies cleanly with `patch -p1`).
+
+Severity: High — a single crash or restore silently breaks the
+one-time-use invariant the whole scheme depends on, and both
+signatures verify, so nothing in the verification path detects it.
+
+## F-02 — Medium: liboqs serialized LMS state is ~170x the reference implementation&#x27;s (10,980 B vs 64 B for LMS_SHA256_H10_W4)
+
+The liboqs serialized secret key for LMS_SHA256_H10_W4 is 10,980
+bytes; the hash-sigs reference serialized key for the same parameter
+set is 64 bytes (8 bytes of index + 8 bytes of flags + 32 bytes of
+seed + 16 bytes of state, per `HSS_MAX_PRIVATE_KEY_LEN`). The liboqs
+form carries the auxiliary Merkle-tree data needed to resume signing
+without recomputing the tree, while the reference recomputes from the
+seed. The consequence is operational: any backup, replication or
+transport of the private key must move ~11 KB per LMS key (and more
+for larger H) instead of 64 bytes, and a state store that truncates or
+corrupts the trailing bytes silently destroys the key. XMSS shows the
+same pattern at a smaller scale: liboqs serialized secret key for
+XMSS-SHA2_10_256 is 1,377 bytes vs 136 bytes for xmss-reference.
+
+Evidence: `outputs/run1/results.json` (`state` section);
+`outputs/run1/benchmark-run.log` (STATE lines).
+
+## F-03 — Medium: key generation cost grows exponentially with tree height; H20 keygen exceeds 240 s on this machine
+
+Measured keygen (run1 medians, in-process; exact values in
+`outputs/run1/results.json`):
+
+- LMS (liboqs): H5/W4 7.8 ms, H10/W4 244 ms, H15/W4 8,113 ms.
+  hash-sigs is roughly 2x faster at keygen (H15/W4 3,978 ms).
+- XMSS (liboqs): SHA2 H10 1,163 ms, SHA2 H16 73,719 ms;
+  SHAKE H10 2,674 ms, SHAKE H16 171,054 ms. xmss-reference is
+  roughly 2x slower at keygen (SHA2 H16 159,061 ms).
+- LMS_SHA256_H20_W4: killed by `timeout 240` with no output
+  (&gt;240 s).
+
+A 2^20-leaf tree is therefore not generatable on demand on this class
+of machine; it must be generated once, offline, and its state stored
+and protected for the lifetime of the key (which makes F-01 worse:
+the state file is long-lived and will be backed up and restored many
+times). H20 parameter sets in this pack are sizes-only for exactly
+this reason: no keygen-dependent measurement was attempted for them,
+and the state entries record `not_measured` with the &gt;240 s reason
+instead of an invented number.
+
+Evidence: `outputs/run1/results.json` (`throughput` section);
+`outputs/run1/benchmark-run.log`.
+
+## F-04 — Medium: liboqs LMS/XMSS key and signature encodings carry a 4-byte framing prefix the bare RFC formats do not, so raw values are not interchangeable across implementations
+
+- LMS: liboqs (and hash-sigs) public keys are 60 bytes and signatures
+  are 4 bytes longer than the bare RFC 8554 values (pk 56, sig 2508
+  for H10/W4). The extra 4 bytes are the HSS levels-count prefix.
+- XMSS: liboqs public keys are 68 bytes vs 64 bytes bare RFC 8391
+  (the 4-byte OID prefix); signatures are exactly the RFC size
+  (2500 bytes for XMSS-SHA2_10_256) because the signature carries no
+  OID.
+
+Verified: liboqs↔hash-sigs LMS and liboqs↔xmss-reference XMSS
+signatures verify in both directions **only after the framing is
+accounted for** — the drivers strip/add the prefix explicitly
+(`src/stfl_driver.c`, `src/ref_lms.c`, `src/ref_xmss.c`). A caller
+that feeds a bare RFC 8554 public key (56 bytes) to liboqs, or a
+liboqs public key (60 bytes) to a bare-RFC verifier, gets a
+length/parse failure, not a wrong verification. The hazard is a
+deployment that stores or transmits the prefixed form and later
+verifies with a bare-RFC implementation, or vice versa.
+
+Evidence: `outputs/run1/results.json` (`sizes_verified`,
+`cross_implementation`); `outputs/run1/benchmark-run.log`
+(XIMPL lines).
+
+## F-05 — Low: liboqs stateful signing fails closed without a secure-store callback, but a NULL callback context is silently ignored
+
+liboqs LMS/XMSS `sign` refuses to produce a signature when no
+secure-store callback is set (`sig_stfl_lms_functions.c`: &quot;No
+Secure-store set for secret key&quot;; the signature buffer is wiped if
+the store fails). That is fail-closed and correct. But
+`OQS_SECRET_KEY_LMS_set_store_cb` silently ignores a NULL context
+(`if (sk &amp;&amp; store_cb &amp;&amp; context)`), so a caller that passes a NULL
+context believing it registered a store callback gets no error at
+registration time and only discovers the problem when signing fails.
+The driver in this pack passes a non-NULL static context and asserts
+the stored key matches a re-serialization (`src/stfl_driver.c`).
+
+Evidence: `src/liboqs-0.16.0/src/sig_stfl/lms/sig_stfl_lms_functions.c`
+and `src/sig_stfl/lms/sig_stfl_lms.c` (bundled source, not a tracked
+file); driver behaviour in `outputs/run1/benchmark-run.log`.
+
+## F-06 — Low: the pure-Python SLH-DSA signer takes seconds per signature; the stateless alternative is only fast in C
+
+slh-dsa 0.2.5 (pure Python) signing is measured at n=1 and is
+indicative only — it takes seconds per signature, versus
+sub-millisecond verify/sign for liboqs SLH-DSA in C (exact medians in
+`outputs/run1/results.json`). SLH-DSA has no state to manage, so it
+sidesteps F-01 entirely, but a deployment that picks the pure-Python
+implementation for its simplicity pays for it in latency. Key and
+signature sizes match FIPS 205 Table 2 exactly in both
+implementations (pk 32/48/64, sk 64/96/128, sig 7856–49856 bytes).
+
+Evidence: `outputs/run1/results.json` (`throughput`,
+`sizes_verified`); `outputs/run1/benchmark-run.log`.
+
+## F-07 — Medium: state exhaustion is not fail-closed — liboqs permits one signature past the reported budget, and the two schemes fail differently
+
+liboqs reports the signature budget as 2^H − 1 (31 for LMS H5,
+1023 for XMSS H10) and `remaining` reaches 0 after that many
+signatures. But the tree actually has 2^H leaves, and the signing
+path performs no exhaustion check of its own — it signs while the
+leaf index is in range. Measured behaviour (`outputs/run1/results.json`,
+`exhaustion`; `outputs/run1/benchmark-run.log`, EXHAUST lines):
+
+- LMS (LMS_SHA256_H5_W4): signing all 31 signatures succeeds; the
+  32nd signature (leaf index 31) is produced with rc 0 and **verifies
+  VALID** under the public key. Only the 33rd attempt stops the key:
+  the serialized state after the 32nd signature fails to deserialize
+  (&quot;ERROR deserialize secret key failed&quot;), so the key is dead — but
+  only after one extra valid signature has already been emitted.
+- XMSS (XMSS-SHA2_10_256): signing all 1023 signatures succeeds; the
+  1024th signature (leaf index 1023) is produced with rc 0 but
+  **verifies INVALID**. A caller that signs past the budget gets a
+  signature that no verifier will accept, with no error from the
+  signer.
+
+The reported budget is therefore wrong by one for LMS (the true
+usable budget is 2^H, not 2^H − 1), and for XMSS the signer silently
+emits an invalid signature instead of refusing. A deployment that
+enforces key rotation at `remaining == 0` is safe in the LMS case
+(it rotates one signature early) but must not treat &quot;sign returned
+success&quot; as &quot;signature is valid&quot; in the XMSS case — verification is
+the only check that catches it.
+
+Evidence: `outputs/run1/results.json` (`exhaustion`);
+`outputs/run1/benchmark-run.log` (EXHAUST lines); liboqs source
+`src/liboqs-0.16.0/src/sig_stfl/lms/sig_stfl_lms_functions.c`
+(`OQS_SIG_STFL_alg_lms_sign` performs no budget check before
+calling the underlying sign) and
+`src/liboqs-0.16.0/src/sig_stfl/xmss/external/xmss.c`
+(`xmss_total_signatures`: `*max = ((1ULL &lt;&lt; params.full_height) - 1)`).
+
+## F-08 — Low: cross-implementation agreement verified in both directions for LMS and XMSS
+
+- LMS: liboqs→hash-sigs VALID and hash-sigs→liboqs VALID for
+  LMS_SHA256_H5_W4, H10/W4, H10/W1 (and the other measured sets).
+- XMSS: liboqs→xmss-reference VALID and xmss-reference→liboqs VALID
+  for XMSS-SHA2_10_256 and XMSS-SHAKE_10_256.
+- Determinism: signing the same message from the same state produces
+  byte-identical signatures in liboqs LMS/XMSS and in the reference
+  implementations; signing the same message from the updated state
+  advances the leaf index by exactly one and produces a different
+  signature.
+
+This is a positive result: the RFC-derived size formulas, the framing
+prefixes in F-04, and the leaf-index layout (LMS `q` at signature
+offset 4, after the 4-byte HSS prefix; XMSS `idx` at offset 0) are all
+confirmed by interoperating implementations rather than assumed.
+
+Evidence: `outputs/run1/results.json` (`cross_implementation`,
+`determinism`); `outputs/run1/benchmark-run.log` (XIMPL, DET lines).
+
+## F-09 — Medium: signing cost is implementation-dependent and grows with tree height in the slow direction — liboqs LMS sign takes ~9.4 s at H15 while hash-sigs takes 0.9 ms; xmss-reference XMSS sign takes ~159 s at H16 while liboqs takes 1.8 ms
+
+The two implementations have opposite performance profiles, because
+one side caches the Merkle-tree traversal state and the other
+recomputes the authentication path from the seed on every signature
+(run1 medians in `outputs/run1/results.json`, `throughput`):
+
+- LMS sign: liboqs H5/W4 10.5 ms, H10/W4 272 ms, H15/W4 9,448 ms
+  (roughly ×35 per +5 heights — the cost grows with 2^H);
+  hash-sigs H5/W4 0.30 ms, H10/W4 0.54 ms, H15/W4 0.91 ms
+  (flat — ~10,000x faster than liboqs at H15).
+- XMSS sign: liboqs SHA2 H10 2.0 ms, H16 1.8 ms (flat — the BDS
+  traversal state is kept); xmss-reference SHA2 H10 2,505 ms,
+  H16 159,049 ms (~159 s — the auth path is recomputed per sign).
+- Verify stays fast everywhere (LMS ≤ 0.9 ms, XMSS ≤ 1.9 ms).
+
+The consequence is a deployment trap: the same parameter set can be
+either fast or unusable depending on which implementation signs, and
+the slow direction scales with the tree size, so a key that signs
+fine at H10 can take seconds (LMS/liboqs) or minutes (XMSS/reference)
+per signature at H16. Key generation shows the same 2x gap in the
+other direction (liboqs LMS keygen is ~2x slower than hash-sigs;
+xmss-reference keygen is ~2x slower than liboqs), so no single
+implementation is fastest at everything.
+
+Evidence: `outputs/run1/results.json` (`throughput`);
+`outputs/run1/benchmark-run.log` (TIMING lines).
+
+## Not measured (honest gaps)
+
+- `outputs/run1/results.json` is reconstructed, not a single unedited
+  benchmark run: the run1 harness died silently during the
+  determinism section (after the XMSS-SHAKE_16_256 liboqs check),
+  before the exhaustion, artifact-size and environment sections.
+  Sections 0–6 were rebuilt verbatim from the unedited
+  `outputs/run1-build.log`; the missing determinism checks
+  (XMSS-SHAKE_16_256 xmss-reference, all 12 SLH-DSA sets) and
+  sections 7–9 were measured fresh on the same machine and code and
+  appended. See PACK-READY.md for the reconstruction method.
+- No clean-environment reproduction (`outputs/run2-clean/`) was
+  produced: `scripts/clean_reproduce.sh` takes ~2–3 hours
+  (liboqs rebuild + full benchmark) and was not run. Claim C-21
+  (clean reproduction matches run1) is therefore unproven, not
+  verified.
+- H20 parameter sets (LMS_SHA256_H20_W4, XMSS-SHA2_20_256,
+  XMSS-SHAKE_20_256): sizes only. Keygen exceeds 240 s on this
+  machine, so no keygen-dependent measurement was attempted.
+- Rust and Go implementations: not run — this machine has no
+  cargo/rustc or Go toolchain.
+- slh-dsa throughput is n=1 and indicative only.
+- No network-dependent check was performed; all sources are bundled
+  under `src/` and verified by SHA-256 in `scripts/run_all.sh`.
+</pre>
+
+<h2>Claim-to-evidence index</h2>
+<pre># Claims — Stateful Hash-Based Signature Deployment Assessment
+
+Each claim maps to the runnable script and unedited output that proves
+it. Timing medians and peak-RSS values are reported in run1 but
+are NOT asserted equal between runs (see README.md, comparison rule);
+every other field is compared by `src/compare_runs.py` when a second
+run exists. No second run was produced for this pack
+(`outputs/run2-clean/` does not exist; see C-21), so the
+cross-run comparison is not verified here.
+
+| ID | Claim | Evidence (script → output) |
+|----|-------|----------------------------|
+| C-01 | LMS key/signature sizes match the RFC 8554 formulas for every measured set (pk 60, sig 8688/2352/8848/2512/1456/2672/2832 bytes for H5/W1, H5/W4, H10/W1, H10/W4, H10/W8, H15/W4, H20/W4) | `src/benchmark.py` (sizes section) → `outputs/run1/results.json` (`sizes_verified`, `match: true`) + `outputs/run1/benchmark-run.log` (SIZE lines) |
+| C-02 | XMSS key/signature sizes match the RFC 8391 formulas for every measured set (pk 68, sig 2500/2692/2820 bytes for H10/H16/H20) | `src/benchmark.py` (sizes section) → `outputs/run1/results.json` (`sizes_verified`, `match: true`) + `outputs/run1/benchmark-run.log` (SIZE lines) |
+| C-03 | SLH-DSA key/signature sizes match FIPS 205 Table 2 for all 12 parameter sets | `src/benchmark.py` (sizes section) → `outputs/run1/results.json` (`sizes_verified`, `match: true`) + `outputs/run1/benchmark-run.log` (SIZE lines) |
+| C-04 | liboqs LMS public keys/signatures carry a 4-byte HSS framing prefix over the bare RFC 8554 values (pk 60 vs 56, sig +4 bytes) | `src/benchmark.py` (sizes section) → `outputs/run1/results.json` (`sizes_verified[].expected` vs `rfc8554_*`) + `src/hash-sigs/hss_common.c` (`hss_get_public_key_len` = 4 + first pubkey) |
+| C-05 | liboqs XMSS public keys carry a 4-byte OID prefix over the bare RFC 8391 value (pk 68 vs 64); signatures are exactly the RFC size | `src/benchmark.py` (sizes section) → `outputs/run1/results.json` (`sizes_verified[].expected` vs `rfc8391_*`) + `src/xmss-reference/xmss.h` (pk = OID \|\| root \|\| PUB_SEED) |
+| C-06 | LMS signature budget is 2^H − 1 (1023 for H10, 31 for H5); XMSS usable budget is also 2^H − 1 (1023 for H10 — liboqs/xmss-reference reserve the last leaf index) | `src/benchmark.py` (state section) → `outputs/run1/results.json` (`state[].sigs_total`) + `outputs/run1/benchmark-run.log` (STATE lines) |
+| C-07 | liboqs serialized LMS secret key for H10/W4 is 10,980 bytes vs 64 bytes for hash-sigs; XMSS-SHA2_10_256 is 1,377 bytes (liboqs) vs 136 bytes (xmss-reference) | `src/benchmark.py` (state section) → `outputs/run1/results.json` (`state`) + `outputs/run1/benchmark-run.log` (STATE lines) |
+| C-08 | Keygen cost grows exponentially with H: LMS liboqs H5/W4 7.8 ms, H10/W4 244 ms, H15/W4 8,113 ms; XMSS liboqs SHA2 H10 1,163 ms, H16 73,719 ms (run1 medians in results.json) | `src/benchmark.py` (throughput section) → `outputs/run1/results.json` (`throughput`) + `outputs/run1/benchmark-run.log` (TIMING lines) |
+| C-09 | H20 parameter sets are sizes-only: no keygen-dependent measurement was attempted because keygen exceeds 240 s | `src/benchmark.py` (state section) → `outputs/run1/results.json` (`state[].not_measured`) + `outputs/run1/benchmark-run.log` (STATE ... NOT MEASURED lines) |
+| C-10 | State exhaustion is not fail-closed: after signing all 31 LMS H5/W4 signatures, the 32nd (index 31) is produced and verifies VALID; the 33rd fails at deserialize. After signing all 1023 XMSS H10 signatures, the 1024th (index 1023) is produced but verifies INVALID | `src/benchmark.py` (exhaustion section) → `outputs/run1/results.json` (`exhaustion`: `sign_after_exhaustion_verifies: true`, `xmss_sign_after_exhaustion_verifies: false`) |
+| C-11 | A crash or backup restore between releasing a signature and persisting the updated state reuses the same one-time index, and both signatures verify (F-01 reproduced) | `remediation/reproduce_weakness.py` → `outputs/run1/remediation-before.log` (REPRODUCED) |
+| C-12 | The journaled signer commits state before releasing the signature and refuses stale state with STATE_ROLLBACK; 12 regression checks pass, 0 fail | `remediation/test_remediation.py --driver src/stfl_driver` → `outputs/run1/remediation-after.log` (regression test: 12 passed, 0 failed) |
+| C-13 | The remediation patch applies cleanly and the patched caller refuses a backup restore | `remediation/test_remediation.py` (after_patch_applies_cleanly, after_patch_applied, after_patched_caller_refuses_backup_restore) → `outputs/run1/remediation-after.log` |
+| C-14 | liboqs LMS/XMSS signing is deterministic for the same state and message (byte-identical signatures); the updated state advances the leaf index by exactly one | `src/benchmark.py` (determinism section) → `outputs/run1/results.json` (`determinism`) + `outputs/run1/benchmark-run.log` (DET lines) |
+| C-15 | Cross-implementation agreement: liboqs↔hash-sigs LMS and liboqs↔xmss-reference XMSS signatures verify in both directions | `src/benchmark.py` (cross-implementation section) → `outputs/run1/results.json` (`cross_implementation`, all `true`) + `outputs/run1/benchmark-run.log` (XIMPL lines) |
+| C-16 | LMS leaf index `q` is at signature byte offset 4 (after the 4-byte HSS prefix); XMSS `idx` is at offset 0 | `src/stfl_driver.c` (`leaf_index`) → verified empirically: sequential indices 0, 1, 2 in the regression harness (`outputs/run1/remediation-after.log`, `after_sequential_signatures_use_distinct_indices`) and leaf_index=0 in the DET lines (`outputs/run1/benchmark-run.log`) |
+| C-17 | liboqs stateful signing refuses without a secure-store callback and wipes the signature if the store fails; a NULL callback context is silently ignored at registration | `src/liboqs-0.16.0/src/sig_stfl/lms/sig_stfl_lms_functions.c` + `src/sig_stfl/lms/sig_stfl_lms.c` (bundled source) |
+| C-18 | Adversarial inputs fail closed: corrupted public key, corrupted secret key, corrupted signature, truncated signature, wrong public key, tampered message, empty message, wrong length — all behave as recorded (no silent acceptance, no crash) | `src/benchmark.py` (adversarial section) → `outputs/run1/results.json` (`adversarial`) + `outputs/run1/benchmark-run.log` (ADV lines) |
+| C-19 | Signature bytes dominate small release artifacts (e.g. an LMS H10/W4 signature is 2512 bytes vs a 1 KiB manifest) and are negligible for large ones | `src/benchmark.py` (artifact-size section) → `outputs/run1/results.json` (`artifact_size_impact`) |
+| C-20 | OpenSSL 3.0.13 on this machine lists none of ML-DSA, SLH-DSA, LMS or XMSS; liboqs stateful keygen/sign is supported in this build | `src/benchmark.py` (environment section) → `outputs/run1/results.json` (`environment`) |
+| C-21 | **NOT RUN — UNPROVEN.** A fresh-environment reproduction would produce the same deterministic results as run1 (sizes, state, adversarial, cross-implementation, determinism, exhaustion, remediation verdicts) | `bash scripts/clean_reproduce.sh` was NOT run (takes ~2–3 hours); `outputs/run2-clean/` does not exist, so no comparison output exists. Do not treat this claim as verified. |
+| C-22 | Rust and Go implementations were not benchmarked: this machine has no cargo/rustc or Go toolchain | `src/benchmark.py` does not invoke any Rust/Go tool; `evidence.json` (`implementations_benchmarked`) records the gap |
+| C-23 | slh-dsa 0.2.5 throughput is n=1 and indicative only | `src/benchmark.py` (`SLH_BENCH_N = 1`) → `outputs/run1/results.json` (`throughput` for SLH-DSA sets) |
+| C-24 | Signing cost is implementation-dependent: liboqs LMS sign H15/W4 9,448 ms vs hash-sigs 0.91 ms; xmss-reference XMSS sign H16 159,049 ms vs liboqs 1.84 ms; liboqs XMSS sign is flat across H (BDS) | `src/benchmark.py` (throughput section) → `outputs/run1/results.json` (`throughput`) + `outputs/run1/benchmark-run.log` (TIMING lines) |
+</pre>
+
+<h2>Reproduce</h2>
+<pre>bash scripts/run_all.sh            # full rebuild + benchmark into outputs/run1/
+bash scripts/clean_reproduce.sh    # fresh-copy re-run into outputs/run2-clean/ + comparison
+bash scripts/verify_digests.sh     # SHA-256 check over all shippable files</pre>
+<p>Sources: RFC 8391 and RFC 8554 (bundled as src/RFC.8391.txt and
+src/RFC.8554.txt), NIST SP 800-208 (bundled as src/SP.800-208.pdf),
+FIPS 203/204/205 (bundled as src/FIPS.20x.pdf); liboqs 0.16.0;
+hash-sigs; xmss-reference; slh-dsa 0.2.5. Full citations in
+citations.md.</p>
+</body></html>
