@@ -1,0 +1,65 @@
+Verification follow-up
+
+From a fresh clone of the submitted repository, run 2026-11-10 ~04:40 WIB:
+
+$ git clone https://github.com/araupooo/stateful-hash-based-signature-deployment-assessment.git
+$ cd stateful-hash-based-signature-deployment-assessment
+$ git rev-parse HEAD
+dc42aa28d4b6711e326770cbf463dc682e7e0f12
+
+$ bash scripts/verify_digests.sh
+./.gitignore: OK
+./README.md: OK
+./citations.md: OK
+./claims.md: OK
+./evidence.json: OK
+./findings.md: OK
+./fixtures/test-vectors.json: OK
+./outputs/build-liboqs-cmake.log: OK
+./outputs/build-liboqs-make.log: OK
+./outputs/run1-build.log: OK
+./outputs/run1/benchmark-run.log: OK
+./outputs/run1/remediation-after.log: OK
+./outputs/run1/remediation-before.log: OK
+./outputs/run1/results.json: OK
+./remediation/remediation.patch: OK
+./remediation/reproduce_weakness.py: OK
+./remediation/state_journal.py: OK
+./remediation/test_remediation.py: OK
+./remediation/vulnerable_signer.fixed.py: OK
+./remediation/vulnerable_signer.py: OK
+./scripts/clean_reproduce.sh: OK
+./scripts/regen_digests.sh: OK
+./scripts/run_all.sh: OK
+./scripts/verify_digests.sh: OK
+./src/FIPS.203.pdf: OK
+./src/FIPS.204.pdf: OK
+./src/FIPS.205.pdf: OK
+./src/RFC.8391.txt: OK
+./src/RFC.8554.txt: OK
+./src/SP.800-208.pdf: OK
+./src/benchmark.py: OK
+./src/compare_runs.py: OK
+./src/generate_docs.py: OK
+./src/hash-sigs.tar.gz: OK
+./src/liboqs-0.16.0.tar.gz: OK
+./src/make_evidence.py: OK
+./src/pq_driver.c: OK
+./src/ref_lms.c: OK
+./src/ref_xmss.c: OK
+./src/slh_dsa-0.2.5-py3-none-any.whl: OK
+./src/stfl_driver.c: OK
+./src/xmss-reference.tar.gz: OK
+verify_digests exit code: 0
+
+All 42 files in SHA256SUMS verify OK on the submitted commit dc42aa2. (docs/index.html and SHA256SUMS itself are not digested by design; docs/index.html is the GitHub Pages findings page, live at https://araupooo.github.io/stateful-hash-based-signature-deployment-assessment/.)
+
+Single command to regenerate one row of outputs/run1/results.json:
+
+src/stfl_driver bench LMS_SHA256_H5_W1 10 20 20
+
+This regenerates the throughput row results.json["throughput"]["LMS_SHA256_H5_W1"]["liboqs"] (keygen_ms_median, sign_ms_median, verify_ms_median, n_keygen=10, n_sign=20, n_verify=20, sign_ok, verify_ok) and the memory_kb row (peak_rss_kb) for the liboqs LMS H5/W1 parameter set, using the same driver and the same (n_keygen, n_sign, n_verify) = (10, 20, 20) that src/benchmark.py uses for this set (LMS_BENCH_N in src/benchmark.py). It runs in under a second, not the full 1.5-2 hour run. The driver binary src/stfl_driver is built by scripts/run_all.sh steps 2-3 (liboqs build + gcc compile of src/stfl_driver.c).
+
+Confirmation — I ran this exact command against the submitted code and it reproduces the row (timing medians vary between runs by design, as documented in the pack):
+  fresh run: keygen_ms_median 5.284956, sign_ms_median 7.402924, sign_ok 20/20, verify_ms_median 0.044422, verify_ok 20/20, peak_rss_kb 5984
+  results.json row: keygen_ms_median 5.650027, sign_ms_median 7.243285, sign_ok 20/20, verify_ms_median 0.043781, verify_ok 20/20, memory_kb 6036
