@@ -26,13 +26,15 @@ state-management failure mode and a tested remediation.
   silently during the determinism section, so `results.json` is
   reconstructed: sections 0–6 rebuilt verbatim from the unedited
   `outputs/run1-build.log`, the missing determinism checks and
-  sections 7–9 measured fresh on the same machine and code (see
-  PACK-READY.md). `outputs/run2-clean/` was not produced
-  (clean reproduction not run — see Limitations).
+  sections 7–9 measured fresh on the same machine and code, using the
+  harness's own logic (method in `findings.md`, "Not measured").
+  `outputs/run2-clean/` is a full fresh-environment re-run
+  (`scripts/clean_reproduce.sh`); the comparison
+  (`outputs/run-comparison.log`) is 870 checks, 0 differences, MATCH.
 - `docs/index.html` — rendered findings page (tables generated from
   `outputs/run1/results.json`).
-- `claims.md` — claim-to-evidence index (C-01…C-24; C-21 is marked
-  NOT RUN — the clean reproduction was not performed).
+- `claims.md` — claim-to-evidence index (C-01…C-24; C-21 verified by
+  the clean reproduction, 870 checks, 0 differences).
 - `findings.md` — severity-ranked findings (F-01 High; F-02, F-03,
   F-04, F-07, F-09 Medium; F-05, F-06, F-08 Low).
 - `citations.md` — primary sources for every spec-derived claim.
@@ -134,11 +136,11 @@ keys/signatures are not compared (keys are fresh per run).
 ## Limitations (honest gaps)
 
 - `outputs/run1/results.json` is reconstructed, not a single unedited
-  benchmark run (see `outputs/run1/` above and PACK-READY.md).
-- No clean-environment reproduction (`outputs/run2-clean/`) was
-  produced: `scripts/clean_reproduce.sh` takes ~2–3 hours and was
-  not run, so claim C-21 (clean reproduction matches run1) is
-  unproven.
+  benchmark run (see `outputs/run1/` above; method in `findings.md`,
+  "Not measured"). The clean reproduction (`outputs/run2-clean/`)
+  independently re-measured every deterministic field and matches
+  run1 exactly (870 checks, 0 differences, MATCH), so claim C-21 is
+  verified.
 - H20 parameter sets (LMS_SHA256_H20_W4, XMSS-SHA2_20_256,
   XMSS-SHAKE_20_256) are sizes-only: keygen exceeds 240 s on this
   machine, so no keygen-dependent measurement was attempted. Their

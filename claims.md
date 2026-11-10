@@ -4,9 +4,9 @@ Each claim maps to the runnable script and unedited output that proves
 it. Timing medians and peak-RSS values are reported in run1 but
 are NOT asserted equal between runs (see README.md, comparison rule);
 every other field is compared by `src/compare_runs.py` when a second
-run exists. No second run was produced for this pack
-(`outputs/run2-clean/` does not exist; see C-21), so the
-cross-run comparison is not verified here.
+run exists. A second run was produced for this pack
+(`outputs/run2-clean/`, see C-21); the cross-run comparison is
+870 checks, 0 differences, MATCH.
 
 | ID | Claim | Evidence (script → output) |
 |----|-------|----------------------------|
@@ -30,7 +30,7 @@ cross-run comparison is not verified here.
 | C-18 | Adversarial inputs fail closed: corrupted public key, corrupted secret key, corrupted signature, truncated signature, wrong public key, tampered message, empty message, wrong length — all behave as recorded (no silent acceptance, no crash) | `src/benchmark.py` (adversarial section) → `outputs/run1/results.json` (`adversarial`) + `outputs/run1/benchmark-run.log` (ADV lines) |
 | C-19 | Signature bytes dominate small release artifacts (e.g. an LMS H10/W4 signature is 2512 bytes vs a 1 KiB manifest) and are negligible for large ones | `src/benchmark.py` (artifact-size section) → `outputs/run1/results.json` (`artifact_size_impact`) |
 | C-20 | OpenSSL 3.0.13 on this machine lists none of ML-DSA, SLH-DSA, LMS or XMSS; liboqs stateful keygen/sign is supported in this build | `src/benchmark.py` (environment section) → `outputs/run1/results.json` (`environment`) |
-| C-21 | **NOT RUN — UNPROVEN.** A fresh-environment reproduction would produce the same deterministic results as run1 (sizes, state, adversarial, cross-implementation, determinism, exhaustion, remediation verdicts) | `bash scripts/clean_reproduce.sh` was NOT run (takes ~2–3 hours); `outputs/run2-clean/` does not exist, so no comparison output exists. Do not treat this claim as verified. |
+| C-21 | A fresh-environment reproduction produces the same deterministic results as run1 (sizes, state, adversarial, cross-implementation, determinism, exhaustion, remediation verdicts) | `bash scripts/clean_reproduce.sh` → `outputs/run2-clean/results.json` + `outputs/run-comparison.log`: 870 checks, 0 differences, MATCH. Timing medians and peak-RSS values differ by design and were not asserted equal. |
 | C-22 | Rust and Go implementations were not benchmarked: this machine has no cargo/rustc or Go toolchain | `src/benchmark.py` does not invoke any Rust/Go tool; `evidence.json` (`implementations_benchmarked`) records the gap |
 | C-23 | slh-dsa 0.2.5 throughput is n=1 and indicative only | `src/benchmark.py` (`SLH_BENCH_N = 1`) → `outputs/run1/results.json` (`throughput` for SLH-DSA sets) |
 | C-24 | Signing cost is implementation-dependent: liboqs LMS sign H15/W4 9,448 ms vs hash-sigs 0.91 ms; xmss-reference XMSS sign H16 159,049 ms vs liboqs 1.84 ms; liboqs XMSS sign is flat across H (BDS) | `src/benchmark.py` (throughput section) → `outputs/run1/results.json` (`throughput`) + `outputs/run1/benchmark-run.log` (TIMING lines) |

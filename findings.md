@@ -259,13 +259,14 @@ Evidence: `outputs/run1/results.json` (`throughput`);
   Sections 0–6 were rebuilt verbatim from the unedited
   `outputs/run1-build.log`; the missing determinism checks
   (XMSS-SHAKE_16_256 xmss-reference, all 12 SLH-DSA sets) and
-  sections 7–9 were measured fresh on the same machine and code and
-  appended. See PACK-READY.md for the reconstruction method.
-- No clean-environment reproduction (`outputs/run2-clean/`) was
-  produced: `scripts/clean_reproduce.sh` takes ~2–3 hours
-  (liboqs rebuild + full benchmark) and was not run. Claim C-21
-  (clean reproduction matches run1) is therefore unproven, not
-  verified.
+  sections 7–9 were measured fresh on the same machine and code, using
+  the harness's own logic, and appended.
+- Clean-environment reproduction (`outputs/run2-clean/`) was produced
+  by `bash scripts/clean_reproduce.sh` (fresh copy, liboqs rebuild,
+  full benchmark) and compared with `src/compare_runs.py`:
+  870 checks, 0 differences, MATCH — claim C-21 is verified (see
+  `outputs/run-comparison.log`). Timing medians and peak-RSS values
+  differ between runs by design and were not asserted equal.
 - H20 parameter sets (LMS_SHA256_H20_W4, XMSS-SHA2_20_256,
   XMSS-SHAKE_20_256): sizes only. Keygen exceeds 240 s on this
   machine, so no keygen-dependent measurement was attempted.

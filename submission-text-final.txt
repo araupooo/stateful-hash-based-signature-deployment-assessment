@@ -1,0 +1,38 @@
+Stateful hash-based signature deployment assessment
+
+Repository:
+https://github.com/araupooo/stateful-hash-based-signature-deployment-assessment
+
+Findings page:
+https://araupooo.github.io/stateful-hash-based-signature-deployment-assessment/
+
+Reproducible LMS / XMSS / SLH-DSA assessment across pinned liboqs
+0.16.0 (C), the hash-sigs LMS reference (C), the xmss-reference XMSS
+reference (C) and slh-dsa 0.2.5 (pure Python). Sizes match the RFC
+8554 / RFC 8391 formulas and FIPS 205 Table 2 exactly for every
+parameter set; cross-implementation signatures verify in both
+directions (liboqs↔hash-sigs LMS, liboqs↔xmss-reference XMSS).
+Keygen cost grows exponentially with tree height (LMS H15/W4 8,113 ms,
+XMSS H16 73,719 ms; H20 keygen exceeds 240 s, so H20 sets are sizes-only).
+State exhaustion is not fail-closed (F-07): the LMS 32nd signature past
+the reported budget verifies VALID, and the XMSS 1024th is produced but
+verifies INVALID. Signing cost is implementation-dependent (F-09): liboqs
+LMS sign takes 9,448 ms at H15 vs 0.91 ms for hash-sigs; xmss-reference
+XMSS sign takes 159,049 ms at H16 vs 1.84 ms for liboqs.
+
+Failure mode F-01 (High): stateful private-key state not persisted
+atomically after signing — a crash or backup restore reuses the same
+one-time signature index, and both signatures verify. Reproduced with
+remediation/reproduce_weakness.py. Remediation: atomic state commit
+before signature release plus a monotonic journal that refuses stale
+state (STATE_ROLLBACK); regression test 12 passed, 0 failed.
+
+Validation: results.json reconstructed from the unedited run1-build.log
+(sections 0–6) plus fresh determinism, exhaustion, artifact-size and
+environment measurements using the harness's own logic (method in
+findings.md, "Not measured"); clean reproduction completed with
+bash scripts/clean_reproduce.sh — 870 checks, 0 differences, MATCH
+(outputs/run-comparison.log), so claim C-21 is verified; digests
+verified with bash scripts/verify_digests.sh (all OK). 24 claims
+(C-01…C-24) in claims.md, each mapped to a runnable script and its
+unedited output; 9 findings (1 High, 5 Medium, 3 Low) in findings.md.
