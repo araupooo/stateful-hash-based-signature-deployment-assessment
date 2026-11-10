@@ -1,0 +1,7 @@
+=== F-01 reproduction: non-atomic state persist reuses a one-time index ===
+sign A: index=0 (released, then CRASH before persist)
+sign B: index=0 (signed from the stale state file)
+same leaf index used twice: True
+verify signature A: verify VALID
+verify signature B: verify VALID
+REPRODUCED

@@ -1,0 +1,15 @@
+=== BEFORE (failure mode): crash before persist reuses the index ===
+PASS before_first_signature_valid
+PASS before_reused_index_signatures_both_verify
+PASS before_same_index_used_twice — index A=0 index B=0
+=== AFTER (remediation): journaled signer ===
+PASS after_sequential_signatures_use_distinct_indices — indices=(0, 1, 2)
+PASS after_backup_restore_refused — STATE_ROLLBACK: journal last_committed_index=3 but loaded state would reuse index 3 (state file is stale)
+PASS after_crash_before_commit_releases_nothing_and_state_reusable — crashed index=0, next released index=0
+PASS after_tampered_state_refused
+PASS after_signatures_verify_under_liboqs
+PASS after_journal_matches_state — journal={'key_id': '1302ec91058ad217', 'last_committed_index': 3, 'released': 4}
+PASS after_patch_applies_cleanly — checking file vulnerable_signer.py
+PASS after_patch_applied
+PASS after_patched_caller_refuses_backup_restore — REFUSED STATE_ROLLBACK: journal last_committed_index=1 but loaded state would reuse index 1 (state file is stale)
+=== regression test: 12 passed, 0 failed ===
