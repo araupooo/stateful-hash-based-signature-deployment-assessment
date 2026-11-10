@@ -13,9 +13,14 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-WORK="$(mktemp -d)"
+# The fresh copy must live on persistent disk, not /tmp: service restarts
+# wipe /tmp and would destroy the copy mid-run. A sibling of the pack dir
+# keeps it outside the pack (so regen_digests never hashes it).
+WORK="$PWD/../.clean-repro-tmp"
+rm -rf "$WORK"
+mkdir -p "$WORK"
 trap 'rm -rf "$WORK"' EXIT
-echo "fresh copy -> $WORK"
+echo "fresh copy -> ../.clean-repro-tmp"
 rsync -a --exclude .git --exclude venv \
   --exclude src/liboqs-0.16.0 --exclude src/liboqs-build --exclude src/pq_driver \
   --exclude src/stfl_driver --exclude src/ref_lms --exclude src/ref_xmss \
