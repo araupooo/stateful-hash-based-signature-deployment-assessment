@@ -1,0 +1,492 @@
+=== stateful hash-based signature deployment assessment pack: run2-clean ===
+date (UTC): 2026-11-10T00:23:21Z
+src/liboqs-0.16.0.tar.gz: OK
+src/hash-sigs.tar.gz: OK
+src/xmss-reference.tar.gz: OK
+src/slh_dsa-0.2.5-py3-none-any.whl: OK
+src/FIPS.203.pdf: OK
+src/FIPS.204.pdf: OK
+src/FIPS.205.pdf: OK
+src/RFC.8391.txt: OK
+src/RFC.8554.txt: OK
+src/SP.800-208.pdf: OK
+extracting liboqs 0.16.0 ...
+configuring liboqs (ML-DSA + SLH-DSA + stateful LMS/XMSS) ...
+building liboqs ...
+-rw-rw---- 1 root nogroup 6038378 Nov 10 00:24 src/liboqs-build/lib/liboqs.a
+extracting hash-sigs ...
+extracting xmss-reference ...
+compiling liboqs drivers ...
+compiling reference drivers ...
+creating venv and installing slh-dsa from bundled wheel ...
+slh-dsa 0.2.5
+running benchmark harness -> outputs/run2-clean ...
+=== stateful hash-based signature deployment assessment harness ===
+stfl driver: src/stfl_driver
+pq driver: src/pq_driver
+ref-lms driver: src/ref_lms
+ref-xmss driver: src/ref_xmss
+python: venv/bin/python
+test message: 'stateful hash-based signature deployment assessment test message'
+--- sizes (RFC 8554 / RFC 8391 formulas, FIPS 205 Table 2) ---
+SIZE LMS_SHA256_H5_W1 liboqs={'pk': 60, 'sk': 64, 'sig': 8688} expected_pk=60 expected_sig=8688 (RFC 8554 bare pk=56 sig=8684, ots_p=265) match=True
+SIZE LMS_SHA256_H5_W1 hash-sigs={'pk': 60, 'sk': 64, 'sig': 8688} match=True
+SIZE LMS_SHA256_H5_W4 liboqs={'pk': 60, 'sk': 64, 'sig': 2352} expected_pk=60 expected_sig=2352 (RFC 8554 bare pk=56 sig=2348, ots_p=67) match=True
+SIZE LMS_SHA256_H5_W4 hash-sigs={'pk': 60, 'sk': 64, 'sig': 2352} match=True
+SIZE LMS_SHA256_H10_W1 liboqs={'pk': 60, 'sk': 64, 'sig': 8848} expected_pk=60 expected_sig=8848 (RFC 8554 bare pk=56 sig=8844, ots_p=265) match=True
+SIZE LMS_SHA256_H10_W1 hash-sigs={'pk': 60, 'sk': 64, 'sig': 8848} match=True
+SIZE LMS_SHA256_H10_W4 liboqs={'pk': 60, 'sk': 64, 'sig': 2512} expected_pk=60 expected_sig=2512 (RFC 8554 bare pk=56 sig=2508, ots_p=67) match=True
+SIZE LMS_SHA256_H10_W4 hash-sigs={'pk': 60, 'sk': 64, 'sig': 2512} match=True
+SIZE LMS_SHA256_H10_W8 liboqs={'pk': 60, 'sk': 64, 'sig': 1456} expected_pk=60 expected_sig=1456 (RFC 8554 bare pk=56 sig=1452, ots_p=34) match=True
+SIZE LMS_SHA256_H10_W8 hash-sigs={'pk': 60, 'sk': 64, 'sig': 1456} match=True
+SIZE LMS_SHA256_H15_W4 liboqs={'pk': 60, 'sk': 64, 'sig': 2672} expected_pk=60 expected_sig=2672 (RFC 8554 bare pk=56 sig=2668, ots_p=67) match=True
+SIZE LMS_SHA256_H15_W4 hash-sigs={'pk': 60, 'sk': 64, 'sig': 2672} match=True
+SIZE LMS_SHA256_H20_W4 liboqs={'pk': 60, 'sk': 64, 'sig': 2832} expected_pk=60 expected_sig=2832 (RFC 8554 bare pk=56 sig=2828, ots_p=67) match=True
+SIZE LMS_SHA256_H20_W4 hash-sigs={'pk': 60, 'sk': 64, 'sig': 2832} match=True
+SIZE XMSS-SHA2_10_256 liboqs={'pk': 68, 'sk': 1377, 'sig': 2500} expected_pk=68 expected_sig=2500 (RFC 8391 bare pk=64 sig=2500) match=True
+SIZE XMSS-SHA2_10_256 xmss-reference={'pk': 68, 'sk': 136, 'sig': 2500} match=True
+SIZE XMSS-SHA2_16_256 liboqs={'pk': 68, 'sk': 2097, 'sig': 2692} expected_pk=68 expected_sig=2692 (RFC 8391 bare pk=64 sig=2692) match=True
+SIZE XMSS-SHA2_16_256 xmss-reference={'pk': 68, 'sk': 136, 'sig': 2692} match=True
+SIZE XMSS-SHAKE_10_256 liboqs={'pk': 68, 'sk': 1377, 'sig': 2500} expected_pk=68 expected_sig=2500 (RFC 8391 bare pk=64 sig=2500) match=True
+SIZE XMSS-SHAKE_10_256 xmss-reference={'pk': 68, 'sk': 136, 'sig': 2500} match=True
+SIZE XMSS-SHAKE_16_256 liboqs={'pk': 68, 'sk': 2097, 'sig': 2692} expected_pk=68 expected_sig=2692 (RFC 8391 bare pk=64 sig=2692) match=True
+SIZE XMSS-SHAKE_16_256 xmss-reference={'pk': 68, 'sk': 136, 'sig': 2692} match=True
+SIZE XMSS-SHA2_20_256 liboqs={'pk': 68, 'sk': 2577, 'sig': 2820} expected_pk=68 expected_sig=2820 (RFC 8391 bare pk=64 sig=2820) match=True
+SIZE XMSS-SHA2_20_256 xmss-reference={'pk': 68, 'sk': 136, 'sig': 2820} match=True
+SIZE XMSS-SHAKE_20_256 liboqs={'pk': 68, 'sk': 2577, 'sig': 2820} expected_pk=68 expected_sig=2820 (RFC 8391 bare pk=64 sig=2820) match=True
+SIZE XMSS-SHAKE_20_256 xmss-reference={'pk': 68, 'sk': 136, 'sig': 2820} match=True
+SIZE SLH-DSA-SHA2-128s liboqs={'pk': 32, 'sk': 64, 'sig': 7856} expected={'pk': 32, 'sk': 64, 'sig': 7856} match=True
+SIZE SLH-DSA-SHA2-128s slh-dsa={'pk': 32, 'sk': 64, 'sig': 7856} match=True
+SIZE SLH-DSA-SHA2-128f liboqs={'pk': 32, 'sk': 64, 'sig': 17088} expected={'pk': 32, 'sk': 64, 'sig': 17088} match=True
+SIZE SLH-DSA-SHA2-128f slh-dsa={'pk': 32, 'sk': 64, 'sig': 17088} match=True
+SIZE SLH-DSA-SHA2-192s liboqs={'pk': 48, 'sk': 96, 'sig': 16224} expected={'pk': 48, 'sk': 96, 'sig': 16224} match=True
+SIZE SLH-DSA-SHA2-192s slh-dsa={'pk': 48, 'sk': 96, 'sig': 16224} match=True
+SIZE SLH-DSA-SHA2-192f liboqs={'pk': 48, 'sk': 96, 'sig': 35664} expected={'pk': 48, 'sk': 96, 'sig': 35664} match=True
+SIZE SLH-DSA-SHA2-192f slh-dsa={'pk': 48, 'sk': 96, 'sig': 35664} match=True
+SIZE SLH-DSA-SHA2-256s liboqs={'pk': 64, 'sk': 128, 'sig': 29792} expected={'pk': 64, 'sk': 128, 'sig': 29792} match=True
+SIZE SLH-DSA-SHA2-256s slh-dsa={'pk': 64, 'sk': 128, 'sig': 29792} match=True
+SIZE SLH-DSA-SHA2-256f liboqs={'pk': 64, 'sk': 128, 'sig': 49856} expected={'pk': 64, 'sk': 128, 'sig': 49856} match=True
+SIZE SLH-DSA-SHA2-256f slh-dsa={'pk': 64, 'sk': 128, 'sig': 49856} match=True
+SIZE SLH-DSA-SHAKE-128s liboqs={'pk': 32, 'sk': 64, 'sig': 7856} expected={'pk': 32, 'sk': 64, 'sig': 7856} match=True
+SIZE SLH-DSA-SHAKE-128s slh-dsa={'pk': 32, 'sk': 64, 'sig': 7856} match=True
+SIZE SLH-DSA-SHAKE-128f liboqs={'pk': 32, 'sk': 64, 'sig': 17088} expected={'pk': 32, 'sk': 64, 'sig': 17088} match=True
+SIZE SLH-DSA-SHAKE-128f slh-dsa={'pk': 32, 'sk': 64, 'sig': 17088} match=True
+SIZE SLH-DSA-SHAKE-192s liboqs={'pk': 48, 'sk': 96, 'sig': 16224} expected={'pk': 48, 'sk': 96, 'sig': 16224} match=True
+SIZE SLH-DSA-SHAKE-192s slh-dsa={'pk': 48, 'sk': 96, 'sig': 16224} match=True
+SIZE SLH-DSA-SHAKE-192f liboqs={'pk': 48, 'sk': 96, 'sig': 35664} expected={'pk': 48, 'sk': 96, 'sig': 35664} match=True
+SIZE SLH-DSA-SHAKE-192f slh-dsa={'pk': 48, 'sk': 96, 'sig': 35664} match=True
+SIZE SLH-DSA-SHAKE-256s liboqs={'pk': 64, 'sk': 128, 'sig': 29792} expected={'pk': 64, 'sk': 128, 'sig': 29792} match=True
+SIZE SLH-DSA-SHAKE-256s slh-dsa={'pk': 64, 'sk': 128, 'sig': 29792} match=True
+SIZE SLH-DSA-SHAKE-256f liboqs={'pk': 64, 'sk': 128, 'sig': 49856} expected={'pk': 64, 'sk': 128, 'sig': 49856} match=True
+SIZE SLH-DSA-SHAKE-256f slh-dsa={'pk': 64, 'sk': 128, 'sig': 49856} match=True
+--- state (serialized secret-key size, total/remaining signatures) ---
+STATE LMS_SHA256_H5_W1 liboqs_serialized_sk=10980B hash-sigs_sk=64B sigs_total=31 expected_total=31 remaining_after_keygen=31
+STATE LMS_SHA256_H5_W4 liboqs_serialized_sk=10980B hash-sigs_sk=64B sigs_total=31 expected_total=31 remaining_after_keygen=31
+STATE LMS_SHA256_H10_W1 liboqs_serialized_sk=10980B hash-sigs_sk=64B sigs_total=1023 expected_total=1023 remaining_after_keygen=1023
+STATE LMS_SHA256_H10_W4 liboqs_serialized_sk=10980B hash-sigs_sk=64B sigs_total=1023 expected_total=1023 remaining_after_keygen=1023
+STATE LMS_SHA256_H10_W8 liboqs_serialized_sk=10980B hash-sigs_sk=64B sigs_total=1023 expected_total=1023 remaining_after_keygen=1023
+STATE LMS_SHA256_H15_W4 liboqs_serialized_sk=10980B hash-sigs_sk=64B sigs_total=32767 expected_total=32767 remaining_after_keygen=32767
+STATE XMSS-SHA2_10_256 liboqs_serialized_sk=1377B xmss-reference_sk=136B sigs_total=1023 expected_total=1023 remaining_after_keygen=1023
+STATE XMSS-SHA2_16_256 liboqs_serialized_sk=2097B xmss-reference_sk=136B sigs_total=65535 expected_total=65535 remaining_after_keygen=65535
+STATE XMSS-SHAKE_10_256 liboqs_serialized_sk=1377B xmss-reference_sk=136B sigs_total=1023 expected_total=1023 remaining_after_keygen=1023
+STATE XMSS-SHAKE_16_256 liboqs_serialized_sk=2097B xmss-reference_sk=136B sigs_total=65535 expected_total=65535 remaining_after_keygen=65535
+STATE SLH-DSA-SHA2-128s stateless sk=64B sigs_total=unlimited
+STATE SLH-DSA-SHA2-128f stateless sk=64B sigs_total=unlimited
+STATE SLH-DSA-SHA2-192s stateless sk=96B sigs_total=unlimited
+STATE SLH-DSA-SHA2-192f stateless sk=96B sigs_total=unlimited
+STATE SLH-DSA-SHA2-256s stateless sk=128B sigs_total=unlimited
+STATE SLH-DSA-SHA2-256f stateless sk=128B sigs_total=unlimited
+STATE SLH-DSA-SHAKE-128s stateless sk=64B sigs_total=unlimited
+STATE SLH-DSA-SHAKE-128f stateless sk=64B sigs_total=unlimited
+STATE SLH-DSA-SHAKE-192s stateless sk=96B sigs_total=unlimited
+STATE SLH-DSA-SHAKE-192f stateless sk=96B sigs_total=unlimited
+STATE SLH-DSA-SHAKE-256s stateless sk=128B sigs_total=unlimited
+STATE SLH-DSA-SHAKE-256f stateless sk=128B sigs_total=unlimited
+STATE LMS_SHA256_H20_W4 NOT MEASURED (keygen exceeds 240 s); hash-sigs_sk=64B expected_total=1048575
+STATE XMSS-SHA2_20_256 NOT MEASURED (keygen exceeds 240 s); xmss-reference_sk=136B expected_total=1048575
+STATE XMSS-SHAKE_20_256 NOT MEASURED (keygen exceeds 240 s); xmss-reference_sk=136B expected_total=1048575
+--- throughput: liboqs LMS/XMSS (C, OQS_SIG_STFL) ---
+TIMING liboqs LMS_SHA256_H5_W1 keygen_n=10 sign_n=20 verify_n=20 keygen=5.465968ms sign=6.907586ms verify=0.049439ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=5996
+TIMING liboqs LMS_SHA256_H5_W4 keygen_n=10 sign_n=20 verify_n=20 keygen=8.000280ms sign=10.463538ms verify=0.106249ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=6060
+TIMING liboqs LMS_SHA256_H10_W1 keygen_n=5 sign_n=50 verify_n=50 keygen=170.022313ms sign=187.356196ms verify=0.057431ms sign_ok=50/50 verify_ok=50/50 peak_rss_kb=6068
+TIMING liboqs LMS_SHA256_H10_W4 keygen_n=5 sign_n=50 verify_n=50 keygen=278.659316ms sign=266.524395ms verify=0.107662ms sign_ok=50/50 verify_ok=50/50 peak_rss_kb=6024
+TIMING liboqs LMS_SHA256_H10_W8 keygen_n=5 sign_n=50 verify_n=50 keygen=1838.832707ms sign=2049.889941ms verify=0.890537ms sign_ok=50/50 verify_ok=50/50 peak_rss_kb=6044
+TIMING liboqs LMS_SHA256_H15_W4 keygen_n=1 sign_n=10 verify_n=10 keygen=8242.590240ms sign=9564.402526ms verify=0.105153ms sign_ok=10/10 verify_ok=10/10 peak_rss_kb=5968
+TIMING liboqs XMSS-SHA2_10_256 keygen_n=5 sign_n=20 verify_n=20 keygen=1141.071582ms sign=1.648844ms verify=0.548523ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=5956
+TIMING liboqs XMSS-SHA2_16_256 keygen_n=1 sign_n=2 verify_n=2 keygen=74180.245957ms sign=1.636420ms verify=0.670736ms sign_ok=2/2 verify_ok=2/2 peak_rss_kb=5980
+TIMING liboqs XMSS-SHAKE_10_256 keygen_n=5 sign_n=20 verify_n=20 keygen=2654.390878ms sign=3.930719ms verify=1.497302ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=5836
+TIMING liboqs XMSS-SHAKE_16_256 keygen_n=1 sign_n=2 verify_n=2 keygen=171152.195788ms sign=3.900393ms verify=1.405499ms sign_ok=2/2 verify_ok=2/2 peak_rss_kb=5840
+--- throughput: hash-sigs LMS (C reference) ---
+TIMING hash-sigs LMS_SHA256_H5_W1 keygen_n=10 sign_n=20 verify_n=20 keygen=2.760508ms sign=0.227736ms verify=0.029744ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=3320
+TIMING hash-sigs LMS_SHA256_H5_W4 keygen_n=10 sign_n=20 verify_n=20 keygen=3.946047ms sign=0.310281ms verify=0.057156ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=3360
+TIMING hash-sigs LMS_SHA256_H10_W1 keygen_n=5 sign_n=50 verify_n=50 keygen=90.831751ms sign=0.401703ms verify=0.030976ms sign_ok=50/50 verify_ok=50/50 peak_rss_kb=3412
+TIMING hash-sigs LMS_SHA256_H10_W4 keygen_n=5 sign_n=50 verify_n=50 keygen=128.423095ms sign=0.543175ms verify=0.062719ms sign_ok=50/50 verify_ok=50/50 peak_rss_kb=3360
+TIMING hash-sigs LMS_SHA256_H10_W8 keygen_n=5 sign_n=50 verify_n=50 keygen=938.075725ms sign=4.105471ms verify=0.532249ms sign_ok=50/50 verify_ok=50/50 peak_rss_kb=3284
+TIMING hash-sigs LMS_SHA256_H15_W4 keygen_n=1 sign_n=10 verify_n=10 keygen=3988.466473ms sign=0.903756ms verify=0.049654ms sign_ok=10/10 verify_ok=10/10 peak_rss_kb=3324
+--- throughput: xmss-reference XMSS (C reference) ---
+TIMING xmss-reference XMSS-SHA2_10_256 keygen_n=5 sign_n=20 verify_n=20 keygen=2445.669139ms sign=2447.331279ms verify=1.234442ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=5352
+TIMING xmss-reference XMSS-SHA2_16_256 keygen_n=1 sign_n=2 verify_n=2 keygen=158670.356674ms sign=157578.779989ms verify=1.116761ms sign_ok=2/2 verify_ok=2/2 peak_rss_kb=5268
+TIMING xmss-reference XMSS-SHAKE_10_256 keygen_n=5 sign_n=20 verify_n=20 keygen=3101.299637ms sign=3079.563794ms verify=1.527678ms sign_ok=20/20 verify_ok=20/20 peak_rss_kb=3116
+TIMING xmss-reference XMSS-SHAKE_16_256 keygen_n=1 sign_n=2 verify_n=2 keygen=198941.757203ms sign=198141.718176ms verify=1.625149ms sign_ok=2/2 verify_ok=2/2 peak_rss_kb=3184
+--- throughput: liboqs SLH-DSA (C) ---
+TIMING liboqs SLH-DSA-SHA2-128s n=20 keygen=94.456861ms sign=725.978340ms verify=0.677842ms verify_ok=20/20 peak_rss_kb=5876
+TIMING liboqs SLH-DSA-SHA2-128f n=20 keygen=1.468064ms sign=34.711536ms verify=2.121609ms verify_ok=20/20 peak_rss_kb=5920
+TIMING liboqs SLH-DSA-SHA2-192s n=20 keygen=137.482105ms sign=1267.667761ms verify=1.039180ms verify_ok=20/20 peak_rss_kb=5856
+TIMING liboqs SLH-DSA-SHA2-192f n=20 keygen=2.125355ms sign=56.515288ms verify=3.063767ms verify_ok=20/20 peak_rss_kb=5868
+TIMING liboqs SLH-DSA-SHA2-256s n=20 keygen=89.462742ms sign=1122.663191ms verify=1.568909ms verify_ok=20/20 peak_rss_kb=5900
+TIMING liboqs SLH-DSA-SHA2-256f n=20 keygen=5.624165ms sign=115.635565ms verify=2.998795ms verify_ok=20/20 peak_rss_kb=5944
+TIMING liboqs SLH-DSA-SHAKE-128s n=20 keygen=147.418717ms sign=1131.552928ms verify=1.092279ms verify_ok=20/20 peak_rss_kb=5820
+TIMING liboqs SLH-DSA-SHAKE-128f n=20 keygen=2.264879ms sign=53.376368ms verify=3.194469ms verify_ok=20/20 peak_rss_kb=5880
+TIMING liboqs SLH-DSA-SHAKE-192s n=20 keygen=215.026492ms sign=1983.908858ms verify=1.650182ms verify_ok=20/20 peak_rss_kb=5796
+TIMING liboqs SLH-DSA-SHAKE-192f n=20 keygen=3.769567ms sign=87.364673ms verify=4.694245ms verify_ok=20/20 peak_rss_kb=5812
+TIMING liboqs SLH-DSA-SHAKE-256s n=20 keygen=140.498246ms sign=1776.804731ms verify=2.362010ms verify_ok=20/20 peak_rss_kb=5996
+TIMING liboqs SLH-DSA-SHAKE-256f n=20 keygen=8.879009ms sign=187.409452ms verify=4.823288ms verify_ok=20/20 peak_rss_kb=5916
+--- throughput: slh-dsa (pure Python, n=1 indicative) ---
+TIMING slh-dsa SLH-DSA-SHA2-128s n=1 keygen=1266.543569ms sign=4925.233454ms verify=5.655418ms roundtrip_ok=True peak_rss_kb=21712
+TIMING slh-dsa SLH-DSA-SHA2-128f n=1 keygen=19.561146ms sign=260.63764ms verify=14.994943ms roundtrip_ok=True peak_rss_kb=21844
+TIMING slh-dsa SLH-DSA-SHA2-192s n=1 keygen=1847.985211ms sign=8921.175836ms verify=7.445283ms roundtrip_ok=True peak_rss_kb=21904
+TIMING slh-dsa SLH-DSA-SHA2-192f n=1 keygen=28.806741ms sign=399.028625ms verify=21.910912ms roundtrip_ok=True peak_rss_kb=21932
+TIMING slh-dsa SLH-DSA-SHA2-256s n=1 keygen=1200.127578ms sign=8290.051936ms verify=11.851085ms roundtrip_ok=True peak_rss_kb=22144
+TIMING slh-dsa SLH-DSA-SHA2-256f n=1 keygen=77.567616ms sign=813.987646ms verify=23.91506ms roundtrip_ok=True peak_rss_kb=22004
+TIMING slh-dsa SLH-DSA-SHAKE-128s n=1 keygen=1301.5408ms sign=5290.928355ms verify=5.526854ms roundtrip_ok=True peak_rss_kb=21800
+TIMING slh-dsa SLH-DSA-SHAKE-128f n=1 keygen=21.063139ms sign=251.129662ms verify=15.536666ms roundtrip_ok=True peak_rss_kb=21836
+TIMING slh-dsa SLH-DSA-SHAKE-192s n=1 keygen=1912.374722ms sign=9244.067612ms verify=8.594939ms roundtrip_ok=True peak_rss_kb=21780
+TIMING slh-dsa SLH-DSA-SHAKE-192f n=1 keygen=30.926522ms sign=414.689847ms verify=22.179695ms roundtrip_ok=True peak_rss_kb=22036
+TIMING slh-dsa SLH-DSA-SHAKE-256s n=1 keygen=1250.266332ms sign=8186.219895ms verify=11.304876ms roundtrip_ok=True peak_rss_kb=21732
+TIMING slh-dsa SLH-DSA-SHAKE-256f n=1 keygen=78.972996ms sign=835.83353ms verify=22.313857ms roundtrip_ok=True peak_rss_kb=21752
+--- adversarial: LMS ---
+ADV LMS_SHA256_H5_W1 liboqs_valid = True
+ADV LMS_SHA256_H5_W1 liboqs_flipped_sig = INVALID
+ADV LMS_SHA256_H5_W1 liboqs_wrong_msg = INVALID
+ADV LMS_SHA256_H5_W1 liboqs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H5_W1 liboqs_cross_param = refused_length_check
+ADV LMS_SHA256_H5_W1 hash-sigs_valid = True
+ADV LMS_SHA256_H5_W1 hash-sigs_flipped_sig = INVALID
+ADV LMS_SHA256_H5_W1 hash-sigs_wrong_msg = INVALID
+ADV LMS_SHA256_H5_W1 hash-sigs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H5_W4 liboqs_valid = True
+ADV LMS_SHA256_H5_W4 liboqs_flipped_sig = INVALID
+ADV LMS_SHA256_H5_W4 liboqs_wrong_msg = INVALID
+ADV LMS_SHA256_H5_W4 liboqs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H5_W4 liboqs_cross_param = refused_length_check
+ADV LMS_SHA256_H5_W4 hash-sigs_valid = True
+ADV LMS_SHA256_H5_W4 hash-sigs_flipped_sig = INVALID
+ADV LMS_SHA256_H5_W4 hash-sigs_wrong_msg = INVALID
+ADV LMS_SHA256_H5_W4 hash-sigs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H10_W1 liboqs_valid = True
+ADV LMS_SHA256_H10_W1 liboqs_flipped_sig = INVALID
+ADV LMS_SHA256_H10_W1 liboqs_wrong_msg = INVALID
+ADV LMS_SHA256_H10_W1 liboqs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H10_W1 liboqs_cross_param = refused_length_check
+ADV LMS_SHA256_H10_W1 hash-sigs_valid = True
+ADV LMS_SHA256_H10_W1 hash-sigs_flipped_sig = INVALID
+ADV LMS_SHA256_H10_W1 hash-sigs_wrong_msg = INVALID
+ADV LMS_SHA256_H10_W1 hash-sigs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H10_W4 liboqs_valid = True
+ADV LMS_SHA256_H10_W4 liboqs_flipped_sig = INVALID
+ADV LMS_SHA256_H10_W4 liboqs_wrong_msg = INVALID
+ADV LMS_SHA256_H10_W4 liboqs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H10_W4 liboqs_cross_param = refused_length_check
+ADV LMS_SHA256_H10_W4 hash-sigs_valid = True
+ADV LMS_SHA256_H10_W4 hash-sigs_flipped_sig = INVALID
+ADV LMS_SHA256_H10_W4 hash-sigs_wrong_msg = INVALID
+ADV LMS_SHA256_H10_W4 hash-sigs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H10_W8 liboqs_valid = True
+ADV LMS_SHA256_H10_W8 liboqs_flipped_sig = INVALID
+ADV LMS_SHA256_H10_W8 liboqs_wrong_msg = INVALID
+ADV LMS_SHA256_H10_W8 liboqs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H10_W8 liboqs_cross_param = refused_length_check
+ADV LMS_SHA256_H10_W8 hash-sigs_valid = True
+ADV LMS_SHA256_H10_W8 hash-sigs_flipped_sig = INVALID
+ADV LMS_SHA256_H10_W8 hash-sigs_wrong_msg = INVALID
+ADV LMS_SHA256_H10_W8 hash-sigs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H15_W4 liboqs_valid = True
+ADV LMS_SHA256_H15_W4 liboqs_flipped_sig = INVALID
+ADV LMS_SHA256_H15_W4 liboqs_wrong_msg = INVALID
+ADV LMS_SHA256_H15_W4 liboqs_truncated_sig = refused_length_check
+ADV LMS_SHA256_H15_W4 liboqs_cross_param = refused_length_check
+ADV LMS_SHA256_H15_W4 hash-sigs_valid = True
+ADV LMS_SHA256_H15_W4 hash-sigs_flipped_sig = INVALID
+ADV LMS_SHA256_H15_W4 hash-sigs_wrong_msg = INVALID
+ADV LMS_SHA256_H15_W4 hash-sigs_truncated_sig = refused_length_check
+--- adversarial: XMSS ---
+ADV XMSS-SHA2_10_256 liboqs_valid = True
+ADV XMSS-SHA2_10_256 liboqs_flipped_sig = INVALID
+ADV XMSS-SHA2_10_256 liboqs_wrong_msg = INVALID
+ADV XMSS-SHA2_10_256 liboqs_truncated_sig = refused_length_check
+ADV XMSS-SHA2_10_256 liboqs_cross_param = refused_length_check
+ADV XMSS-SHA2_10_256 xmss-reference_valid = True
+ADV XMSS-SHA2_10_256 xmss-reference_flipped_sig = INVALID
+ADV XMSS-SHA2_10_256 xmss-reference_wrong_msg = INVALID
+ADV XMSS-SHA2_10_256 xmss-reference_truncated_sig = refused_length_check
+ADV XMSS-SHA2_16_256 liboqs_valid = True
+ADV XMSS-SHA2_16_256 liboqs_flipped_sig = INVALID
+ADV XMSS-SHA2_16_256 liboqs_wrong_msg = INVALID
+ADV XMSS-SHA2_16_256 liboqs_truncated_sig = refused_length_check
+ADV XMSS-SHA2_16_256 liboqs_cross_param = refused_length_check
+ADV XMSS-SHA2_16_256 xmss-reference_valid = True
+ADV XMSS-SHA2_16_256 xmss-reference_flipped_sig = INVALID
+ADV XMSS-SHA2_16_256 xmss-reference_wrong_msg = INVALID
+ADV XMSS-SHA2_16_256 xmss-reference_truncated_sig = refused_length_check
+ADV XMSS-SHAKE_10_256 liboqs_valid = True
+ADV XMSS-SHAKE_10_256 liboqs_flipped_sig = INVALID
+ADV XMSS-SHAKE_10_256 liboqs_wrong_msg = INVALID
+ADV XMSS-SHAKE_10_256 liboqs_truncated_sig = refused_length_check
+ADV XMSS-SHAKE_10_256 liboqs_cross_param = refused_length_check
+ADV XMSS-SHAKE_10_256 xmss-reference_valid = True
+ADV XMSS-SHAKE_10_256 xmss-reference_flipped_sig = INVALID
+ADV XMSS-SHAKE_10_256 xmss-reference_wrong_msg = INVALID
+ADV XMSS-SHAKE_10_256 xmss-reference_truncated_sig = refused_length_check
+ADV XMSS-SHAKE_16_256 liboqs_valid = True
+ADV XMSS-SHAKE_16_256 liboqs_flipped_sig = INVALID
+ADV XMSS-SHAKE_16_256 liboqs_wrong_msg = INVALID
+ADV XMSS-SHAKE_16_256 liboqs_truncated_sig = refused_length_check
+ADV XMSS-SHAKE_16_256 liboqs_cross_param = verify_INVALID
+ADV XMSS-SHAKE_16_256 xmss-reference_valid = True
+ADV XMSS-SHAKE_16_256 xmss-reference_flipped_sig = INVALID
+ADV XMSS-SHAKE_16_256 xmss-reference_wrong_msg = INVALID
+ADV XMSS-SHAKE_16_256 xmss-reference_truncated_sig = refused_length_check
+--- adversarial: SLH-DSA ---
+ADV SLH-DSA-SHA2-128s liboqs_valid = True
+ADV SLH-DSA-SHA2-128s liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHA2-128s liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHA2-128s liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHA2-128s liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHA2-128s slhdsa_valid = True
+ADV SLH-DSA-SHA2-128s slhdsa_flipped_sig = False
+ADV SLH-DSA-SHA2-128s slhdsa_wrong_msg = False
+ADV SLH-DSA-SHA2-128s slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHA2-128s slhdsa_cross_param = False
+ADV SLH-DSA-SHA2-128f liboqs_valid = True
+ADV SLH-DSA-SHA2-128f liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHA2-128f liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHA2-128f liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHA2-128f liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHA2-128f slhdsa_valid = True
+ADV SLH-DSA-SHA2-128f slhdsa_flipped_sig = False
+ADV SLH-DSA-SHA2-128f slhdsa_wrong_msg = False
+ADV SLH-DSA-SHA2-128f slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHA2-128f slhdsa_cross_param = False
+ADV SLH-DSA-SHA2-192s liboqs_valid = True
+ADV SLH-DSA-SHA2-192s liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHA2-192s liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHA2-192s liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHA2-192s liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHA2-192s slhdsa_valid = True
+ADV SLH-DSA-SHA2-192s slhdsa_flipped_sig = False
+ADV SLH-DSA-SHA2-192s slhdsa_wrong_msg = False
+ADV SLH-DSA-SHA2-192s slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHA2-192s slhdsa_cross_param = False
+ADV SLH-DSA-SHA2-192f liboqs_valid = True
+ADV SLH-DSA-SHA2-192f liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHA2-192f liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHA2-192f liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHA2-192f liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHA2-192f slhdsa_valid = True
+ADV SLH-DSA-SHA2-192f slhdsa_flipped_sig = False
+ADV SLH-DSA-SHA2-192f slhdsa_wrong_msg = False
+ADV SLH-DSA-SHA2-192f slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHA2-192f slhdsa_cross_param = False
+ADV SLH-DSA-SHA2-256s liboqs_valid = True
+ADV SLH-DSA-SHA2-256s liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHA2-256s liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHA2-256s liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHA2-256s liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHA2-256s slhdsa_valid = True
+ADV SLH-DSA-SHA2-256s slhdsa_flipped_sig = False
+ADV SLH-DSA-SHA2-256s slhdsa_wrong_msg = False
+ADV SLH-DSA-SHA2-256s slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHA2-256s slhdsa_cross_param = False
+ADV SLH-DSA-SHA2-256f liboqs_valid = True
+ADV SLH-DSA-SHA2-256f liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHA2-256f liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHA2-256f liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHA2-256f liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHA2-256f slhdsa_valid = True
+ADV SLH-DSA-SHA2-256f slhdsa_flipped_sig = False
+ADV SLH-DSA-SHA2-256f slhdsa_wrong_msg = False
+ADV SLH-DSA-SHA2-256f slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHA2-256f slhdsa_cross_param = False
+ADV SLH-DSA-SHAKE-128s liboqs_valid = True
+ADV SLH-DSA-SHAKE-128s liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHAKE-128s liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHAKE-128s liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHAKE-128s liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHAKE-128s slhdsa_valid = True
+ADV SLH-DSA-SHAKE-128s slhdsa_flipped_sig = False
+ADV SLH-DSA-SHAKE-128s slhdsa_wrong_msg = False
+ADV SLH-DSA-SHAKE-128s slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHAKE-128s slhdsa_cross_param = False
+ADV SLH-DSA-SHAKE-128f liboqs_valid = True
+ADV SLH-DSA-SHAKE-128f liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHAKE-128f liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHAKE-128f liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHAKE-128f liboqs_cross_param = verify_INVALID
+ADV SLH-DSA-SHAKE-128f slhdsa_valid = True
+ADV SLH-DSA-SHAKE-128f slhdsa_flipped_sig = False
+ADV SLH-DSA-SHAKE-128f slhdsa_wrong_msg = False
+ADV SLH-DSA-SHAKE-128f slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHAKE-128f slhdsa_cross_param = False
+ADV SLH-DSA-SHAKE-192s liboqs_valid = True
+ADV SLH-DSA-SHAKE-192s liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHAKE-192s liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHAKE-192s liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHAKE-192s liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHAKE-192s slhdsa_valid = True
+ADV SLH-DSA-SHAKE-192s slhdsa_flipped_sig = False
+ADV SLH-DSA-SHAKE-192s slhdsa_wrong_msg = False
+ADV SLH-DSA-SHAKE-192s slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHAKE-192s slhdsa_cross_param = False
+ADV SLH-DSA-SHAKE-192f liboqs_valid = True
+ADV SLH-DSA-SHAKE-192f liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHAKE-192f liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHAKE-192f liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHAKE-192f liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHAKE-192f slhdsa_valid = True
+ADV SLH-DSA-SHAKE-192f slhdsa_flipped_sig = False
+ADV SLH-DSA-SHAKE-192f slhdsa_wrong_msg = False
+ADV SLH-DSA-SHAKE-192f slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHAKE-192f slhdsa_cross_param = False
+ADV SLH-DSA-SHAKE-256s liboqs_valid = True
+ADV SLH-DSA-SHAKE-256s liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHAKE-256s liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHAKE-256s liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHAKE-256s liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHAKE-256s slhdsa_valid = True
+ADV SLH-DSA-SHAKE-256s slhdsa_flipped_sig = False
+ADV SLH-DSA-SHAKE-256s slhdsa_wrong_msg = False
+ADV SLH-DSA-SHAKE-256s slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHAKE-256s slhdsa_cross_param = False
+ADV SLH-DSA-SHAKE-256f liboqs_valid = True
+ADV SLH-DSA-SHAKE-256f liboqs_flipped_sig = INVALID
+ADV SLH-DSA-SHAKE-256f liboqs_wrong_msg = INVALID
+ADV SLH-DSA-SHAKE-256f liboqs_truncated_sig = refused_length_check
+ADV SLH-DSA-SHAKE-256f liboqs_cross_param = refused_length_check
+ADV SLH-DSA-SHAKE-256f slhdsa_valid = True
+ADV SLH-DSA-SHAKE-256f slhdsa_flipped_sig = False
+ADV SLH-DSA-SHAKE-256f slhdsa_wrong_msg = False
+ADV SLH-DSA-SHAKE-256f slhdsa_truncated_sig = returns_False
+ADV SLH-DSA-SHAKE-256f slhdsa_cross_param = False
+--- cross-implementation agreement ---
+XIMPL LMS_SHA256_H5_W1 liboqs-sign/hash-sigs-verify=True hash-sigs-sign/liboqs-verify=True
+XIMPL LMS_SHA256_H5_W4 liboqs-sign/hash-sigs-verify=True hash-sigs-sign/liboqs-verify=True
+XIMPL LMS_SHA256_H10_W1 liboqs-sign/hash-sigs-verify=True hash-sigs-sign/liboqs-verify=True
+XIMPL LMS_SHA256_H10_W4 liboqs-sign/hash-sigs-verify=True hash-sigs-sign/liboqs-verify=True
+XIMPL LMS_SHA256_H10_W8 liboqs-sign/hash-sigs-verify=True hash-sigs-sign/liboqs-verify=True
+XIMPL LMS_SHA256_H15_W4 liboqs-sign/hash-sigs-verify=True hash-sigs-sign/liboqs-verify=True
+XIMPL XMSS-SHA2_10_256 liboqs-sign/xmss-reference-verify=True xmss-reference-sign/liboqs-verify=True
+XIMPL XMSS-SHA2_16_256 liboqs-sign/xmss-reference-verify=True xmss-reference-sign/liboqs-verify=True
+XIMPL XMSS-SHAKE_10_256 liboqs-sign/xmss-reference-verify=True xmss-reference-sign/liboqs-verify=True
+XIMPL XMSS-SHAKE_16_256 liboqs-sign/xmss-reference-verify=True xmss-reference-sign/liboqs-verify=True
+XIMPL SLH-DSA-SHA2-128s slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHA2-128f slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHA2-192s slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHA2-192f slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHA2-256s slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHA2-256f slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHAKE-128s slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHAKE-128f slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHAKE-192s slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHAKE-192f slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHAKE-256s slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+XIMPL SLH-DSA-SHAKE-256f slhdsa-sign/liboqs-verify=True liboqs-sign/slhdsa-verify=True
+--- signing determinism (same serialized state, same message, signed twice) ---
+DET LMS_SHA256_H5_W1 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET LMS_SHA256_H5_W1 hash-sigs_same_state_same_msg_identical=True
+DET LMS_SHA256_H5_W4 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET LMS_SHA256_H5_W4 hash-sigs_same_state_same_msg_identical=True
+DET LMS_SHA256_H10_W1 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET LMS_SHA256_H10_W1 hash-sigs_same_state_same_msg_identical=True
+DET LMS_SHA256_H10_W4 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET LMS_SHA256_H10_W4 hash-sigs_same_state_same_msg_identical=True
+DET LMS_SHA256_H10_W8 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET LMS_SHA256_H10_W8 hash-sigs_same_state_same_msg_identical=True
+DET LMS_SHA256_H15_W4 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET LMS_SHA256_H15_W4 hash-sigs_same_state_same_msg_identical=True
+DET XMSS-SHA2_10_256 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET XMSS-SHA2_10_256 xmss-reference_same_state_same_msg_identical=True
+DET XMSS-SHA2_16_256 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET XMSS-SHA2_16_256 xmss-reference_same_state_same_msg_identical=True
+DET XMSS-SHAKE_10_256 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET XMSS-SHAKE_10_256 xmss-reference_same_state_same_msg_identical=True
+DET XMSS-SHAKE_16_256 liboqs_same_state_same_msg_identical=True leaf_index=0
+DET XMSS-SHAKE_16_256 xmss-reference_same_state_same_msg_identical=True
+DET SLH-DSA-SHA2-128s liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHA2-128f liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHA2-192s liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHA2-192f liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHA2-256s liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHA2-256f liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHAKE-128s liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHAKE-128f liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHAKE-192s liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHAKE-192f liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHAKE-256s liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+DET SLH-DSA-SHAKE-256f liboqs_sign_twice_identical=no slhdsa_deterministic_identical=True slhdsa_randomized_identical=False
+--- state exhaustion (LMS H5: 31 signatures total) ---
+EXHAUST LMS_SHA256_H5_W4 total=31 sign_all_ok=True sign_after_exhaustion_rc=0 produced=True verifies=True third_sign_rc=1 third_sign=ERROR deserialize secret key failed
+EXHAUST XMSS-SHA2_10_256 total=1023 sign_all_ok=True sign_after_exhaustion_rc=0 produced=True verifies=False
+--- artifact-size impact (signature bytes vs release artifact) ---
+ARTIFACT LMS_SHA256_H5_W1 sig=8688B vs_ed25519=135.8x manifest_1KiB=848.4375% wheel_100KiB=8.4844% tarball_5MiB=0.1657% binary_50MiB=0.0166%
+ARTIFACT LMS_SHA256_H5_W4 sig=2352B vs_ed25519=36.8x manifest_1KiB=229.6875% wheel_100KiB=2.2969% tarball_5MiB=0.0449% binary_50MiB=0.0045%
+ARTIFACT LMS_SHA256_H10_W1 sig=8848B vs_ed25519=138.2x manifest_1KiB=864.0625% wheel_100KiB=8.6406% tarball_5MiB=0.1688% binary_50MiB=0.0169%
+ARTIFACT LMS_SHA256_H10_W4 sig=2512B vs_ed25519=39.2x manifest_1KiB=245.3125% wheel_100KiB=2.4531% tarball_5MiB=0.0479% binary_50MiB=0.0048%
+ARTIFACT LMS_SHA256_H10_W8 sig=1456B vs_ed25519=22.8x manifest_1KiB=142.1875% wheel_100KiB=1.4219% tarball_5MiB=0.0278% binary_50MiB=0.0028%
+ARTIFACT LMS_SHA256_H15_W4 sig=2672B vs_ed25519=41.8x manifest_1KiB=260.9375% wheel_100KiB=2.6094% tarball_5MiB=0.051% binary_50MiB=0.0051%
+ARTIFACT LMS_SHA256_H20_W4 sig=2832B vs_ed25519=44.2x manifest_1KiB=276.5625% wheel_100KiB=2.7656% tarball_5MiB=0.054% binary_50MiB=0.0054%
+ARTIFACT XMSS-SHA2_10_256 sig=2500B vs_ed25519=39.1x manifest_1KiB=244.1406% wheel_100KiB=2.4414% tarball_5MiB=0.0477% binary_50MiB=0.0048%
+ARTIFACT XMSS-SHA2_16_256 sig=2692B vs_ed25519=42.1x manifest_1KiB=262.8906% wheel_100KiB=2.6289% tarball_5MiB=0.0513% binary_50MiB=0.0051%
+ARTIFACT XMSS-SHAKE_10_256 sig=2500B vs_ed25519=39.1x manifest_1KiB=244.1406% wheel_100KiB=2.4414% tarball_5MiB=0.0477% binary_50MiB=0.0048%
+ARTIFACT XMSS-SHAKE_16_256 sig=2692B vs_ed25519=42.1x manifest_1KiB=262.8906% wheel_100KiB=2.6289% tarball_5MiB=0.0513% binary_50MiB=0.0051%
+ARTIFACT XMSS-SHA2_20_256 sig=2820B vs_ed25519=44.1x manifest_1KiB=275.3906% wheel_100KiB=2.7539% tarball_5MiB=0.0538% binary_50MiB=0.0054%
+ARTIFACT XMSS-SHAKE_20_256 sig=2820B vs_ed25519=44.1x manifest_1KiB=275.3906% wheel_100KiB=2.7539% tarball_5MiB=0.0538% binary_50MiB=0.0054%
+ARTIFACT SLH-DSA-SHA2-128s sig=7856B vs_ed25519=122.8x manifest_1KiB=767.1875% wheel_100KiB=7.6719% tarball_5MiB=0.1498% binary_50MiB=0.015%
+ARTIFACT SLH-DSA-SHA2-128f sig=17088B vs_ed25519=267.0x manifest_1KiB=1668.75% wheel_100KiB=16.6875% tarball_5MiB=0.3259% binary_50MiB=0.0326%
+ARTIFACT SLH-DSA-SHA2-192s sig=16224B vs_ed25519=253.5x manifest_1KiB=1584.375% wheel_100KiB=15.8438% tarball_5MiB=0.3094% binary_50MiB=0.0309%
+ARTIFACT SLH-DSA-SHA2-192f sig=35664B vs_ed25519=557.2x manifest_1KiB=3482.8125% wheel_100KiB=34.8281% tarball_5MiB=0.6802% binary_50MiB=0.068%
+ARTIFACT SLH-DSA-SHA2-256s sig=29792B vs_ed25519=465.5x manifest_1KiB=2909.375% wheel_100KiB=29.0938% tarball_5MiB=0.5682% binary_50MiB=0.0568%
+ARTIFACT SLH-DSA-SHA2-256f sig=49856B vs_ed25519=779.0x manifest_1KiB=4868.75% wheel_100KiB=48.6875% tarball_5MiB=0.9509% binary_50MiB=0.0951%
+ARTIFACT SLH-DSA-SHAKE-128s sig=7856B vs_ed25519=122.8x manifest_1KiB=767.1875% wheel_100KiB=7.6719% tarball_5MiB=0.1498% binary_50MiB=0.015%
+ARTIFACT SLH-DSA-SHAKE-128f sig=17088B vs_ed25519=267.0x manifest_1KiB=1668.75% wheel_100KiB=16.6875% tarball_5MiB=0.3259% binary_50MiB=0.0326%
+ARTIFACT SLH-DSA-SHAKE-192s sig=16224B vs_ed25519=253.5x manifest_1KiB=1584.375% wheel_100KiB=15.8438% tarball_5MiB=0.3094% binary_50MiB=0.0309%
+ARTIFACT SLH-DSA-SHAKE-192f sig=35664B vs_ed25519=557.2x manifest_1KiB=3482.8125% wheel_100KiB=34.8281% tarball_5MiB=0.6802% binary_50MiB=0.068%
+ARTIFACT SLH-DSA-SHAKE-256s sig=29792B vs_ed25519=465.5x manifest_1KiB=2909.375% wheel_100KiB=29.0938% tarball_5MiB=0.5682% binary_50MiB=0.0568%
+ARTIFACT SLH-DSA-SHAKE-256f sig=49856B vs_ed25519=779.0x manifest_1KiB=4868.75% wheel_100KiB=48.6875% tarball_5MiB=0.9509% binary_50MiB=0.0951%
+--- environment: OpenSSL on this machine ---
+ENV openssl: OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+ENV openssl lists ML-DSA: False; SLH-DSA: False; LMS: False; XMSS: False
+ENV liboqs stateful keygen/sign: supported (hazardous-experimental build flag ON)
+=== done: results -> outputs/run2-clean/results.json ===
+reproducing the failure mode -> outputs/run2-clean/remediation-before.log ...
+=== F-01 reproduction: non-atomic state persist reuses a one-time index ===
+sign A: index=0 (released, then CRASH before persist)
+sign B: index=0 (signed from the stale state file)
+same leaf index used twice: True
+verify signature A: verify VALID
+verify signature B: verify VALID
+REPRODUCED
+running remediation regression test -> outputs/run2-clean/remediation-after.log ...
+=== BEFORE (failure mode): crash before persist reuses the index ===
+PASS before_first_signature_valid
+PASS before_reused_index_signatures_both_verify
+PASS before_same_index_used_twice — index A=0 index B=0
+=== AFTER (remediation): journaled signer ===
+PASS after_sequential_signatures_use_distinct_indices — indices=(0, 1, 2)
+PASS after_backup_restore_refused — STATE_ROLLBACK: journal last_committed_index=3 but loaded state would reuse index 3 (state file is stale)
+PASS after_crash_before_commit_releases_nothing_and_state_reusable — crashed index=0, next released index=0
+PASS after_tampered_state_refused
+PASS after_signatures_verify_under_liboqs
+PASS after_journal_matches_state — journal={'key_id': '1302ec91058ad217', 'last_committed_index': 3, 'released': 4}
+PASS after_patch_applies_cleanly — checking file vulnerable_signer.py
+PASS after_patch_applied
+PASS after_patched_caller_refuses_backup_restore — REFUSED STATE_ROLLBACK: journal last_committed_index=1 but loaded state would reuse index 1 (state file is stale)
+=== regression test: 12 passed, 0 failed ===
+generating docs/index.html ...
+wrote docs/index.html
+generating evidence.json ...
+evidence.json written: 9 findings {'High': 1, 'Medium': 5, 'Low': 3}
+SHA256SUMS regenerated: 44 files
+=== done: run2-clean ===
+log:      outputs/run2-clean/benchmark-run.log
+results:  outputs/run2-clean/results.json
+evidence: evidence.json

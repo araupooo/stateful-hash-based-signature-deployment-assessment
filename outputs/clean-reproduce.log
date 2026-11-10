@@ -1,0 +1,895 @@
+fresh copy -> ../.clean-repro-tmp
+re-run complete; copying outputs/run2-clean back ...
+comparing run1 vs run2-clean ...
+PASS sizes.LMS_SHA256_H10_W1.match
+PASS sizes.LMS_SHA256_H10_W1.hash-sigs_match
+PASS sizes.LMS_SHA256_H10_W4.match
+PASS sizes.LMS_SHA256_H10_W4.hash-sigs_match
+PASS sizes.LMS_SHA256_H10_W8.match
+PASS sizes.LMS_SHA256_H10_W8.hash-sigs_match
+PASS sizes.LMS_SHA256_H15_W4.match
+PASS sizes.LMS_SHA256_H15_W4.hash-sigs_match
+PASS sizes.LMS_SHA256_H20_W4.match
+PASS sizes.LMS_SHA256_H20_W4.hash-sigs_match
+PASS sizes.LMS_SHA256_H5_W1.match
+PASS sizes.LMS_SHA256_H5_W1.hash-sigs_match
+PASS sizes.LMS_SHA256_H5_W4.match
+PASS sizes.LMS_SHA256_H5_W4.hash-sigs_match
+PASS sizes.SLH-DSA-SHA2-128f.match
+PASS sizes.SLH-DSA-SHA2-128s.match
+PASS sizes.SLH-DSA-SHA2-192f.match
+PASS sizes.SLH-DSA-SHA2-192s.match
+PASS sizes.SLH-DSA-SHA2-256f.match
+PASS sizes.SLH-DSA-SHA2-256s.match
+PASS sizes.SLH-DSA-SHAKE-128f.match
+PASS sizes.SLH-DSA-SHAKE-128s.match
+PASS sizes.SLH-DSA-SHAKE-192f.match
+PASS sizes.SLH-DSA-SHAKE-192s.match
+PASS sizes.SLH-DSA-SHAKE-256f.match
+PASS sizes.SLH-DSA-SHAKE-256s.match
+PASS sizes.XMSS-SHA2_10_256.match
+PASS sizes.XMSS-SHA2_10_256.xmss-reference_match
+PASS sizes.XMSS-SHA2_16_256.match
+PASS sizes.XMSS-SHA2_16_256.xmss-reference_match
+PASS sizes.XMSS-SHA2_20_256.match
+PASS sizes.XMSS-SHA2_20_256.xmss-reference_match
+PASS sizes.XMSS-SHAKE_10_256.match
+PASS sizes.XMSS-SHAKE_10_256.xmss-reference_match
+PASS sizes.XMSS-SHAKE_16_256.match
+PASS sizes.XMSS-SHAKE_16_256.xmss-reference_match
+PASS sizes.XMSS-SHAKE_20_256.match
+PASS sizes.XMSS-SHAKE_20_256.xmss-reference_match
+PASS state.LMS_SHA256_H10_W1.expected_total
+PASS state.LMS_SHA256_H10_W1.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H10_W1.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H10_W1.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H10_W1.sigs_total
+PASS state.LMS_SHA256_H10_W4.expected_total
+PASS state.LMS_SHA256_H10_W4.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H10_W4.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H10_W4.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H10_W4.sigs_total
+PASS state.LMS_SHA256_H10_W8.expected_total
+PASS state.LMS_SHA256_H10_W8.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H10_W8.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H10_W8.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H10_W8.sigs_total
+PASS state.LMS_SHA256_H15_W4.expected_total
+PASS state.LMS_SHA256_H15_W4.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H15_W4.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H15_W4.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H15_W4.sigs_total
+PASS state.LMS_SHA256_H20_W4.expected_total
+PASS state.LMS_SHA256_H20_W4.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H20_W4.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H20_W4.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H20_W4.sigs_total
+PASS state.LMS_SHA256_H5_W1.expected_total
+PASS state.LMS_SHA256_H5_W1.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H5_W1.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H5_W1.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H5_W1.sigs_total
+PASS state.LMS_SHA256_H5_W4.expected_total
+PASS state.LMS_SHA256_H5_W4.hash-sigs_secret_key_bytes
+PASS state.LMS_SHA256_H5_W4.liboqs_serialized_secret_key_bytes
+PASS state.LMS_SHA256_H5_W4.sigs_remaining_after_keygen
+PASS state.LMS_SHA256_H5_W4.sigs_total
+PASS state.SLH-DSA-SHA2-128f.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHA2-128f.sigs_total
+PASS state.SLH-DSA-SHA2-128f.stateless
+PASS state.SLH-DSA-SHA2-128s.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHA2-128s.sigs_total
+PASS state.SLH-DSA-SHA2-128s.stateless
+PASS state.SLH-DSA-SHA2-192f.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHA2-192f.sigs_total
+PASS state.SLH-DSA-SHA2-192f.stateless
+PASS state.SLH-DSA-SHA2-192s.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHA2-192s.sigs_total
+PASS state.SLH-DSA-SHA2-192s.stateless
+PASS state.SLH-DSA-SHA2-256f.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHA2-256f.sigs_total
+PASS state.SLH-DSA-SHA2-256f.stateless
+PASS state.SLH-DSA-SHA2-256s.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHA2-256s.sigs_total
+PASS state.SLH-DSA-SHA2-256s.stateless
+PASS state.SLH-DSA-SHAKE-128f.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHAKE-128f.sigs_total
+PASS state.SLH-DSA-SHAKE-128f.stateless
+PASS state.SLH-DSA-SHAKE-128s.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHAKE-128s.sigs_total
+PASS state.SLH-DSA-SHAKE-128s.stateless
+PASS state.SLH-DSA-SHAKE-192f.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHAKE-192f.sigs_total
+PASS state.SLH-DSA-SHAKE-192f.stateless
+PASS state.SLH-DSA-SHAKE-192s.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHAKE-192s.sigs_total
+PASS state.SLH-DSA-SHAKE-192s.stateless
+PASS state.SLH-DSA-SHAKE-256f.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHAKE-256f.sigs_total
+PASS state.SLH-DSA-SHAKE-256f.stateless
+PASS state.SLH-DSA-SHAKE-256s.liboqs_secret_key_bytes
+PASS state.SLH-DSA-SHAKE-256s.sigs_total
+PASS state.SLH-DSA-SHAKE-256s.stateless
+PASS state.XMSS-SHA2_10_256.expected_total
+PASS state.XMSS-SHA2_10_256.liboqs_serialized_secret_key_bytes
+PASS state.XMSS-SHA2_10_256.sigs_remaining_after_keygen
+PASS state.XMSS-SHA2_10_256.sigs_total
+PASS state.XMSS-SHA2_10_256.xmss-reference_secret_key_bytes
+PASS state.XMSS-SHA2_16_256.expected_total
+PASS state.XMSS-SHA2_16_256.liboqs_serialized_secret_key_bytes
+PASS state.XMSS-SHA2_16_256.sigs_remaining_after_keygen
+PASS state.XMSS-SHA2_16_256.sigs_total
+PASS state.XMSS-SHA2_16_256.xmss-reference_secret_key_bytes
+PASS state.XMSS-SHA2_20_256.expected_total
+PASS state.XMSS-SHA2_20_256.liboqs_serialized_secret_key_bytes
+PASS state.XMSS-SHA2_20_256.sigs_remaining_after_keygen
+PASS state.XMSS-SHA2_20_256.sigs_total
+PASS state.XMSS-SHA2_20_256.xmss-reference_secret_key_bytes
+PASS state.XMSS-SHAKE_10_256.expected_total
+PASS state.XMSS-SHAKE_10_256.liboqs_serialized_secret_key_bytes
+PASS state.XMSS-SHAKE_10_256.sigs_remaining_after_keygen
+PASS state.XMSS-SHAKE_10_256.sigs_total
+PASS state.XMSS-SHAKE_10_256.xmss-reference_secret_key_bytes
+PASS state.XMSS-SHAKE_16_256.expected_total
+PASS state.XMSS-SHAKE_16_256.liboqs_serialized_secret_key_bytes
+PASS state.XMSS-SHAKE_16_256.sigs_remaining_after_keygen
+PASS state.XMSS-SHAKE_16_256.sigs_total
+PASS state.XMSS-SHAKE_16_256.xmss-reference_secret_key_bytes
+PASS state.XMSS-SHAKE_20_256.expected_total
+PASS state.XMSS-SHAKE_20_256.liboqs_serialized_secret_key_bytes
+PASS state.XMSS-SHAKE_20_256.sigs_remaining_after_keygen
+PASS state.XMSS-SHAKE_20_256.sigs_total
+PASS state.XMSS-SHAKE_20_256.xmss-reference_secret_key_bytes
+PASS exhaustion.algorithm
+PASS exhaustion.sign_after_exhaustion_fails
+PASS exhaustion.sign_after_exhaustion_produced_signature
+PASS exhaustion.sign_after_exhaustion_rc
+PASS exhaustion.sign_after_exhaustion_verifies
+PASS exhaustion.sign_all_total_ok
+PASS exhaustion.sigs_total
+PASS exhaustion.third_sign_after_exhaustion_output
+PASS exhaustion.third_sign_after_exhaustion_rc
+PASS exhaustion.xmss_sign_after_exhaustion_produced_signature
+PASS exhaustion.xmss_sign_after_exhaustion_rc
+PASS exhaustion.xmss_sign_after_exhaustion_verifies
+PASS exhaustion.xmss_sign_all_total_ok
+PASS exhaustion.xmss_total
+PASS adversarial.LMS_SHA256_H10_W1.hash-sigs_flipped_sig
+PASS adversarial.LMS_SHA256_H10_W1.hash-sigs_truncated_sig
+PASS adversarial.LMS_SHA256_H10_W1.hash-sigs_valid
+PASS adversarial.LMS_SHA256_H10_W1.hash-sigs_wrong_msg
+PASS adversarial.LMS_SHA256_H10_W1.liboqs_cross_param
+PASS adversarial.LMS_SHA256_H10_W1.liboqs_flipped_sig
+PASS adversarial.LMS_SHA256_H10_W1.liboqs_truncated_sig
+PASS adversarial.LMS_SHA256_H10_W1.liboqs_valid
+PASS adversarial.LMS_SHA256_H10_W1.liboqs_wrong_msg
+PASS adversarial.LMS_SHA256_H10_W4.hash-sigs_flipped_sig
+PASS adversarial.LMS_SHA256_H10_W4.hash-sigs_truncated_sig
+PASS adversarial.LMS_SHA256_H10_W4.hash-sigs_valid
+PASS adversarial.LMS_SHA256_H10_W4.hash-sigs_wrong_msg
+PASS adversarial.LMS_SHA256_H10_W4.liboqs_cross_param
+PASS adversarial.LMS_SHA256_H10_W4.liboqs_flipped_sig
+PASS adversarial.LMS_SHA256_H10_W4.liboqs_truncated_sig
+PASS adversarial.LMS_SHA256_H10_W4.liboqs_valid
+PASS adversarial.LMS_SHA256_H10_W4.liboqs_wrong_msg
+PASS adversarial.LMS_SHA256_H10_W8.hash-sigs_flipped_sig
+PASS adversarial.LMS_SHA256_H10_W8.hash-sigs_truncated_sig
+PASS adversarial.LMS_SHA256_H10_W8.hash-sigs_valid
+PASS adversarial.LMS_SHA256_H10_W8.hash-sigs_wrong_msg
+PASS adversarial.LMS_SHA256_H10_W8.liboqs_cross_param
+PASS adversarial.LMS_SHA256_H10_W8.liboqs_flipped_sig
+PASS adversarial.LMS_SHA256_H10_W8.liboqs_truncated_sig
+PASS adversarial.LMS_SHA256_H10_W8.liboqs_valid
+PASS adversarial.LMS_SHA256_H10_W8.liboqs_wrong_msg
+PASS adversarial.LMS_SHA256_H15_W4.hash-sigs_flipped_sig
+PASS adversarial.LMS_SHA256_H15_W4.hash-sigs_truncated_sig
+PASS adversarial.LMS_SHA256_H15_W4.hash-sigs_valid
+PASS adversarial.LMS_SHA256_H15_W4.hash-sigs_wrong_msg
+PASS adversarial.LMS_SHA256_H15_W4.liboqs_cross_param
+PASS adversarial.LMS_SHA256_H15_W4.liboqs_flipped_sig
+PASS adversarial.LMS_SHA256_H15_W4.liboqs_truncated_sig
+PASS adversarial.LMS_SHA256_H15_W4.liboqs_valid
+PASS adversarial.LMS_SHA256_H15_W4.liboqs_wrong_msg
+PASS adversarial.LMS_SHA256_H5_W1.hash-sigs_flipped_sig
+PASS adversarial.LMS_SHA256_H5_W1.hash-sigs_truncated_sig
+PASS adversarial.LMS_SHA256_H5_W1.hash-sigs_valid
+PASS adversarial.LMS_SHA256_H5_W1.hash-sigs_wrong_msg
+PASS adversarial.LMS_SHA256_H5_W1.liboqs_cross_param
+PASS adversarial.LMS_SHA256_H5_W1.liboqs_flipped_sig
+PASS adversarial.LMS_SHA256_H5_W1.liboqs_truncated_sig
+PASS adversarial.LMS_SHA256_H5_W1.liboqs_valid
+PASS adversarial.LMS_SHA256_H5_W1.liboqs_wrong_msg
+PASS adversarial.LMS_SHA256_H5_W4.hash-sigs_flipped_sig
+PASS adversarial.LMS_SHA256_H5_W4.hash-sigs_truncated_sig
+PASS adversarial.LMS_SHA256_H5_W4.hash-sigs_valid
+PASS adversarial.LMS_SHA256_H5_W4.hash-sigs_wrong_msg
+PASS adversarial.LMS_SHA256_H5_W4.liboqs_cross_param
+PASS adversarial.LMS_SHA256_H5_W4.liboqs_flipped_sig
+PASS adversarial.LMS_SHA256_H5_W4.liboqs_truncated_sig
+PASS adversarial.LMS_SHA256_H5_W4.liboqs_valid
+PASS adversarial.LMS_SHA256_H5_W4.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-128f.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHA2-128f.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-128f.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-128f.liboqs_valid
+PASS adversarial.SLH-DSA-SHA2-128f.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-128f.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHA2-128f.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-128f.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-128f.slhdsa_valid
+PASS adversarial.SLH-DSA-SHA2-128f.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-128s.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHA2-128s.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-128s.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-128s.liboqs_valid
+PASS adversarial.SLH-DSA-SHA2-128s.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-128s.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHA2-128s.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-128s.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-128s.slhdsa_valid
+PASS adversarial.SLH-DSA-SHA2-128s.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-192f.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHA2-192f.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-192f.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-192f.liboqs_valid
+PASS adversarial.SLH-DSA-SHA2-192f.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-192f.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHA2-192f.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-192f.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-192f.slhdsa_valid
+PASS adversarial.SLH-DSA-SHA2-192f.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-192s.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHA2-192s.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-192s.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-192s.liboqs_valid
+PASS adversarial.SLH-DSA-SHA2-192s.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-192s.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHA2-192s.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-192s.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-192s.slhdsa_valid
+PASS adversarial.SLH-DSA-SHA2-192s.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-256f.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHA2-256f.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-256f.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-256f.liboqs_valid
+PASS adversarial.SLH-DSA-SHA2-256f.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-256f.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHA2-256f.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-256f.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-256f.slhdsa_valid
+PASS adversarial.SLH-DSA-SHA2-256f.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-256s.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHA2-256s.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-256s.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-256s.liboqs_valid
+PASS adversarial.SLH-DSA-SHA2-256s.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHA2-256s.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHA2-256s.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHA2-256s.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHA2-256s.slhdsa_valid
+PASS adversarial.SLH-DSA-SHA2-256s.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-128f.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHAKE-128f.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-128f.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-128f.liboqs_valid
+PASS adversarial.SLH-DSA-SHAKE-128f.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-128f.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHAKE-128f.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-128f.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-128f.slhdsa_valid
+PASS adversarial.SLH-DSA-SHAKE-128f.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-128s.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHAKE-128s.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-128s.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-128s.liboqs_valid
+PASS adversarial.SLH-DSA-SHAKE-128s.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-128s.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHAKE-128s.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-128s.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-128s.slhdsa_valid
+PASS adversarial.SLH-DSA-SHAKE-128s.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-192f.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHAKE-192f.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-192f.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-192f.liboqs_valid
+PASS adversarial.SLH-DSA-SHAKE-192f.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-192f.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHAKE-192f.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-192f.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-192f.slhdsa_valid
+PASS adversarial.SLH-DSA-SHAKE-192f.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-192s.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHAKE-192s.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-192s.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-192s.liboqs_valid
+PASS adversarial.SLH-DSA-SHAKE-192s.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-192s.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHAKE-192s.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-192s.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-192s.slhdsa_valid
+PASS adversarial.SLH-DSA-SHAKE-192s.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-256f.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHAKE-256f.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-256f.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-256f.liboqs_valid
+PASS adversarial.SLH-DSA-SHAKE-256f.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-256f.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHAKE-256f.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-256f.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-256f.slhdsa_valid
+PASS adversarial.SLH-DSA-SHAKE-256f.slhdsa_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-256s.liboqs_cross_param
+PASS adversarial.SLH-DSA-SHAKE-256s.liboqs_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-256s.liboqs_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-256s.liboqs_valid
+PASS adversarial.SLH-DSA-SHAKE-256s.liboqs_wrong_msg
+PASS adversarial.SLH-DSA-SHAKE-256s.slhdsa_cross_param
+PASS adversarial.SLH-DSA-SHAKE-256s.slhdsa_flipped_sig
+PASS adversarial.SLH-DSA-SHAKE-256s.slhdsa_truncated_sig
+PASS adversarial.SLH-DSA-SHAKE-256s.slhdsa_valid
+PASS adversarial.SLH-DSA-SHAKE-256s.slhdsa_wrong_msg
+PASS adversarial.XMSS-SHA2_10_256.liboqs_cross_param
+PASS adversarial.XMSS-SHA2_10_256.liboqs_flipped_sig
+PASS adversarial.XMSS-SHA2_10_256.liboqs_truncated_sig
+PASS adversarial.XMSS-SHA2_10_256.liboqs_valid
+PASS adversarial.XMSS-SHA2_10_256.liboqs_wrong_msg
+PASS adversarial.XMSS-SHA2_10_256.xmss-reference_flipped_sig
+PASS adversarial.XMSS-SHA2_10_256.xmss-reference_truncated_sig
+PASS adversarial.XMSS-SHA2_10_256.xmss-reference_valid
+PASS adversarial.XMSS-SHA2_10_256.xmss-reference_wrong_msg
+PASS adversarial.XMSS-SHA2_16_256.liboqs_cross_param
+PASS adversarial.XMSS-SHA2_16_256.liboqs_flipped_sig
+PASS adversarial.XMSS-SHA2_16_256.liboqs_truncated_sig
+PASS adversarial.XMSS-SHA2_16_256.liboqs_valid
+PASS adversarial.XMSS-SHA2_16_256.liboqs_wrong_msg
+PASS adversarial.XMSS-SHA2_16_256.xmss-reference_flipped_sig
+PASS adversarial.XMSS-SHA2_16_256.xmss-reference_truncated_sig
+PASS adversarial.XMSS-SHA2_16_256.xmss-reference_valid
+PASS adversarial.XMSS-SHA2_16_256.xmss-reference_wrong_msg
+PASS adversarial.XMSS-SHAKE_10_256.liboqs_cross_param
+PASS adversarial.XMSS-SHAKE_10_256.liboqs_flipped_sig
+PASS adversarial.XMSS-SHAKE_10_256.liboqs_truncated_sig
+PASS adversarial.XMSS-SHAKE_10_256.liboqs_valid
+PASS adversarial.XMSS-SHAKE_10_256.liboqs_wrong_msg
+PASS adversarial.XMSS-SHAKE_10_256.xmss-reference_flipped_sig
+PASS adversarial.XMSS-SHAKE_10_256.xmss-reference_truncated_sig
+PASS adversarial.XMSS-SHAKE_10_256.xmss-reference_valid
+PASS adversarial.XMSS-SHAKE_10_256.xmss-reference_wrong_msg
+PASS adversarial.XMSS-SHAKE_16_256.liboqs_cross_param
+PASS adversarial.XMSS-SHAKE_16_256.liboqs_flipped_sig
+PASS adversarial.XMSS-SHAKE_16_256.liboqs_truncated_sig
+PASS adversarial.XMSS-SHAKE_16_256.liboqs_valid
+PASS adversarial.XMSS-SHAKE_16_256.liboqs_wrong_msg
+PASS adversarial.XMSS-SHAKE_16_256.xmss-reference_flipped_sig
+PASS adversarial.XMSS-SHAKE_16_256.xmss-reference_truncated_sig
+PASS adversarial.XMSS-SHAKE_16_256.xmss-reference_valid
+PASS adversarial.XMSS-SHAKE_16_256.xmss-reference_wrong_msg
+PASS cross.LMS_SHA256_H10_W1.sig_hash-sigs_sign_liboqs_verify
+PASS cross.LMS_SHA256_H10_W1.sig_liboqs_sign_hash-sigs_verify
+PASS cross.LMS_SHA256_H10_W4.sig_hash-sigs_sign_liboqs_verify
+PASS cross.LMS_SHA256_H10_W4.sig_liboqs_sign_hash-sigs_verify
+PASS cross.LMS_SHA256_H10_W8.sig_hash-sigs_sign_liboqs_verify
+PASS cross.LMS_SHA256_H10_W8.sig_liboqs_sign_hash-sigs_verify
+PASS cross.LMS_SHA256_H15_W4.sig_hash-sigs_sign_liboqs_verify
+PASS cross.LMS_SHA256_H15_W4.sig_liboqs_sign_hash-sigs_verify
+PASS cross.LMS_SHA256_H5_W1.sig_hash-sigs_sign_liboqs_verify
+PASS cross.LMS_SHA256_H5_W1.sig_liboqs_sign_hash-sigs_verify
+PASS cross.LMS_SHA256_H5_W4.sig_hash-sigs_sign_liboqs_verify
+PASS cross.LMS_SHA256_H5_W4.sig_liboqs_sign_hash-sigs_verify
+PASS cross.SLH-DSA-SHA2-128f.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHA2-128f.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHA2-128s.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHA2-128s.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHA2-192f.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHA2-192f.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHA2-192s.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHA2-192s.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHA2-256f.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHA2-256f.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHA2-256s.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHA2-256s.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHAKE-128f.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHAKE-128f.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHAKE-128s.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHAKE-128s.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHAKE-192f.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHAKE-192f.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHAKE-192s.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHAKE-192s.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHAKE-256f.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHAKE-256f.sig_slhdsa_sign_liboqs_verify
+PASS cross.SLH-DSA-SHAKE-256s.sig_liboqs_sign_slhdsa_verify
+PASS cross.SLH-DSA-SHAKE-256s.sig_slhdsa_sign_liboqs_verify
+PASS cross.XMSS-SHA2_10_256.sig_liboqs_sign_xmss-reference_verify
+PASS cross.XMSS-SHA2_10_256.sig_xmss-reference_sign_liboqs_verify
+PASS cross.XMSS-SHA2_16_256.sig_liboqs_sign_xmss-reference_verify
+PASS cross.XMSS-SHA2_16_256.sig_xmss-reference_sign_liboqs_verify
+PASS cross.XMSS-SHAKE_10_256.sig_liboqs_sign_xmss-reference_verify
+PASS cross.XMSS-SHAKE_10_256.sig_xmss-reference_sign_liboqs_verify
+PASS cross.XMSS-SHAKE_16_256.sig_liboqs_sign_xmss-reference_verify
+PASS cross.XMSS-SHAKE_16_256.sig_xmss-reference_sign_liboqs_verify
+PASS determinism.LMS_SHA256_H10_W1.hash-sigs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H10_W1.liboqs_same_state_leaf_index
+PASS determinism.LMS_SHA256_H10_W1.liboqs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H10_W4.hash-sigs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H10_W4.liboqs_same_state_leaf_index
+PASS determinism.LMS_SHA256_H10_W4.liboqs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H10_W8.hash-sigs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H10_W8.liboqs_same_state_leaf_index
+PASS determinism.LMS_SHA256_H10_W8.liboqs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H15_W4.hash-sigs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H15_W4.liboqs_same_state_leaf_index
+PASS determinism.LMS_SHA256_H15_W4.liboqs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H5_W1.hash-sigs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H5_W1.liboqs_same_state_leaf_index
+PASS determinism.LMS_SHA256_H5_W1.liboqs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H5_W4.hash-sigs_same_state_same_msg_identical
+PASS determinism.LMS_SHA256_H5_W4.liboqs_same_state_leaf_index
+PASS determinism.LMS_SHA256_H5_W4.liboqs_same_state_same_msg_identical
+PASS determinism.SLH-DSA-SHA2-128f.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-128f.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-128f.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-128s.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-128s.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-128s.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-192f.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-192f.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-192f.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-192s.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-192s.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-192s.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-256f.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-256f.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-256f.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-256s.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-256s.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHA2-256s.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-128f.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-128f.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-128f.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-128s.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-128s.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-128s.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-192f.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-192f.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-192f.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-192s.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-192s.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-192s.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-256f.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-256f.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-256f.slhdsa_randomized_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-256s.liboqs_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-256s.slhdsa_deterministic_sign_twice_identical
+PASS determinism.SLH-DSA-SHAKE-256s.slhdsa_randomized_sign_twice_identical
+PASS determinism.XMSS-SHA2_10_256.liboqs_same_state_leaf_index
+PASS determinism.XMSS-SHA2_10_256.liboqs_same_state_same_msg_identical
+PASS determinism.XMSS-SHA2_10_256.xmss-reference_same_state_same_msg_identical
+PASS determinism.XMSS-SHA2_16_256.liboqs_same_state_leaf_index
+PASS determinism.XMSS-SHA2_16_256.liboqs_same_state_same_msg_identical
+PASS determinism.XMSS-SHA2_16_256.xmss-reference_same_state_same_msg_identical
+PASS determinism.XMSS-SHAKE_10_256.liboqs_same_state_leaf_index
+PASS determinism.XMSS-SHAKE_10_256.liboqs_same_state_same_msg_identical
+PASS determinism.XMSS-SHAKE_10_256.xmss-reference_same_state_same_msg_identical
+PASS determinism.XMSS-SHAKE_16_256.liboqs_same_state_leaf_index
+PASS determinism.XMSS-SHAKE_16_256.liboqs_same_state_same_msg_identical
+PASS determinism.XMSS-SHAKE_16_256.xmss-reference_same_state_same_msg_identical
+PASS artifact.LMS_SHA256_H10_W1.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H10_W1.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H10_W1.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H10_W1.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H10_W1.signature_bytes
+PASS artifact.LMS_SHA256_H10_W1.vs_ed25519_64B
+PASS artifact.LMS_SHA256_H10_W4.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H10_W4.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H10_W4.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H10_W4.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H10_W4.signature_bytes
+PASS artifact.LMS_SHA256_H10_W4.vs_ed25519_64B
+PASS artifact.LMS_SHA256_H10_W8.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H10_W8.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H10_W8.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H10_W8.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H10_W8.signature_bytes
+PASS artifact.LMS_SHA256_H10_W8.vs_ed25519_64B
+PASS artifact.LMS_SHA256_H15_W4.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H15_W4.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H15_W4.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H15_W4.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H15_W4.signature_bytes
+PASS artifact.LMS_SHA256_H15_W4.vs_ed25519_64B
+PASS artifact.LMS_SHA256_H20_W4.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H20_W4.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H20_W4.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H20_W4.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H20_W4.signature_bytes
+PASS artifact.LMS_SHA256_H20_W4.vs_ed25519_64B
+PASS artifact.LMS_SHA256_H5_W1.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H5_W1.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H5_W1.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H5_W1.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H5_W1.signature_bytes
+PASS artifact.LMS_SHA256_H5_W1.vs_ed25519_64B
+PASS artifact.LMS_SHA256_H5_W4.overhead_pct_binary_50MiB
+PASS artifact.LMS_SHA256_H5_W4.overhead_pct_manifest_1KiB
+PASS artifact.LMS_SHA256_H5_W4.overhead_pct_tarball_5MiB
+PASS artifact.LMS_SHA256_H5_W4.overhead_pct_wheel_100KiB
+PASS artifact.LMS_SHA256_H5_W4.signature_bytes
+PASS artifact.LMS_SHA256_H5_W4.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHA2-128f.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHA2-128f.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHA2-128f.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHA2-128f.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHA2-128f.signature_bytes
+PASS artifact.SLH-DSA-SHA2-128f.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHA2-128s.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHA2-128s.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHA2-128s.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHA2-128s.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHA2-128s.signature_bytes
+PASS artifact.SLH-DSA-SHA2-128s.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHA2-192f.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHA2-192f.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHA2-192f.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHA2-192f.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHA2-192f.signature_bytes
+PASS artifact.SLH-DSA-SHA2-192f.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHA2-192s.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHA2-192s.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHA2-192s.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHA2-192s.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHA2-192s.signature_bytes
+PASS artifact.SLH-DSA-SHA2-192s.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHA2-256f.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHA2-256f.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHA2-256f.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHA2-256f.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHA2-256f.signature_bytes
+PASS artifact.SLH-DSA-SHA2-256f.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHA2-256s.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHA2-256s.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHA2-256s.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHA2-256s.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHA2-256s.signature_bytes
+PASS artifact.SLH-DSA-SHA2-256s.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHAKE-128f.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHAKE-128f.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHAKE-128f.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHAKE-128f.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHAKE-128f.signature_bytes
+PASS artifact.SLH-DSA-SHAKE-128f.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHAKE-128s.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHAKE-128s.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHAKE-128s.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHAKE-128s.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHAKE-128s.signature_bytes
+PASS artifact.SLH-DSA-SHAKE-128s.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHAKE-192f.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHAKE-192f.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHAKE-192f.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHAKE-192f.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHAKE-192f.signature_bytes
+PASS artifact.SLH-DSA-SHAKE-192f.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHAKE-192s.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHAKE-192s.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHAKE-192s.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHAKE-192s.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHAKE-192s.signature_bytes
+PASS artifact.SLH-DSA-SHAKE-192s.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHAKE-256f.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHAKE-256f.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHAKE-256f.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHAKE-256f.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHAKE-256f.signature_bytes
+PASS artifact.SLH-DSA-SHAKE-256f.vs_ed25519_64B
+PASS artifact.SLH-DSA-SHAKE-256s.overhead_pct_binary_50MiB
+PASS artifact.SLH-DSA-SHAKE-256s.overhead_pct_manifest_1KiB
+PASS artifact.SLH-DSA-SHAKE-256s.overhead_pct_tarball_5MiB
+PASS artifact.SLH-DSA-SHAKE-256s.overhead_pct_wheel_100KiB
+PASS artifact.SLH-DSA-SHAKE-256s.signature_bytes
+PASS artifact.SLH-DSA-SHAKE-256s.vs_ed25519_64B
+PASS artifact.XMSS-SHA2_10_256.overhead_pct_binary_50MiB
+PASS artifact.XMSS-SHA2_10_256.overhead_pct_manifest_1KiB
+PASS artifact.XMSS-SHA2_10_256.overhead_pct_tarball_5MiB
+PASS artifact.XMSS-SHA2_10_256.overhead_pct_wheel_100KiB
+PASS artifact.XMSS-SHA2_10_256.signature_bytes
+PASS artifact.XMSS-SHA2_10_256.vs_ed25519_64B
+PASS artifact.XMSS-SHA2_16_256.overhead_pct_binary_50MiB
+PASS artifact.XMSS-SHA2_16_256.overhead_pct_manifest_1KiB
+PASS artifact.XMSS-SHA2_16_256.overhead_pct_tarball_5MiB
+PASS artifact.XMSS-SHA2_16_256.overhead_pct_wheel_100KiB
+PASS artifact.XMSS-SHA2_16_256.signature_bytes
+PASS artifact.XMSS-SHA2_16_256.vs_ed25519_64B
+PASS artifact.XMSS-SHA2_20_256.overhead_pct_binary_50MiB
+PASS artifact.XMSS-SHA2_20_256.overhead_pct_manifest_1KiB
+PASS artifact.XMSS-SHA2_20_256.overhead_pct_tarball_5MiB
+PASS artifact.XMSS-SHA2_20_256.overhead_pct_wheel_100KiB
+PASS artifact.XMSS-SHA2_20_256.signature_bytes
+PASS artifact.XMSS-SHA2_20_256.vs_ed25519_64B
+PASS artifact.XMSS-SHAKE_10_256.overhead_pct_binary_50MiB
+PASS artifact.XMSS-SHAKE_10_256.overhead_pct_manifest_1KiB
+PASS artifact.XMSS-SHAKE_10_256.overhead_pct_tarball_5MiB
+PASS artifact.XMSS-SHAKE_10_256.overhead_pct_wheel_100KiB
+PASS artifact.XMSS-SHAKE_10_256.signature_bytes
+PASS artifact.XMSS-SHAKE_10_256.vs_ed25519_64B
+PASS artifact.XMSS-SHAKE_16_256.overhead_pct_binary_50MiB
+PASS artifact.XMSS-SHAKE_16_256.overhead_pct_manifest_1KiB
+PASS artifact.XMSS-SHAKE_16_256.overhead_pct_tarball_5MiB
+PASS artifact.XMSS-SHAKE_16_256.overhead_pct_wheel_100KiB
+PASS artifact.XMSS-SHAKE_16_256.signature_bytes
+PASS artifact.XMSS-SHAKE_16_256.vs_ed25519_64B
+PASS artifact.XMSS-SHAKE_20_256.overhead_pct_binary_50MiB
+PASS artifact.XMSS-SHAKE_20_256.overhead_pct_manifest_1KiB
+PASS artifact.XMSS-SHAKE_20_256.overhead_pct_tarball_5MiB
+PASS artifact.XMSS-SHAKE_20_256.overhead_pct_wheel_100KiB
+PASS artifact.XMSS-SHAKE_20_256.signature_bytes
+PASS artifact.XMSS-SHAKE_20_256.vs_ed25519_64B
+PASS environment.liboqs_stfl_keygen_and_sign_supported
+PASS environment.openssl_lists_lms
+PASS environment.openssl_lists_ml_dsa
+PASS environment.openssl_lists_slh_dsa
+PASS environment.openssl_lists_xmss
+PASS environment.openssl_version
+PASS environment.python
+PASS timing-present LMS_SHA256_H10_W1.hash-sigs.keygen_ms_median run1=87.375219 run2=90.831751 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.hash-sigs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.hash-sigs.n_sign run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.hash-sigs.n_verify run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.hash-sigs.sign_ms_median run1=0.41675 run2=0.401703 (values differ by design)
+DIFF timing LMS_SHA256_H10_W1.hash-sigs.sign_ok: run1=50/50 run2=50/50
+PASS timing-present LMS_SHA256_H10_W1.hash-sigs.verify_ms_median run1=0.029795 run2=0.030976 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.liboqs.keygen_ms_median run1=174.43213 run2=170.022313 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.liboqs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.liboqs.n_sign run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.liboqs.n_verify run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W1.liboqs.sign_ms_median run1=185.548429 run2=187.356196 (values differ by design)
+DIFF timing LMS_SHA256_H10_W1.liboqs.sign_ok: run1=50/50 run2=50/50
+PASS timing-present LMS_SHA256_H10_W1.liboqs.verify_ms_median run1=0.047797 run2=0.057431 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.hash-sigs.keygen_ms_median run1=126.378957 run2=128.423095 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.hash-sigs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.hash-sigs.n_sign run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.hash-sigs.n_verify run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.hash-sigs.sign_ms_median run1=0.544898 run2=0.543175 (values differ by design)
+DIFF timing LMS_SHA256_H10_W4.hash-sigs.sign_ok: run1=50/50 run2=50/50
+PASS timing-present LMS_SHA256_H10_W4.hash-sigs.verify_ms_median run1=0.064006 run2=0.062719 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.liboqs.keygen_ms_median run1=244.024011 run2=278.659316 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.liboqs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.liboqs.n_sign run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.liboqs.n_verify run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W4.liboqs.sign_ms_median run1=271.826771 run2=266.524395 (values differ by design)
+DIFF timing LMS_SHA256_H10_W4.liboqs.sign_ok: run1=50/50 run2=50/50
+PASS timing-present LMS_SHA256_H10_W4.liboqs.verify_ms_median run1=0.114608 run2=0.107662 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.hash-sigs.keygen_ms_median run1=966.384722 run2=938.075725 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.hash-sigs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.hash-sigs.n_sign run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.hash-sigs.n_verify run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.hash-sigs.sign_ms_median run1=4.134467 run2=4.105471 (values differ by design)
+DIFF timing LMS_SHA256_H10_W8.hash-sigs.sign_ok: run1=50/50 run2=50/50
+PASS timing-present LMS_SHA256_H10_W8.hash-sigs.verify_ms_median run1=0.455989 run2=0.532249 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.liboqs.keygen_ms_median run1=1863.642181 run2=1838.832707 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.liboqs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.liboqs.n_sign run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.liboqs.n_verify run1=50 run2=50 (values differ by design)
+PASS timing-present LMS_SHA256_H10_W8.liboqs.sign_ms_median run1=2032.133922 run2=2049.889941 (values differ by design)
+DIFF timing LMS_SHA256_H10_W8.liboqs.sign_ok: run1=50/50 run2=50/50
+PASS timing-present LMS_SHA256_H10_W8.liboqs.verify_ms_median run1=0.791529 run2=0.890537 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.hash-sigs.keygen_ms_median run1=3977.817535 run2=3988.466473 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.hash-sigs.n_keygen run1=1 run2=1 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.hash-sigs.n_sign run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.hash-sigs.n_verify run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.hash-sigs.sign_ms_median run1=0.906376 run2=0.903756 (values differ by design)
+DIFF timing LMS_SHA256_H15_W4.hash-sigs.sign_ok: run1=10/10 run2=10/10
+PASS timing-present LMS_SHA256_H15_W4.hash-sigs.verify_ms_median run1=0.054647 run2=0.049654 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.liboqs.keygen_ms_median run1=8112.775919 run2=8242.59024 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.liboqs.n_keygen run1=1 run2=1 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.liboqs.n_sign run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.liboqs.n_verify run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H15_W4.liboqs.sign_ms_median run1=9448.294833 run2=9564.402526 (values differ by design)
+DIFF timing LMS_SHA256_H15_W4.liboqs.sign_ok: run1=10/10 run2=10/10
+PASS timing-present LMS_SHA256_H15_W4.liboqs.verify_ms_median run1=0.12642 run2=0.105153 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.hash-sigs.keygen_ms_median run1=3.162919 run2=2.760508 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.hash-sigs.n_keygen run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.hash-sigs.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.hash-sigs.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.hash-sigs.sign_ms_median run1=0.268758 run2=0.227736 (values differ by design)
+DIFF timing LMS_SHA256_H5_W1.hash-sigs.sign_ok: run1=20/20 run2=20/20
+PASS timing-present LMS_SHA256_H5_W1.hash-sigs.verify_ms_median run1=0.028468 run2=0.029744 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.liboqs.keygen_ms_median run1=5.650027 run2=5.465968 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.liboqs.n_keygen run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.liboqs.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.liboqs.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W1.liboqs.sign_ms_median run1=7.243285 run2=6.907586 (values differ by design)
+DIFF timing LMS_SHA256_H5_W1.liboqs.sign_ok: run1=20/20 run2=20/20
+PASS timing-present LMS_SHA256_H5_W1.liboqs.verify_ms_median run1=0.043781 run2=0.049439 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.hash-sigs.keygen_ms_median run1=3.870736 run2=3.946047 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.hash-sigs.n_keygen run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.hash-sigs.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.hash-sigs.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.hash-sigs.sign_ms_median run1=0.304692 run2=0.310281 (values differ by design)
+DIFF timing LMS_SHA256_H5_W4.hash-sigs.sign_ok: run1=20/20 run2=20/20
+PASS timing-present LMS_SHA256_H5_W4.hash-sigs.verify_ms_median run1=0.053861 run2=0.057156 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.liboqs.keygen_ms_median run1=7.83655 run2=8.00028 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.liboqs.n_keygen run1=10 run2=10 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.liboqs.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.liboqs.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present LMS_SHA256_H5_W4.liboqs.sign_ms_median run1=10.486975 run2=10.463538 (values differ by design)
+DIFF timing LMS_SHA256_H5_W4.liboqs.sign_ok: run1=20/20 run2=20/20
+PASS timing-present LMS_SHA256_H5_W4.liboqs.verify_ms_median run1=0.114532 run2=0.106249 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128f.liboqs.keygen_ms_median run1=1.47536 run2=1.468064 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128f.liboqs.sign_ms_median run1=34.668895 run2=34.711536 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128f.liboqs.verify_ms_median run1=2.149963 run2=2.121609 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128f.slh-dsa.keygen run1=20.072626 run2=19.561146 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128f.slh-dsa.sign run1=264.058268 run2=260.63764 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128f.slh-dsa.verify run1=16.39892 run2=14.994943 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128s.liboqs.keygen_ms_median run1=94.706406 run2=94.456861 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128s.liboqs.sign_ms_median run1=713.9069 run2=725.97834 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128s.liboqs.verify_ms_median run1=0.74598 run2=0.677842 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128s.slh-dsa.keygen run1=1270.446439 run2=1266.543569 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128s.slh-dsa.sign run1=4927.956666 run2=4925.233454 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-128s.slh-dsa.verify run1=5.722982 run2=5.655418 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192f.liboqs.keygen_ms_median run1=2.235942 run2=2.125355 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192f.liboqs.sign_ms_median run1=56.548157 run2=56.515288 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192f.liboqs.verify_ms_median run1=3.087205 run2=3.063767 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192f.slh-dsa.keygen run1=29.396865 run2=28.806741 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192f.slh-dsa.sign run1=403.76911 run2=399.028625 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192f.slh-dsa.verify run1=22.338517 run2=21.910912 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192s.liboqs.keygen_ms_median run1=138.255026 run2=137.482105 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192s.liboqs.sign_ms_median run1=1275.144407 run2=1267.667761 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192s.liboqs.verify_ms_median run1=1.083176 run2=1.03918 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192s.slh-dsa.keygen run1=1890.347024 run2=1847.985211 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192s.slh-dsa.sign run1=9039.404513 run2=8921.175836 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-192s.slh-dsa.verify run1=7.87976 run2=7.445283 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256f.liboqs.keygen_ms_median run1=5.60145 run2=5.624165 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256f.liboqs.sign_ms_median run1=120.986196 run2=115.635565 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256f.liboqs.verify_ms_median run1=3.04056 run2=2.998795 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256f.slh-dsa.keygen run1=75.671077 run2=77.567616 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256f.slh-dsa.sign run1=819.216925 run2=813.987646 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256f.slh-dsa.verify run1=23.842766 run2=23.91506 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256s.liboqs.keygen_ms_median run1=90.958864 run2=89.462742 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256s.liboqs.sign_ms_median run1=1127.284555 run2=1122.663191 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256s.liboqs.verify_ms_median run1=1.577598 run2=1.568909 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256s.slh-dsa.keygen run1=1262.079166 run2=1200.127578 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256s.slh-dsa.sign run1=8136.605455 run2=8290.051936 (values differ by design)
+PASS timing-present SLH-DSA-SHA2-256s.slh-dsa.verify run1=11.62963 run2=11.851085 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128f.liboqs.keygen_ms_median run1=2.262762 run2=2.264879 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128f.liboqs.sign_ms_median run1=53.229651 run2=53.376368 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128f.liboqs.verify_ms_median run1=3.149829 run2=3.194469 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128f.slh-dsa.keygen run1=20.469692 run2=21.063139 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128f.slh-dsa.sign run1=244.894237 run2=251.129662 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128f.slh-dsa.verify run1=15.477447 run2=15.536666 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128s.liboqs.keygen_ms_median run1=149.431816 run2=147.418717 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128s.liboqs.sign_ms_median run1=1129.411087 run2=1131.552928 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128s.liboqs.verify_ms_median run1=1.083537 run2=1.092279 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128s.slh-dsa.keygen run1=1325.300202 run2=1301.5408 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128s.slh-dsa.sign run1=5154.912622 run2=5290.928355 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-128s.slh-dsa.verify run1=5.191474 run2=5.526854 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192f.liboqs.keygen_ms_median run1=3.311401 run2=3.769567 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192f.liboqs.sign_ms_median run1=88.673233 run2=87.364673 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192f.liboqs.verify_ms_median run1=4.708179 run2=4.694245 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192f.slh-dsa.keygen run1=29.594631 run2=30.926522 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192f.slh-dsa.sign run1=400.275605 run2=414.689847 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192f.slh-dsa.verify run1=21.901301 run2=22.179695 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192s.liboqs.keygen_ms_median run1=215.832706 run2=215.026492 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192s.liboqs.sign_ms_median run1=1993.135648 run2=1983.908858 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192s.liboqs.verify_ms_median run1=1.594935 run2=1.650182 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192s.slh-dsa.keygen run1=1912.292051 run2=1912.374722 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192s.slh-dsa.sign run1=9204.856031 run2=9244.067612 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-192s.slh-dsa.verify run1=8.060181 run2=8.594939 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256f.liboqs.keygen_ms_median run1=8.882506 run2=8.879009 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256f.liboqs.sign_ms_median run1=181.886612 run2=187.409452 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256f.liboqs.verify_ms_median run1=4.727147 run2=4.823288 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256f.slh-dsa.keygen run1=80.057543 run2=78.972996 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256f.slh-dsa.sign run1=831.195428 run2=835.83353 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256f.slh-dsa.verify run1=22.083664 run2=22.313857 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256s.liboqs.keygen_ms_median run1=142.075563 run2=140.498246 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256s.liboqs.sign_ms_median run1=1779.031797 run2=1776.804731 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256s.liboqs.verify_ms_median run1=2.370168 run2=2.36201 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256s.slh-dsa.keygen run1=1254.874661 run2=1250.266332 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256s.slh-dsa.sign run1=8383.524402 run2=8186.219895 (values differ by design)
+PASS timing-present SLH-DSA-SHAKE-256s.slh-dsa.verify run1=11.402068 run2=11.304876 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.liboqs.keygen_ms_median run1=1162.746145 run2=1141.071582 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.liboqs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.liboqs.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.liboqs.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.liboqs.sign_ms_median run1=2.005606 run2=1.648844 (values differ by design)
+DIFF timing XMSS-SHA2_10_256.liboqs.sign_ok: run1=20/20 run2=20/20
+PASS timing-present XMSS-SHA2_10_256.liboqs.verify_ms_median run1=0.647036 run2=0.548523 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.xmss-reference.keygen_ms_median run1=2525.170713 run2=2445.669139 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.xmss-reference.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.xmss-reference.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.xmss-reference.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHA2_10_256.xmss-reference.sign_ms_median run1=2504.892503 run2=2447.331279 (values differ by design)
+DIFF timing XMSS-SHA2_10_256.xmss-reference.sign_ok: run1=20/20 run2=20/20
+PASS timing-present XMSS-SHA2_10_256.xmss-reference.verify_ms_median run1=1.214944 run2=1.234442 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.liboqs.keygen_ms_median run1=73719.46486 run2=74180.245957 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.liboqs.n_keygen run1=1 run2=1 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.liboqs.n_sign run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.liboqs.n_verify run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.liboqs.sign_ms_median run1=1.841119 run2=1.63642 (values differ by design)
+DIFF timing XMSS-SHA2_16_256.liboqs.sign_ok: run1=2/2 run2=2/2
+PASS timing-present XMSS-SHA2_16_256.liboqs.verify_ms_median run1=0.601994 run2=0.670736 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.xmss-reference.keygen_ms_median run1=159061.193204 run2=158670.356674 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.xmss-reference.n_keygen run1=1 run2=1 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.xmss-reference.n_sign run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.xmss-reference.n_verify run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHA2_16_256.xmss-reference.sign_ms_median run1=159048.685941 run2=157578.779989 (values differ by design)
+DIFF timing XMSS-SHA2_16_256.xmss-reference.sign_ok: run1=2/2 run2=2/2
+PASS timing-present XMSS-SHA2_16_256.xmss-reference.verify_ms_median run1=1.353558 run2=1.116761 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.liboqs.keygen_ms_median run1=2674.490952 run2=2654.390878 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.liboqs.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.liboqs.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.liboqs.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.liboqs.sign_ms_median run1=3.938232 run2=3.930719 (values differ by design)
+DIFF timing XMSS-SHAKE_10_256.liboqs.sign_ok: run1=20/20 run2=20/20
+PASS timing-present XMSS-SHAKE_10_256.liboqs.verify_ms_median run1=1.454008 run2=1.497302 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.xmss-reference.keygen_ms_median run1=3112.169452 run2=3101.299637 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.xmss-reference.n_keygen run1=5 run2=5 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.xmss-reference.n_sign run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.xmss-reference.n_verify run1=20 run2=20 (values differ by design)
+PASS timing-present XMSS-SHAKE_10_256.xmss-reference.sign_ms_median run1=3100.806031 run2=3079.563794 (values differ by design)
+DIFF timing XMSS-SHAKE_10_256.xmss-reference.sign_ok: run1=20/20 run2=20/20
+PASS timing-present XMSS-SHAKE_10_256.xmss-reference.verify_ms_median run1=1.8114 run2=1.527678 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.liboqs.keygen_ms_median run1=171054.239067 run2=171152.195788 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.liboqs.n_keygen run1=1 run2=1 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.liboqs.n_sign run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.liboqs.n_verify run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.liboqs.sign_ms_median run1=3.791297 run2=3.900393 (values differ by design)
+DIFF timing XMSS-SHAKE_16_256.liboqs.sign_ok: run1=2/2 run2=2/2
+PASS timing-present XMSS-SHAKE_16_256.liboqs.verify_ms_median run1=1.44883 run2=1.405499 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.xmss-reference.keygen_ms_median run1=198600.518805 run2=198941.757203 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.xmss-reference.n_keygen run1=1 run2=1 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.xmss-reference.n_sign run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.xmss-reference.n_verify run1=2 run2=2 (values differ by design)
+PASS timing-present XMSS-SHAKE_16_256.xmss-reference.sign_ms_median run1=199282.8001 run2=198141.718176 (values differ by design)
+DIFF timing XMSS-SHAKE_16_256.xmss-reference.sign_ok: run1=2/2 run2=2/2
+PASS timing-present XMSS-SHAKE_16_256.xmss-reference.verify_ms_median run1=1.606778 run2=1.625149 (values differ by design)
+PASS memory-present LMS_SHA256_H10_W1.hash-sigs run1=3280KB run2=3412KB (values differ by design)
+PASS memory-present LMS_SHA256_H10_W1.liboqs run1=5788KB run2=6068KB (values differ by design)
+PASS memory-present LMS_SHA256_H10_W4.hash-sigs run1=3304KB run2=3360KB (values differ by design)
+PASS memory-present LMS_SHA256_H10_W4.liboqs run1=5952KB run2=6024KB (values differ by design)
+PASS memory-present LMS_SHA256_H10_W8.hash-sigs run1=3320KB run2=3284KB (values differ by design)
+PASS memory-present LMS_SHA256_H10_W8.liboqs run1=6000KB run2=6044KB (values differ by design)
+PASS memory-present LMS_SHA256_H15_W4.hash-sigs run1=3300KB run2=3324KB (values differ by design)
+PASS memory-present LMS_SHA256_H15_W4.liboqs run1=5888KB run2=5968KB (values differ by design)
+PASS memory-present LMS_SHA256_H5_W1.hash-sigs run1=3228KB run2=3320KB (values differ by design)
+PASS memory-present LMS_SHA256_H5_W1.liboqs run1=6036KB run2=5996KB (values differ by design)
+PASS memory-present LMS_SHA256_H5_W4.hash-sigs run1=3360KB run2=3360KB (values differ by design)
+PASS memory-present LMS_SHA256_H5_W4.liboqs run1=5964KB run2=6060KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-128f.liboqs run1=6100KB run2=5920KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-128f.slh-dsa run1=21896KB run2=21844KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-128s.liboqs run1=5932KB run2=5876KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-128s.slh-dsa run1=21956KB run2=21712KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-192f.liboqs run1=5904KB run2=5868KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-192f.slh-dsa run1=21912KB run2=21932KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-192s.liboqs run1=5916KB run2=5856KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-192s.slh-dsa run1=21936KB run2=21904KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-256f.liboqs run1=5944KB run2=5944KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-256f.slh-dsa run1=21936KB run2=22004KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-256s.liboqs run1=6060KB run2=5900KB (values differ by design)
+PASS memory-present SLH-DSA-SHA2-256s.slh-dsa run1=22048KB run2=22144KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-128f.liboqs run1=5948KB run2=5880KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-128f.slh-dsa run1=21940KB run2=21836KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-128s.liboqs run1=5856KB run2=5820KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-128s.slh-dsa run1=22024KB run2=21800KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-192f.liboqs run1=5844KB run2=5812KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-192f.slh-dsa run1=21972KB run2=22036KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-192s.liboqs run1=5920KB run2=5796KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-192s.slh-dsa run1=21832KB run2=21780KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-256f.liboqs run1=6064KB run2=5916KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-256f.slh-dsa run1=21940KB run2=21752KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-256s.liboqs run1=5896KB run2=5996KB (values differ by design)
+PASS memory-present SLH-DSA-SHAKE-256s.slh-dsa run1=21956KB run2=21732KB (values differ by design)
+PASS memory-present XMSS-SHA2_10_256.liboqs run1=5924KB run2=5956KB (values differ by design)
+PASS memory-present XMSS-SHA2_10_256.xmss-reference run1=5428KB run2=5352KB (values differ by design)
+PASS memory-present XMSS-SHA2_16_256.liboqs run1=5940KB run2=5980KB (values differ by design)
+PASS memory-present XMSS-SHA2_16_256.xmss-reference run1=5368KB run2=5268KB (values differ by design)
+PASS memory-present XMSS-SHAKE_10_256.liboqs run1=5872KB run2=5836KB (values differ by design)
+PASS memory-present XMSS-SHAKE_10_256.xmss-reference run1=3236KB run2=3116KB (values differ by design)
+PASS memory-present XMSS-SHAKE_16_256.liboqs run1=6032KB run2=5840KB (values differ by design)
+PASS memory-present XMSS-SHAKE_16_256.xmss-reference run1=3236KB run2=3184KB (values differ by design)
+PASS remediation-before.run1.contains-'REPRODUCED'
+PASS remediation-before.run2-clean.contains-'REPRODUCED'
+PASS remediation-after.run1.contains-'0 failed'
+PASS remediation-after.run2-clean.contains-'0 failed'
+--- comparison: 890 checks, 20 differences ---
+DIFF
