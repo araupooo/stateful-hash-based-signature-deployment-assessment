@@ -80,7 +80,12 @@ def main():
     for alg, impls in r1["throughput"].items():
         for impl, t in impls.items():
             for k, v in t.items():
-                if k in ("n", "roundtrip_ok", "verify_ok"):
+                if k in ("n", "roundtrip_ok", "verify_ok", "sign_ok"):
+                    # Outcome counts ("50/50" strings), not timing medians:
+                    # compared as strings they are equal by construction
+                    # when both runs signed every attempt, and they are
+                    # not numeric timings, so they do not belong in the
+                    # present-and-positive timing check.
                     continue
                 v2 = r2["throughput"][alg][impl][k]
                 ok = isinstance(v, (int, float)) and v > 0 and isinstance(v2, (int, float)) and v2 > 0
